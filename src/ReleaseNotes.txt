@@ -1,0 +1,5 @@
+v3-php-sdk-2.0.5
+
+Bug Fixes:
+
+1. IPP-7409, IPPA-311 PHP SDK fails while deserializing Payments response

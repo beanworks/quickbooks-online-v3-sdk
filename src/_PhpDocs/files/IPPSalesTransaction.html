@@ -1,0 +1,434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>IPP PHP SDK for QuickBooks V3</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../css/template.css" type="text/css"></link><script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="../js/jquery.tools.min.js"></script><script type="text/javascript" src="../js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="../js/template.js"></script></head><body><div id="content"><h1 class="file">IPPSalesTransaction.php<a href="../source/IPPSalesTransaction.php.html"><img src="../images/icons/view_source.png" alt="View Source" border="0"></img></a></h1><div id="file-nav-box"><div id="file-nav-options">
+              Show:
+              <img src="../images/icons/visibility_public.png" alt="Public" id="show-public"></img><img src="../images/icons/visibility_protected.png" alt="Protected" id="show-protected"></img><img src="../images/icons/visibility_private.png" alt="Private" id="show-private"></img><span class="attribute" id="show-inherited">inherited</span></div><div id="file-nav-container"><ul id="file-nav"><li><a href="#classes"><img src="../images/icons/class.png" alt="Class" height="14"></img>
+                          Classes
+                      </a><ul><li><a href="#\IPPSalesTransaction">\IPPSalesTransaction</a></li></ul></li></ul><div style="clear: left;"></div></div><div id="file-nav-tab">
+              Table of Contents
+          </div></div><a name="top" class="anchor"></a><div id="file-description"><div class="long-description"></div></div><a name="classes" class="anchor"></a><a id="\IPPSalesTransaction" class="anchor"></a><h2 class="class">\IPPSalesTransaction<div class="to-top"><a href="#top">jump to top</a></div></h2><div class="class"><small class="package"><b>Package: </b>Default</small><div class="long-description"></div><dl class="class-info"><dt>Parent(s)</dt><dd><a href="../files/IntuitRestServiceDef.IPPTransaction.html#\IPPTransaction">\IPPTransaction</a>
+            &lt;
+            <a href="../files/IPPIntuitEntity.html#\IPPIntuitEntity" style="color: gray; font-size: 0.8em
+                ">\IPPIntuitEntity</a></dd><dt>Children</dt><dd><a href="../files/IntuitRestServiceDef.IPPCreditMemo.html#\IPPCreditMemo">\IPPCreditMemo</a></dd><dd><a href="../files/IntuitRestServiceDef.IPPEstimate.html#\IPPEstimate">\IPPEstimate</a></dd><dd><a href="../files/IntuitRestServiceDef.IPPInvoice.html#\IPPInvoice">\IPPInvoice</a></dd><dd><a href="../files/IntuitRestServiceDef.IPPRefundReceipt.html#\IPPRefundReceipt">\IPPRefundReceipt</a></dd><dd><a href="../files/IntuitRestServiceDef.IPPSalesOrder.html#\IPPSalesOrder">\IPPSalesOrder</a></dd><dd><a href="../files/IntuitRestServiceDef.IPPSalesReceipt.html#\IPPSalesReceipt">\IPPSalesReceipt</a></dd><dd><a href="../files/IPPCreditMemo.html#\IPPCreditMemo">\IPPCreditMemo</a></dd><dd><a href="../files/IPPEstimate.html#\IPPEstimate">\IPPEstimate</a></dd><dd><a href="../files/IPPInvoice.html#\IPPInvoice">\IPPInvoice</a></dd><dd><a href="../files/IPPRefundReceipt.html#\IPPRefundReceipt">\IPPRefundReceipt</a></dd><dd><a href="../files/IPPSalesOrder.html#\IPPSalesOrder">\IPPSalesOrder</a></dd><dd><a href="../files/IPPSalesReceipt.html#\IPPSalesReceipt">\IPPSalesReceipt</a></dd><dt>IPPSalesTransaction</dt><dd>\IPPSalesTransaction<br></br><em></em></dd><dt>XmlDefinition</dt><dd>Product: ALL
+Description: Base class of all Sales transaction entities.
+         
+    </dd><dt>XmlName</dt><dd>IPPSalesTransaction
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>Transaction
+         
+    </dd></dl><h3>Properties</h3><div><a id="\IPPSalesTransaction::$ARAccountRef" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPReferenceType <span class="highlight">$ARAccountRef</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPReferenceType.html">\com\intuit\schema\finance\v3\IPPReferenceType</a></dd><dt>Definition</dt><dd>Product: QBW
+Description: Reference to the ARAccount (accounts receivable account) associated with the transaction.
+InputType: ReadWrite
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>ARAccountRef
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$ApplyTaxAfterDiscount" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>boolean <span class="highlight">$ApplyTaxAfterDiscount</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>boolean</dd><dt>Definition</dt><dd>Product: QBO
+Description: If false or null, calculate the sales tax first, and then apply the discount. If true, subtract the discount first and then calculate the sales tax.
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>ApplyTaxAfterDiscount
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$AutoDocNumber" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>boolean <span class="highlight">$AutoDocNumber</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>boolean</dd><dt>Definition</dt><dd>Product: QBO
+Description: If AutoDocNumber is true, DocNumber is generated automatically.  If false or null, the DocNumber is generated based on preference of the user.
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>AutoDocNumber
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$Balance" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>float <span class="highlight">$Balance</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>float</dd><dt>Definition</dt><dd>Product: QBO
+Description: The balance reflecting any payments made against the transaction. Initially this will be equal to the TotalAmt.
+Product: QBW
+Description: Indicates the unpaid amount of the transaction.
+Filterable: ALL
+Sortable: QBW
+InputType: ReadOnly
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>Balance
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$BillAddr" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPPhysicalAddress <span class="highlight">$BillAddr</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPPhysicalAddress.html">\com\intuit\schema\finance\v3\IPPPhysicalAddress</a></dd><dt>Definition</dt><dd>Product: ALL
+Description: QBO: Bill-to address of the Invoice.[br]See [a href="http://ipp.developer.intuit.com/0010_Intuit_Partner_Platform/0060_Financial_Management_Services_(v3)/01000_Using_Data_Service_Entities#Addresses"]Addresses[/a]
+Description: QBW: The physical (postal) address where the bill or invoice is sent.[br]See [a href="http://ipp.developer.intuit.com/0010_Intuit_Partner_Platform/0060_Financial_Management_Services_(v3)/01000_Using_Data_Service_Entities#Addresses"]Addresses[/a]
+InputType: ReadWrite
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>BillAddr
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$BillEmail" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPEmailAddress <span class="highlight">$BillEmail</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPEmailAddress.html">\com\intuit\schema\finance\v3\IPPEmailAddress</a></dd><dt>Definition</dt><dd>Product: QBO
+Description: Identifies the e-mail address where the invoice is sent. At present, you can provide only one e-mail address.[br /]If the ToBeEmailed attribute is true and the BillEmail attribute contains an e-mail address, the user can send an e-mail message to the e-mail address that is specified in the BillEmail attribute.[br /]If the BillEmail attribute contains an invalid e-mail address, QBO does not send the e-mail message to the invalid e-mail address. QBO also does not return any error message to indicate that the e-mail address is invalid.[br /]The maximum length for BillEmail is 100 characters.
+Product: QBW
+Description: Identifies the email address where the bill or invoice is sent. [br /]UNSUPPORTED FIELD.
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>BillEmail
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$CheckPayment" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPCheckPayment <span class="highlight">$CheckPayment</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPCheckPayment.html">\com\intuit\schema\finance\v3\IPPCheckPayment</a></dd><dt>Definition</dt><dd>Product: ALL
+Description Information about a check payment for the Invoice.
+NotApplicableTo: Estimate, SalesOrder
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>CheckPayment
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$ClassRef" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPReferenceType <span class="highlight">$ClassRef</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPReferenceType.html">\com\intuit\schema\finance\v3\IPPReferenceType</a></dd><dt>Definition</dt><dd>Product: QBW
+Description: Reference to the Class associated with the transaction.
+InputType: ReadWrite
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>ClassRef
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$CreditCardPayment" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPCreditCardPayment <span class="highlight">$CreditCardPayment</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPCreditCardPayment.html">\com\intuit\schema\finance\v3\IPPCreditCardPayment</a></dd><dt>Definition</dt><dd>Product: ALL
+Description Information about a credit card payment for the Invoice.
+NotApplicableTo: Estimate, SalesOrder
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>CreditCardPayment
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$CustomerMemo" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPMemoRef <span class="highlight">$CustomerMemo</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPMemoRef.html">\com\intuit\schema\finance\v3\IPPMemoRef</a></dd><dt>Definition</dt><dd>Product: ALL
+Description: QBO: For an Invoice, this is the user-entered message to the customer that does appear in the invoice, and does appear in the printed invoice. The maximum length for Invoice Msg is 1000 characters.[br /]For a Bill, this is the memo of the transaction to provide more detail, and does not appear in the printed message of the bill. The maximum length for Bill Msg is 4000 characters.[br /]For a CreditCardCharge, this message appears in the printed record; maximum length is 4000 characters.[br /]Not supported for BillPayment, JournalEntry or Payment.
+Description: QBW: User-entered message to the customer; this message will be visible to end user on their transactions.
+InputType: ReadWrite
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>CustomerMemo
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$CustomerRef" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPReferenceType <span class="highlight">$CustomerRef</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPReferenceType.html">\com\intuit\schema\finance\v3\IPPReferenceType</a></dd><dt>Definition</dt><dd>Product: ALL
+Description: Reference to a Customer or job.
+Filterable: QBW
+InputType: ReadWrite
+BusinessRules: QBW: CustomerRef is mandatory for some SalesTransactions like Invoice
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>CustomerRef
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$DeliveryInfo" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPTransactionDeliveryInfo <span class="highlight">$DeliveryInfo</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPTransactionDeliveryInfo.html">\com\intuit\schema\finance\v3\IPPTransactionDeliveryInfo</a></dd><dt>Definition</dt><dd>Product: QBO
+Description: Last delivery info of this transaction.
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>DeliveryInfo
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$DepositToAccountRef" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPReferenceType <span class="highlight">$DepositToAccountRef</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPReferenceType.html">\com\intuit\schema\finance\v3\IPPReferenceType</a></dd><dt>Definition</dt><dd>Product: ALL
+Description: QBW: Reference to the DepositToAccount entity. If not specified, the Undeposited Funds account will be used.
+Description: QBO: Asset account where the payment money is deposited. If you do not specify this account, QBO uses the Undeposited Funds account. Supported for Payment and SalesReceipt only.
+NotApplicableTo: QBW: Estimate, SalesOrder
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>DepositToAccountRef
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$DueDate" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>string <span class="highlight">$DueDate</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>string</dd><dt>Br</dt><dd>
+         
+    </dd><dt>Ul</dt><dd>If DueDate is not included when creating an invoice, QuickBooks may determine the due date according to the terms set for this customer.
+If the Terms are not provided, the Due Date is set to the transaction date.
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>DueDate
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$EmailStatus" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPEmailStatusEnum <span class="highlight">$EmailStatus</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPEmailStatusEnum.html">\com\intuit\schema\finance\v3\IPPEmailStatusEnum</a></dd><dt>Definition</dt><dd>Product: ALL
+Description: Email status of the invoice.[br /]
+InputType: ReadWrite
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>EmailStatus
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$FOB" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>string <span class="highlight">$FOB</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>string</dd><dt>Definition</dt><dd>Product: ALL
+Description: "Free On Board", the terms between buyer and seller regarding transportation costs; does not have any bookkeeping implications.
+Description: "Free On Board", the terms between buyer and seller regarding transportation costs; does not have any bookkeeping implications.
+ValidRange: QBW: max=13
+ValidRange: QBO: max=15
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>FOB
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$FinanceCharge" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>boolean <span class="highlight">$FinanceCharge</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>boolean</dd><dt>Definition</dt><dd>Product: ALL
+Description: Indicates whether the transaction is a finance charge.
+InputType: ReadWrite
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>FinanceCharge
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$GlobalTaxCalculation" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPGlobalTaxCalculationEnum <span class="highlight">$GlobalTaxCalculation</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPGlobalTaxCalculationEnum.html">\com\intuit\schema\finance\v3\IPPGlobalTaxCalculationEnum</a></dd><dt>Definition</dt><dd>Product: QBO
+Description: Indicates the GlobalTax model if the model inclusive of tax, exclusive of taxes or not applicable
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>GlobalTaxCalculation
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$HomeTotalAmt" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>float <span class="highlight">$HomeTotalAmt</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>float</dd><dt>Definition</dt><dd>Product: ALL
+Description: QBW: Total amount of the transaction in the home currency for multi-currency enabled companies. Single currency companies will not have this field. Includes the total of all the charges, allowances and taxes. Calculated by QuickBooks business logic. Cannot be written to QuickBooks.
+InputType: QBW: ReadOnly
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>HomeTotalAmt
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$PONumber" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>string <span class="highlight">$PONumber</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>string</dd><dt>Definition</dt><dd>Product: ALL
+Description: Purchase Order number.
+ValidRange: QBW: max=25
+ValidRange: QBO: max=15
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>PONumber
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$PaymentMethodRef" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPReferenceType <span class="highlight">$PaymentMethodRef</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPReferenceType.html">\com\intuit\schema\finance\v3\IPPReferenceType</a></dd><dt>Definition</dt><dd>Product: ALL
+Description: Reference to the PaymentMethod.
+InputType: ReadWrite
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>PaymentMethodRef
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$PaymentRefNum" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>string <span class="highlight">$PaymentRefNum</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>string</dd><dt>Definition</dt><dd>Product: QBO
+Description: The reference number for the payment received (I.e. Check # for a check, envelope # for a cash donation, CreditCardTransactionID for a credit card payment)
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>PaymentRefNum
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$PaymentType" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPPaymentTypeEnum <span class="highlight">$PaymentType</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPPaymentTypeEnum.html">\com\intuit\schema\finance\v3\IPPPaymentTypeEnum</a></dd><dt>Definition</dt><dd>Product: QBO
+Description: Valid values are Cash, Check, CreditCard, or Other. No defaults. Cash based expense is not supported by QuickBooks Windows.
+NotApplicableTo: Estimate, SalesOrder
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>PaymentType
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$PrintStatus" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPPrintStatusEnum <span class="highlight">$PrintStatus</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPPrintStatusEnum.html">\com\intuit\schema\finance\v3\IPPPrintStatusEnum</a></dd><dt>Definition</dt><dd>Product: ALL
+Description: Printing status of the invoice.[br /]
+InputType: ReadWrite
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>PrintStatus
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$RemitToRef" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPReferenceType <span class="highlight">$RemitToRef</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPReferenceType.html">\com\intuit\schema\finance\v3\IPPReferenceType</a></dd><dt>Definition</dt><dd>Product: QBW
+Description: Reference to the party receiving payment.
+InputType: ReadOnly
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>RemitToRef
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$SalesRepRef" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPReferenceType <span class="highlight">$SalesRepRef</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPReferenceType.html">\com\intuit\schema\finance\v3\IPPReferenceType</a></dd><dt>Definition</dt><dd>Product: QBW
+Description: Reference to the SalesRep associated with the transaction.
+InputType: ReadWrite
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>SalesRepRef
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$SalesTermRef" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPReferenceType <span class="highlight">$SalesTermRef</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPReferenceType.html">\com\intuit\schema\finance\v3\IPPReferenceType</a></dd><dt>Definition</dt><dd>Product: QBW
+Description: Reference to the SalesTerm associated with the transaction.
+InputType: ReadWrite
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>SalesTermRef
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$ShipAddr" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPPhysicalAddress <span class="highlight">$ShipAddr</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPPhysicalAddress.html">\com\intuit\schema\finance\v3\IPPPhysicalAddress</a></dd><dt>Definition</dt><dd>Product: ALL
+Description: QBO: Shipping address of the Invoice.[br]See [a href="http://ipp.developer.intuit.com/0010_Intuit_Partner_Platform/0060_Financial_Management_Services_(v3)/01000_Using_Data_Service_Entities#Addresses"]Addresses[/a]
+Description: QBW: Identifies the address where the goods must be shipped. [br /]QuickBooks Note: If ShipAddr is not specified, and a default ship-to address is specified in QuickBooks for this customer, the default ship-to address will be used by QuickBooks.[br]See [a href="http://ipp.developer.intuit.com/0010_Intuit_Partner_Platform/0060_Financial_Management_Services_(v3)/01000_Using_Data_Service_Entities#Addresses"]Addresses[/a]
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>ShipAddr
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$ShipDate" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>string <span class="highlight">$ShipDate</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>string</dd><dt>Definition</dt><dd>Product: QBW
+Description: Date for delivery of goods or services.
+InputType: ReadWrite
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>ShipDate
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$ShipMethodRef" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPReferenceType <span class="highlight">$ShipMethodRef</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPReferenceType.html">\com\intuit\schema\finance\v3\IPPReferenceType</a></dd><dt>Definition</dt><dd>Product: QBW
+Description: Reference to the ShipMethod associated with the transaction.
+InputType: ReadWrite
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>ShipMethodRef
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$TemplateRef" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPReferenceType <span class="highlight">$TemplateRef</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPReferenceType.html">\com\intuit\schema\finance\v3\IPPReferenceType</a></dd><dt>Definition</dt><dd>Product: QBW
+Description: Reference to the Template for the invoice form.
+InputType: ReadWrite
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>TemplateRef
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$TotalAmt" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>float <span class="highlight">$TotalAmt</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>float</dd><dt>Definition</dt><dd>Product: All
+Description: QBO: Indicates the total amount of the transaction. This includes the total of all the charges, allowances and taxes. By default, this is recalculated based on sub items total and overridden.
+Description: QBW: Indicates the total amount of the transaction. This includes the total of all the charges, allowances and taxes.[br /]Calculated by QuickBooks business logic; cannot be written to QuickBooks.
+Filterable: QBW
+Sortable: QBW
+InputType: QBW: OverrideOnSync
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>TotalAmt
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPSalesTransaction::$TrackingNum" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>string <span class="highlight">$TrackingNum</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>string</dd><dt>Definition</dt><dd>Product: QBW
+Description: Shipping provider's tracking number for the delivery of the goods associated with the transaction.
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>TrackingNum
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div></div><h3>Methods</h3><div><a id="\IPPSalesTransaction::__construct()" class="anchor"></a><div class="method public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png"></img><img src="../images/icons/arrow_down.png" style="display: none;"></img></a><code class="title"><img src="../images/icons/method.png" alt="method" title="method"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img><span class="highlight">__construct</span><span class="nb-faded-text">(<a href="../files/dictionary.html">\dictionary</a> $keyValInitializers = array(), boolean $verbose = FALSE)</span> : void</code><div class="description"><p class="short_description">Initializes this object, optionally with pre-defined property values</p></div><div class="code-tabs"><div class="long-description">Initializes this object and it's property members, using the dictionary
+of key/value pairs passed as an optional argument.</div><strong>Parameters</strong><table class="argument-info"><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tr><th>$keyValInitializers</th><td><a href="../files/dictionary.html">\dictionary</a></td><td><em><p>key/value pairs to be populated into object's properties</p>
+</em></td></tr><tr><th>$verbose</th><td>boolean</td><td><em><p>specifies whether object should echo warnings</p></em></td></tr></table></div><div class="clear"></div></div></div></div></div><small class="footer">
+            Documentation was generated by
+            <a href="http://phpdoc.org">phpDocumentor
+                2.1.0
+</a>.
+        </small></body></html>

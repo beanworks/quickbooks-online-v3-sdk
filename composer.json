@@ -1,0 +1,26 @@
+{
+    "name": "beanworks/quickbooks-online-v3-sdk",
+    "version": "2.0.5",
+    "authors": [
+        {
+            "name": "Nigel Albert",
+            "email": "nigel.albert@beanworks.com"
+        },
+        {
+            "name": "Rollie Ma",
+            "email": "rollie.ma@beanworks.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "src/config.php",
+            "src/Core/ServiceContext.php",
+            "src/DataService/DataService.php",
+            "src/PlatformService/PlatformService.php",
+            "src/Utility/Configuration/ConfigurationManager.php"
+        ]
+    },
+    "require": {
+        "php": ">=5.3"
+    }
+}

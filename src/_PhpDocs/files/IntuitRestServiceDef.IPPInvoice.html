@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>IPP PHP SDK for QuickBooks V3</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../css/template.css" type="text/css"></link><script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="../js/jquery.tools.min.js"></script><script type="text/javascript" src="../js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="../js/template.js"></script></head><body><div id="content"><h1 class="file">IntuitRestServiceDef\IPPInvoice.php<a href="../source/IntuitRestServiceDef\IPPInvoice.php.html"><img src="../images/icons/view_source.png" alt="View Source" border="0"></img></a></h1><div id="file-nav-box"><div id="file-nav-options">
+              Show:
+              <img src="../images/icons/visibility_public.png" alt="Public" id="show-public"></img><img src="../images/icons/visibility_protected.png" alt="Protected" id="show-protected"></img><img src="../images/icons/visibility_private.png" alt="Private" id="show-private"></img><span class="attribute" id="show-inherited">inherited</span></div><div id="file-nav-container"><ul id="file-nav"><li><a href="#classes"><img src="../images/icons/class.png" alt="Class" height="14"></img>
+                          Classes
+                      </a><ul><li><a href="#\IPPInvoice">\IPPInvoice</a></li></ul></li></ul><div style="clear: left;"></div></div><div id="file-nav-tab">
+              Table of Contents
+          </div></div><a name="top" class="anchor"></a><div id="file-description"><div class="long-description"></div></div><a name="classes" class="anchor"></a><a id="\IPPInvoice" class="anchor"></a><h2 class="class">\IPPInvoice<div class="to-top"><a href="#top">jump to top</a></div></h2><div class="class"><small class="package"><b>Package: </b>Default</small><div class="long-description"></div><dl class="class-info"><dt>Parent(s)</dt><dd><a href="../files/IntuitRestServiceDef.IPPSalesTransaction.html#\IPPSalesTransaction">\IPPSalesTransaction</a>
+            &lt;
+            <a href="../files/IntuitRestServiceDef.IPPTransaction.html#\IPPTransaction" style="color: gray; font-size: 0.8em
+                ">\IPPTransaction</a>
+            &lt;
+            <a href="../files/IPPIntuitEntity.html#\IPPIntuitEntity" style="color: gray; font-size: 0.8em
+                ">\IPPIntuitEntity</a></dd><dt>IPPInvoice</dt><dd>\IPPInvoice<br></br><em></em></dd><dt>XmlDefinition</dt><dd>Product: QBO
+Description: The Invoice entity represents an invoice to a customer. Invoice could be based on salesterm with invoice and due dates for payment. Invoice supports sales tax, and shipping charges as a special line item. Invoice can be printed and emailed to a customer.
+Business Rules: [li] An invoice must have at least one line that describes the item and an amount.[/li][li] An invoice must have a reference to a customer in the header.[/li]        
+Product: QBW
+Description: An Invoice is a financial transaction representing a request for payment for goods or services that have been sold. An invoice is a form that records the details of a customer's purchase, such as quantity and price of the goods or services. An invoice records the amount owed by a customer who does not pay in full at the time of purchase. If full payment is received at the time of purchase, the sale may be recorded as a sales receipt, not an invoice.  An invoice must contain a valid customer reference in the CustomerId field and at least one line item. The referenced customer must already exist in the QuickBooks company at the desktop and any line items must also already exists in the QuickBooks company, or the attempt to sync will fail.[br /]In general, it is a good practice to specify all the header fields if you have the data.  You should always specify the ARAccountId; otherwise a default AR account will be used and this may give you unexpected results.[/br] If you want to apply one tax to all the transaction line items, use the TaxId or TaxGroupId field. If you want to use more than one tax, you need to use Tax Line items instead.
+Business Rules: [li] An invoice must have at least one line that describes the item. [/li][li] If an account is specified in the header, the account must be of the Accounts Receivable (AR) type. [/li][li] An invoice must have a reference to a customer in the header.[/li]
+         
+    </dd><dt>XmlName</dt><dd>IPPInvoice
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>SalesTransaction
+         
+    </dd></dl><h3>Properties</h3><div><a id="\IPPInvoice::$AllowIPNPayment" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>boolean <span class="highlight">$AllowIPNPayment</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>boolean</dd><dt>Definition</dt><dd>Product: QBO
+Description: Specifies whether customer is allowed to use IPN to pay the Invoice
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>AllowIPNPayment
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPInvoice::$AllowOnlineACHPayment" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>boolean <span class="highlight">$AllowOnlineACHPayment</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>boolean</dd><dt>Definition</dt><dd>Product: QBO
+Description: Specifies whether customer is allowed to use eInvoicing(online payment -bank or ach) to pay the Invoice
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>AllowOnlineACHPayment
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPInvoice::$AllowOnlineCreditCardPayment" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>boolean <span class="highlight">$AllowOnlineCreditCardPayment</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>boolean</dd><dt>Definition</dt><dd>Product: QBO
+Description: Specifies whether customer is allowed to use eInvoicing(online payment -credit card) to pay the Invoice
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>AllowOnlineCreditCardPayment
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPInvoice::$AllowOnlinePayment" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>boolean <span class="highlight">$AllowOnlinePayment</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>boolean</dd><dt>Definition</dt><dd>Product: QBO
+Description: Specifies whether customer is allowed to use eInvoicing(online payment) to pay the Invoice
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>AllowOnlinePayment
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPInvoice::$Deposit" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>float <span class="highlight">$Deposit</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>float</dd><dt>Definition</dt><dd>Product: QBO
+Description: Amount in deposit against the Invoice. Supported for Invoice only.
+         
+    </dd><dt>XmlMaxOccurs</dt><dd>1
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>Deposit
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPInvoice::$ECloudStatusTimeStamp" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>string <span class="highlight">$ECloudStatusTimeStamp</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd>string</dd><dt>Definition</dt><dd>Product: QBO
+Description: Specifies the eCloudStatus timeStamp(last Viewed/Sent/paid) for the invoice
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>ECloudStatusTimeStamp
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPInvoice::$EInvoiceStatus" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPETransactionStatusEnum <span class="highlight">$EInvoiceStatus</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPETransactionStatusEnum.html">\com\intuit\schema\finance\v3\IPPETransactionStatusEnum</a></dd><dt>Definition</dt><dd>Product: QBO
+Description: Specifies the eInvoice Status(SENT, VIEWED, PAID) for the invoice
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>EInvoiceStatus
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div><a id="\IPPInvoice::$InvoiceEx" class="anchor"></a><div class="property public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png" alt="&gt;"></img><img src="../images/icons/arrow_down.png" alt="V" style="display: none;"></img></a><code class="title"><img src="../images/icons/property.png" alt="Property"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img>\com\intuit\schema\finance\v3\IPPIntuitAnyType <span class="highlight">$InvoiceEx</span></code><div class="description"><div class="short-description"></div></div><div class="code-tabs"><div class="long-description"></div><strong>Details</strong><dl class="property-info"><dt>Type</dt><dd><a href="../files/IPPIntuitAnyType.html">\com\intuit\schema\finance\v3\IPPIntuitAnyType</a></dd><dt>Definition</dt><dd>Product: ALL
+Description: Extension entity for Invoice.
+         
+    </dd><dt>XmlMaxOccurs</dt><dd>1
+         
+    </dd><dt>XmlMinOccurs</dt><dd>0
+         
+    </dd><dt>XmlName</dt><dd>InvoiceEx
+         
+    </dd><dt>XmlNamespace</dt><dd>http://schema.intuit.com/finance/v3
+         
+    </dd><dt>XmlType</dt><dd>element
+         
+    </dd></dl></div><div class="clear"></div></div></div><h3>Methods</h3><div><a id="\IPPInvoice::__construct()" class="anchor"></a><div class="method public"><a href="#" class="gripper"><img src="../images/icons/arrow_right.png"></img><img src="../images/icons/arrow_down.png" style="display: none;"></img></a><code class="title"><img src="../images/icons/method.png" alt="method" title="method"></img><img src="../images/icons/visibility_public.png" style="margin-right: 5px" alt="public"></img><span class="highlight">__construct</span><span class="nb-faded-text">(<a href="../files/dictionary.html">\dictionary</a> $keyValInitializers = array(), boolean $verbose = FALSE)</span> : void</code><div class="description"><p class="short_description">Initializes this object, optionally with pre-defined property values</p></div><div class="code-tabs"><div class="long-description">Initializes this object and it's property members, using the dictionary
+of key/value pairs passed as an optional argument.</div><strong>Parameters</strong><table class="argument-info"><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tr><th>$keyValInitializers</th><td><a href="../files/dictionary.html">\dictionary</a></td><td><em><p>key/value pairs to be populated into object's properties</p>
+</em></td></tr><tr><th>$verbose</th><td>boolean</td><td><em><p>specifies whether object should echo warnings</p></em></td></tr></table></div><div class="clear"></div></div></div></div></div><small class="footer">
+            Documentation was generated by
+            <a href="http://phpdoc.org">phpDocumentor
+                2.1.0
+</a>.
+        </small></body></html>
