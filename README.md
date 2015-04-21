@@ -13,6 +13,15 @@ The PHP SDK for QuickBooks v3 is set of PHP classes that make it easier to call 
 
 ## Getting Started
 
+#### Clone with Git
+
+    $ git clone https://rolliema@bitbucket.org/beanworks/quickbooksonlinesdk.git
+
+#### Install with [Composer](https://getcomposer.org/)
+
+    $ wget http://getcomposer.org/composer.phar
+    $ php composer.phar require beanworks/quickbooks-online-v3-sdk::dev-master
+
 ## BeanworksAP
 
 [BeanworksAP](https://beanworks.ca) proudly integrates with QuickBooks Online and QuickBooks Desktop.
