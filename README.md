@@ -24,7 +24,7 @@ The PHP SDK for QuickBooks v3 is set of PHP classes that make it easier to call 
 
 ## BeanworksAP
 
-[BeanworksAP](https://beanworks.ca) proudly integrates with QuickBooks Online and QuickBooks Desktop.
+[BeanworksAP](https://beanworks.com) proudly integrates with QuickBooks Online and QuickBooks Desktop.
 
 ## Beanworks Solutions Inc.
 
