@@ -1,5 +1,8 @@
 {
     "name": "beanworks/quickbooks-online-v3-sdk",
+    "description": "QBO v3 API SDK for PHP. Supported and used by BeanworksAP.",
+    "keywords": ["quickbooks", "qbo", "beanworks"],
+    "homepage": "https://beanworks.com",
     "version": "2.0.5",
     "authors": [
         {
@@ -11,6 +14,8 @@
             "email": "rollie.ma@beanworks.com"
         }
     ],
+    "license": "MIT",
+    "type": "library",
     "autoload": {
         "files": [
             "src/config.php",
