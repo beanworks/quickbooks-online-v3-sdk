@@ -20,7 +20,7 @@ The PHP SDK for QuickBooks v3 is set of PHP classes that make it easier to call 
 #### Install with [Composer](https://getcomposer.org/)
 
     $ wget http://getcomposer.org/composer.phar
-    $ php composer.phar require beanworks/quickbooks-online-v3-sdk::dev-master
+    $ php composer.phar require beanworks/quickbooks-online-v3-sdk:dev-master
 
 ## BeanworksAP
 
