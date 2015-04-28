@@ -1,0 +1,16 @@
+#!/bin/bash
+
+PHPUNIT_CMD="./vendor/bin/phpunit"
+PHPUNIT_CFG="./test/phpunit.xml.dist"
+
+if [ ! -f "$PHPUNIT_CMD" ]; then
+    echo "[ERROR] PHPUnit has not been installed. Please run 'composer install' first."
+    exit 1
+fi
+
+if [ ! -f "$PHPUNIT_CFG" ]; then
+    echo "[ERROR] Cannot locate PHPUnit config file in ./test/ folder."
+    exit 1
+fi
+
+"$PHPUNIT_CMD" -c "$PHPUNIT_CFG"
