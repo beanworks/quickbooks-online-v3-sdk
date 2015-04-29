@@ -1,5 +1,7 @@
 # PHP SDK for QuickBooks V3
 
+[![Build Status](https://api.travis-ci.org/beanworks/quickbooks-online-v3-sdk.svg?branch=master)](https://travis-ci.org/beanworks/quickbooks-online-v3-sdk)
+
 The PHP SDK for QuickBooks v3 is set of PHP classes that make it easier to call QuickBooks APIs.  Some of the features included in this SDK are as follows:
 
 - Ability to perform single and batch processing of CRUD operations on all supported QuickBooks entities.
