@@ -15,12 +15,31 @@ The PHP SDK for QuickBooks v3 is set of PHP classes that make it easier to call 
 
 #### Clone with Git
 
-    $ git clone https://bitbucket.org/beanworks/quickbooksonlinesdk.git
+```shell
+$ git clone git@github.com:beanworks/quickbooks-online-v3-sdk.git
+```
 
 #### Install with [Composer](https://getcomposer.org/)
 
-    $ wget http://getcomposer.org/composer.phar
-    $ php composer.phar require beanworks/quickbooks-online-v3-sdk:dev-master
+```shell
+$ wget http://getcomposer.org/composer.phar
+# Install [beanworks/quickbooks-online-v3-sdk] from master branch
+$ php composer.phar require beanworks/quickbooks-online-v3-sdk:dev-master
+# Install Beanworks patched version
+$ php composer.phar require beanworks/quickbooks-online-v3-sdk:3.0.0
+# Install Intuit's original version
+$ php composer.phar require beanworks/quickbooks-online-v3-sdk:2.0.5
+```
+
+#### Unit Test
+
+```shell
+$ git clone git@github.com:beanworks/quickbooks-online-v3-sdk.git
+$ cd quickbooks-online-v3-sdk
+$ wget http://getcomposer.org/composer.phar
+$ php composer.phar install
+$ ./phpunit
+```
 
 ## BeanworksAP
 
@@ -35,6 +54,6 @@ BeanWorksAP is a cloud-based, automated accounts payable solution that you use v
 - Work anywhere with access to your data from any device
 - Regular seamless upgrades with new features
 - Information is safe, secure and backed-up regularly
-- Super-responsive and knowledgeable customer support 
+- Super-responsive and knowledgeable customer support
 
 Copyright &copy; 2015 [Beanworks Solutions Inc.](https://beanworks.com/)
