@@ -3,7 +3,6 @@
     "description": "QBO v3 API SDK for PHP. Supported and used by BeanworksAP.",
     "keywords": ["quickbooks", "qbo", "beanworks"],
     "homepage": "https://beanworks.com",
-    "version": "3.0.0",
     "authors": [
         {
             "name": "Nigel Albert",
