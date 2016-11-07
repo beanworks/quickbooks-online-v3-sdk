@@ -405,30 +405,6 @@ class IPPCompanyInfo
 	/**
 	 * @Definition 
 								Product: ALL 
-								Description: The industry name of the company
-							
-	 * @xmlType element
-	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlMinOccurs 0
-	 * @xmlName IndustryType
-	 * @var string
-	 */
-	public $IndustryType;
-	/**
-	 * @Definition 
-								Product: ALL 
-								Description: Specifies the company type
-							
-	 * @xmlType element
-	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlMinOccurs 0
-	 * @xmlName CompanyType
-	 * @var string
-	 */
-	public $CompanyType;
-	/**
-	 * @Definition 
-								Product: ALL 
 								Description: Internal use only: extension place holder for Company.
 							
 	 * @xmlType element

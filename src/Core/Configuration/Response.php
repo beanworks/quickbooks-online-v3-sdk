@@ -9,5 +9,3 @@ class Response extends RequestResponse
 {
 
 }
-
-?>

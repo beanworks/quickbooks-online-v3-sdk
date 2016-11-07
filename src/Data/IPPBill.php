@@ -105,6 +105,22 @@ class IPPBill
 	 */
 	public $Balance;
 	/**
+	 * @Definition 
+							Product: ALL
+							Description: The unpaid amount of the bill in home currency. Available only for companies where multicurrency is enabled.  When paid-in-full, home balance will be zero.
+								[b]QuickBooks Notes[/b][br /]
+								Non QB-writable.
+							Filterable: QBW
+							Sortable: QBW
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName HomeBalance
+	 * @var float
+	 */
+	public $HomeBalance;
+	/**
 	 * @Definition Internal use only: extension place holder for Bill.
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3

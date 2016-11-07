@@ -190,6 +190,41 @@ class IPPTransaction
 	 * @var string
 	 */
 	public $TxnSource;
+	/**
+	 * @Definition 
+                                Description: refer TaxFormTypeEnum. Tax Form Type holds data related to Tax Information, values based on
+                                regional compliance laws. Applicable for IN Region and can be extended for other Regions.
+                            
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName TaxFormType
+	 * @var string
+	 */
+	public $TaxFormType;
+	/**
+	 * @Definition 
+                                Description: Tax Form Num holds data related to Tax Information based on Regional compliance laws.This is applicable for IN region and can be extended to other regions in future.
+                            
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName TaxFormNum
+	 * @var string
+	 */
+	public $TaxFormNum;
+	/**
+	 * @Definition 
+                                Product: QBO
+                                Description: Location of the purchase or sale transaction. The applicable values are those exposed through the TransactionLocationTypeEnum. This is currently applicable only for the FR region.
+                            
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName TransactionLocationType
+	 * @var string
+	 */
+	public $TransactionLocationType;
 
 
 } // end class IPPTransaction

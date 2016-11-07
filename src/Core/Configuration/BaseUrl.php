@@ -37,4 +37,3 @@ class BaseUrl
     	$this->Ipp=$Ipp;
     }
 }
-?>

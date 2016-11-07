@@ -241,6 +241,8 @@ class ServiceContext
 		$this->serviceType = IntuitServicesType::IPP;
 		$this->baseserviceURL = $this->GetBaseURL();
 	}
-}
 
-?>
+	public function disableSSlCheck() {
+		$this->IppConfiguration->SSLCheckStatus = false;
+	}
+}

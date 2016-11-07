@@ -29,5 +29,3 @@ class RequestResponse
 		$this->CompressionFormat = $CompressionFormat;
 	}
 }
-
-?>

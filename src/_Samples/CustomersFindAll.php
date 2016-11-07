@@ -38,7 +38,7 @@ while (1) {
 	
 	foreach($allCustomers as $oneCustomer)
 	{
-		echo "Customer[".($i++)."]: {$oneCustomer->CompanyName}\n";
+		echo "Customer[".($i++)."]: {$oneCustomer->DisplayName}\n";
 		echo "\t * Id: [{$oneCustomer->Id}]\n";
 		echo "\t * Active: [{$oneCustomer->Active}]\n";
 		echo "\n";
