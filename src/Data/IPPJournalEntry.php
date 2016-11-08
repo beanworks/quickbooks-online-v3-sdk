@@ -72,6 +72,15 @@ class IPPJournalEntry
 	 */
 	public $EnteredInHomeCurrency;
 	/**
+	 * @Definition Internal use only: extension place holder for JournalEntry 
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName JournalEntryEx
+	 * @var com\intuit\schema\finance\v3\IPPIntuitAnyType
+	 */
+	public $JournalEntryEx;
+	/**
 	 * @Definition 
 								Product: All
 								Description: Indicates the total amount of the transaction. This includes the total of all the charges, allowances and taxes. By default, this is recalculated based on sub items total and overridden.
@@ -99,15 +108,6 @@ class IPPJournalEntry
 	 * @var float
 	 */
 	public $HomeTotalAmt;
-	/**
-	 * @Definition Internal use only: extension place holder for JournalEntry 
-	 * @xmlType element
-	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlMinOccurs 0
-	 * @xmlName JournalEntryEx
-	 * @var com\intuit\schema\finance\v3\IPPIntuitAnyType
-	 */
-	public $JournalEntryEx;
 
 
 } // end class IPPJournalEntry

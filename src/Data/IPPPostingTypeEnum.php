@@ -42,6 +42,7 @@ class IPPPostingTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPPOSTINGTYPEENUM_CREDIT = "Credit";
+	const IPPPOSTINGTYPEENUM_DEBIT = "Debit";
 
 } // end class IPPPostingTypeEnum

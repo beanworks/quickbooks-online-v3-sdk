@@ -39,6 +39,17 @@ class IPPMonthEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPMONTHENUM_JANUARY = "January";
+	const IPPMONTHENUM_FEBRUARY = "February";
+	const IPPMONTHENUM_MARCH = "March";
+	const IPPMONTHENUM_APRIL = "April";
+	const IPPMONTHENUM_MAY = "May";
+	const IPPMONTHENUM_JUNE = "June";
+	const IPPMONTHENUM_JULY = "July";
+	const IPPMONTHENUM_AUGUST = "August";
+	const IPPMONTHENUM_SEPTEMBER = "September";
+	const IPPMONTHENUM_OCTOBER = "October";
+	const IPPMONTHENUM_NOVEMBER = "November";
+	const IPPMONTHENUM_DECEMBER = "December";
 
 } // end class IPPMonthEnum

@@ -42,6 +42,7 @@ class IPPSalesTermTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPSALESTERMTYPEENUM_DATEDRIVEN = "DateDriven";
+	const IPPSALESTERMTYPEENUM_STANDARD = "Standard";
 
 } // end class IPPSalesTermTypeEnum

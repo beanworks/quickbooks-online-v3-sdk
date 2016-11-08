@@ -42,6 +42,16 @@ class IPPPaymentMethodEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPPAYMENTMETHODENUM_AMEX = "AmEx";
+	const IPPPAYMENTMETHODENUM_CASH = "Cash";
+	const IPPPAYMENTMETHODENUM_CHECK = "Check";
+	const IPPPAYMENTMETHODENUM_DEBITCARD = "DebitCard";
+	const IPPPAYMENTMETHODENUM_DISCOVER = "Discover";
+	const IPPPAYMENTMETHODENUM_ECHECK = "ECheck";
+	const IPPPAYMENTMETHODENUM_GIFTCARD = "GiftCard";
+	const IPPPAYMENTMETHODENUM_MASTERCARD = "MasterCard";
+	const IPPPAYMENTMETHODENUM_OTHER = "Other";
+	const IPPPAYMENTMETHODENUM_OTHERCREDITCARD = "OtherCreditCard";
+	const IPPPAYMENTMETHODENUM_VISA = "Visa";
 
 } // end class IPPPaymentMethodEnum

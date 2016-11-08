@@ -7,7 +7,7 @@
  * @var IPPBudgetEntryTypeEnum
  * @xmlDefinition 
                                 Product: ALL
-                                Description: Enumeration of BudgetEntry Type                            
+                                Description: Enumeration of BudgetEntry Type
                         
  */
 class IPPBudgetEntryTypeEnum
@@ -42,6 +42,8 @@ class IPPBudgetEntryTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPBUDGETENTRYTYPEENUM_YEARLY = "Yearly";
+	const IPPBUDGETENTRYTYPEENUM_QUARTERLY = "Quarterly";
+	const IPPBUDGETENTRYTYPEENUM_MONTHLY = "Monthly";
 
 } // end class IPPBudgetEntryTypeEnum

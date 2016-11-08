@@ -42,6 +42,8 @@ class IPPPrintStatusEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPPRINTSTATUSENUM_NOTSET = "NotSet";
+	const IPPPRINTSTATUSENUM_NEEDTOPRINT = "NeedToPrint";
+	const IPPPRINTSTATUSENUM_PRINTCOMPLETE = "PrintComplete";
 
 } // end class IPPPrintStatusEnum

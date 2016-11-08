@@ -353,19 +353,6 @@ class IPPCompanyInfo
 	 */
 	public $LastImportedTime;
 	/**
-	 * @Definition 
-	                                  Product: QBW 
-	                                  Description: Specifies last sync time.
-	                           
-	 * @xmlType element
-	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlMinOccurs 0
-	 * @xmlMaxOccurs 1
-	 * @xmlName LastSyncTime
-	 * @var string
-	 */
-	public $LastSyncTime;
-	/**
 	 * @Definition Comma separated list of languages
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -402,30 +389,6 @@ class IPPCompanyInfo
 	 * @var com\intuit\schema\finance\v3\IPPNameValue
 	 */
 	public $NameValue;
-	/**
-	 * @Definition 
-								Product: ALL 
-								Description: The industry name of the company
-							
-	 * @xmlType element
-	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlMinOccurs 0
-	 * @xmlName IndustryType
-	 * @var string
-	 */
-	public $IndustryType;
-	/**
-	 * @Definition 
-								Product: ALL 
-								Description: Specifies the company type
-							
-	 * @xmlType element
-	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlMinOccurs 0
-	 * @xmlName CompanyType
-	 * @var string
-	 */
-	public $CompanyType;
 	/**
 	 * @Definition 
 								Product: ALL 

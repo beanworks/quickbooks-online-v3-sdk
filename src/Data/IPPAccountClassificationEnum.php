@@ -42,6 +42,10 @@ class IPPAccountClassificationEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPACCOUNTCLASSIFICATIONENUM_ASSET = "Asset";
+	const IPPACCOUNTCLASSIFICATIONENUM_EQUITY = "Equity";
+	const IPPACCOUNTCLASSIFICATIONENUM_EXPENSE = "Expense";
+	const IPPACCOUNTCLASSIFICATIONENUM_LIABILITY = "Liability";
+	const IPPACCOUNTCLASSIFICATIONENUM_REVENUE = "Revenue";
 
 } // end class IPPAccountClassificationEnum

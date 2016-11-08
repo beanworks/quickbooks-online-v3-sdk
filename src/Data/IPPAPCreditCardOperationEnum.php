@@ -42,6 +42,7 @@ class IPPAPCreditCardOperationEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPAPCREDITCARDOPERATIONENUM_CHARGE = "Charge";
+	const IPPAPCREDITCARDOPERATIONENUM_CREDIT = "Credit";
 
 } // end class IPPAPCreditCardOperationEnum

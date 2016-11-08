@@ -9,6 +9,8 @@ require_once('IPPDiscountOverride.php');
  * @xmlDefinition 
 				Product: ALL
 				Description: Discount detail for a transaction line.
+				Product: QBO
+				Description: Discount detail representing the total discount on a transaction.
 			
  */
 class IPPDiscountLineDetail
@@ -40,18 +42,6 @@ class IPPDiscountLineDetail
 		}
 
 	
-	/**
-	 * @Definition 
-								Product: ALL
-								Description: Date when the service is performed.
-							
-	 * @xmlType element
-	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlMinOccurs 0
-	 * @xmlName ServiceDate
-	 * @var string
-	 */
-	public $ServiceDate;
 	/**
 	 * @Definition 
 								Product: ALL

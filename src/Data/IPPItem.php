@@ -48,7 +48,7 @@ class IPPItem
 								Product: QBW
 								Description: User recognizable name for the Item.[br /]Max. length: 31 characters.
 								Product: QBO
-								Description: User recognizable name for the Item.[br /]Max. length: 15 characters.
+								Description: User recognizable name for the Item.[br /]Max. length: 100 characters.
 								Filterable: ALL
 								Sortable: ALL
 								Required: QBW
@@ -62,10 +62,24 @@ class IPPItem
 	public $Name;
 	/**
 	 * @Definition 
-								Product: QBW
-								Description: User entered description for the item that describes the details of the service or product.[br /]Max. length: 4000 characters.
 								Product: QBO
-								Description: User entered description for the item that describes the details of the service or product.[br /]Max. length: 15 characters.
+								Description: Stock Keeping Unit - User entered item identifier that identifies an item uniquely [br /]Max. length: 100 characters.
+								Filterable: ALL
+								Sortable: ALL
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName Sku
+	 * @var string
+	 */
+	public $Sku;
+	/**
+	 * @Definition 
+								Product: QBW
+								Description: User entered description for the item that describes the details of the service or product.[br /]Max. length: 1024 characters.
+								Product: QBO
+								Description: User entered description for the item that describes the details of the service or product.[br /]Max. length: 4000 characters.
 								Filterable: QBO
 								Sortable: QBO
 							
@@ -543,6 +557,54 @@ class IPPItem
 	 * @var com\intuit\schema\finance\v3\IPPItemAssemblyDetail
 	 */
 	public $ItemAssemblyDetail;
+	/**
+	 * @Definition 
+                                Product: QBO
+                                Description: India sales tax abatement rate.
+                            
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName AbatementRate
+	 * @var float
+	 */
+	public $AbatementRate;
+	/**
+	 * @Definition 
+								Product: QBO
+								Description: India sales tax reverse charge rate.
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName ReverseChargeRate
+	 * @var float
+	 */
+	public $ReverseChargeRate;
+	/**
+	 * @Definition 
+								Product: QBO
+								Description: India sales tax service type, see ServiceTypeEnum for values.
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName ServiceType
+	 * @var string
+	 */
+	public $ServiceType;
+	/**
+	 * @Definition 
+								Product: QBO
+								Description: Categorizes the given item as a product or a service. The applicable values are those exposed through the ItemCategoryTypeEnum. This is currently applicable only in FR region.
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName ItemCategoryType
+	 * @var string
+	 */
+	public $ItemCategoryType;
 	/**
 	 * @Definition Internal use only: extension place holder for Item
 	 * @xmlType element

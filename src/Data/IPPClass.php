@@ -41,8 +41,7 @@ class IPPClass
 	 * @Definition User recognizable name for the Class.[br /]
 								Length Restriction:
 								QBO: 100 characters
-								QBW: 31 characters
-								Sortable: ALL
+								QBW: 1024
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -84,8 +83,6 @@ class IPPClass
 	public $FullyQualifiedName;
 	/**
 	 * @Definition Whether or not active inactive classes may be hidden from most display purposes and may not be used on financial transactions
-								Filterable: ALL								
-							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0

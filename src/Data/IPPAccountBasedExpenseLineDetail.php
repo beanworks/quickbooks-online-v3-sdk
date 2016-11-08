@@ -126,7 +126,7 @@ class IPPAccountBasedExpenseLineDetail
 	/**
 	 * @Definition 
 						Product: QBO
-						Description: Indicates the total amount of line item including tax.
+						Description: Indicates the total amount of line item including tax
 					
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3

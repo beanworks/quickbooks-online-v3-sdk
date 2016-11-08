@@ -105,7 +105,7 @@ class IPPTimeActivity
 	 */
 	public $CustomerRef;
 	/**
-	 * @Definition  Represents Department Reference. 
+	 * @Definition Represents Department Reference
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0

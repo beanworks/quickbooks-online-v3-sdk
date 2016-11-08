@@ -42,6 +42,8 @@ class IPPGlobalTaxCalculationEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPGLOBALTAXCALCULATIONENUM_TAXINCLUSIVE = "TaxInclusive";
+	const IPPGLOBALTAXCALCULATIONENUM_TAXEXCLUDED = "TaxExcluded";
+	const IPPGLOBALTAXCALCULATIONENUM_NOTAPPLICABLE = "NotApplicable";
 
 } // end class IPPGlobalTaxCalculationEnum

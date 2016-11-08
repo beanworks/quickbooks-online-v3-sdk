@@ -120,7 +120,7 @@ class IPPInvoice
 	/**
 	 * @Definition 
 								Product: QBO
-								Description: Specifies the eCloudStatus timeStamp(last Viewed/Sent/paid) for the invoice
+								Description: Specifies the eCloudStatus timeStamp(last Viewed/Sent/Paid) for the invoice
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3

@@ -116,7 +116,7 @@ class IPPLine
 					
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlMinOccurs 0
+	 * @xmlMinOccurs 1
 	 * @xmlMaxOccurs 1
 	 * @xmlName DetailType
 	 * @var com\intuit\schema\finance\v3\IPPLineDetailTypeEnum
@@ -224,17 +224,6 @@ class IPPLine
 	/**
 	 * @Definition 
 							Product: ALL
-							Description: SalesOrderItem type for the transaction.
-						
-	 * @xmlType element
-	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlName SalesOrderItemLineDetail
-	 * @var com\intuit\schema\finance\v3\IPPSalesOrderItemLineDetail
-	 */
-	public $SalesOrderItemLineDetail;
-	/**
-	 * @Definition 
-							Product: ALL
 							Description: ItemReceipt type for the transaction.
 						
 	 * @xmlType element
@@ -276,6 +265,17 @@ class IPPLine
 	 * @var com\intuit\schema\finance\v3\IPPSubTotalLineDetail
 	 */
 	public $SubTotalLineDetail;
+	/**
+	 * @Definition 
+							Product: QBO
+							Description: TDS line type for the transaction.
+						
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlName TDSLineDetail
+	 * @var com\intuit\schema\finance\v3\IPPTDSLineDetail
+	 */
+	public $TDSLineDetail;
 	/**
 	 * @Definition 
 						Product: QBW

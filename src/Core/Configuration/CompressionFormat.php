@@ -9,5 +9,3 @@ class CompressionFormat
     const GZip = 2;
     const Deflate = 3;
 }
-
-?>

@@ -42,6 +42,9 @@ class IPPRoundingMethodEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPROUNDINGMETHODENUM_DOWN = "Down";
+	const IPPROUNDINGMETHODENUM_NEAREST = "Nearest";
+	const IPPROUNDINGMETHODENUM_NONE = "None";
+	const IPPROUNDINGMETHODENUM_UP = "Up";
 
 } // end class IPPRoundingMethodEnum

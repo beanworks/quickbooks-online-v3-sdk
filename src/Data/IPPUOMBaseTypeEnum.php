@@ -42,6 +42,12 @@ class IPPUOMBaseTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPUOMBASETYPEENUM_AREA = "Area";
+	const IPPUOMBASETYPEENUM_COUNT = "Count";
+	const IPPUOMBASETYPEENUM_LENGTH = "Length";
+	const IPPUOMBASETYPEENUM_OTHER = "Other";
+	const IPPUOMBASETYPEENUM_TIME = "Time";
+	const IPPUOMBASETYPEENUM_VOLUME = "Volume";
+	const IPPUOMBASETYPEENUM_WEIGHT = "Weight";
 
 } // end class IPPUOMBaseTypeEnum

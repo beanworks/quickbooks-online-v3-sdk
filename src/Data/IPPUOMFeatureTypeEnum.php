@@ -39,6 +39,8 @@ class IPPUOMFeatureTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPUOMFEATURETYPEENUM_DISABLED = "Disabled";
+	const IPPUOMFEATURETYPEENUM_SINGLEPERITEM = "SinglePerItem";
+	const IPPUOMFEATURETYPEENUM_MULTIPLEPERITEM = "MultiplePerItem";
 
 } // end class IPPUOMFeatureTypeEnum

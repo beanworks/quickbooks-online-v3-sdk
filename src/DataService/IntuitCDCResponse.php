@@ -39,5 +39,3 @@ class IntuitCDCResponse
     	return NULL;
     }
 }
-
-?>

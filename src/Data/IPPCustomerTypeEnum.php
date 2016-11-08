@@ -42,6 +42,7 @@ class IPPCustomerTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPCUSTOMERTYPEENUM_CUSTOMER = "Customer";
+	const IPPCUSTOMERTYPEENUM_JOB = "Job";
 
 } // end class IPPCustomerTypeEnum

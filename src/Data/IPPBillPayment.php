@@ -63,9 +63,6 @@ class IPPBillPayment
 	 */
 	public $APAccountRef;
 	/**
-	 * @Definition 
-								Filterable: QBW
-							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0

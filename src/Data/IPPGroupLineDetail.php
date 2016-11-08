@@ -77,18 +77,6 @@ class IPPGroupLineDetail
 	/**
 	 * @Definition 
 						Product: ALL
-						Description: Date when the service is performed.
-					
-	 * @xmlType element
-	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlMinOccurs 0
-	 * @xmlName ServiceDate
-	 * @var string
-	 */
-	public $ServiceDate;
-	/**
-	 * @Definition 
-						Product: ALL
 						Description: The list of lines expanded from the group item. Note that a group line cannot itself contain group lines.
 					
 	 * @xmlType element

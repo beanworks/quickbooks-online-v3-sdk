@@ -42,6 +42,13 @@ class IPPTemplateTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPTEMPLATETYPEENUM_BUILDASSEMBLY = "BuildAssembly";
+	const IPPTEMPLATETYPEENUM_CREDITMEMO = "CreditMemo";
+	const IPPTEMPLATETYPEENUM_ESTIMATE = "Estimate";
+	const IPPTEMPLATETYPEENUM_INVOICE = "Invoice";
+	const IPPTEMPLATETYPEENUM_PURCHASEORDER = "PurchaseOrder";
+	const IPPTEMPLATETYPEENUM_SALESORDER = "SalesOrder";
+	const IPPTEMPLATETYPEENUM_SALESRECEIPT = "SalesReceipt";
+	const IPPTEMPLATETYPEENUM_STATEMENTCHARGE = "StatementCharge";
 
 } // end class IPPTemplateTypeEnum

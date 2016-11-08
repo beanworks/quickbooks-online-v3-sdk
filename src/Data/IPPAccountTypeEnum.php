@@ -42,6 +42,21 @@ class IPPAccountTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPACCOUNTTYPEENUM_BANK = "Bank";
+	const IPPACCOUNTTYPEENUM_ACCOUNTS_RECEIVABLE = "Accounts Receivable";
+	const IPPACCOUNTTYPEENUM_OTHER_CURRENT_ASSET = "Other Current Asset";
+	const IPPACCOUNTTYPEENUM_FIXED_ASSET = "Fixed Asset";
+	const IPPACCOUNTTYPEENUM_OTHER_ASSET = "Other Asset";
+	const IPPACCOUNTTYPEENUM_ACCOUNTS_PAYABLE = "Accounts Payable";
+	const IPPACCOUNTTYPEENUM_CREDIT_CARD = "Credit Card";
+	const IPPACCOUNTTYPEENUM_OTHER_CURRENT_LIABILITY = "Other Current Liability";
+	const IPPACCOUNTTYPEENUM_LONG_TERM_LIABILITY = "Long Term Liability";
+	const IPPACCOUNTTYPEENUM_EQUITY = "Equity";
+	const IPPACCOUNTTYPEENUM_INCOME = "Income";
+	const IPPACCOUNTTYPEENUM_COST_OF_GOODS_SOLD = "Cost of Goods Sold";
+	const IPPACCOUNTTYPEENUM_EXPENSE = "Expense";
+	const IPPACCOUNTTYPEENUM_OTHER_INCOME = "Other Income";
+	const IPPACCOUNTTYPEENUM_OTHER_EXPENSE = "Other Expense";
+	const IPPACCOUNTTYPEENUM_NON_POSTING = "Non-Posting";
 
 } // end class IPPAccountTypeEnum

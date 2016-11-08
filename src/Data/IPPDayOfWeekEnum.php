@@ -42,6 +42,12 @@ class IPPDayOfWeekEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPDAYOFWEEKENUM_MONDAY = "Monday";
+	const IPPDAYOFWEEKENUM_TUESDAY = "Tuesday";
+	const IPPDAYOFWEEKENUM_WEDNESDAY = "Wednesday";
+	const IPPDAYOFWEEKENUM_THURSDAY = "Thursday";
+	const IPPDAYOFWEEKENUM_FRIDAY = "Friday";
+	const IPPDAYOFWEEKENUM_SATURDAY = "Saturday";
+	const IPPDAYOFWEEKENUM_SUNDAY = "Sunday";
 
 } // end class IPPDayOfWeekEnum

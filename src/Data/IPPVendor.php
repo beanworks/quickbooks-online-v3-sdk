@@ -132,6 +132,18 @@ class IPPVendor
 	public $TaxIdentifier;
 	/**
 	 * @Definition 
+                                Product: QBO
+                                Description: Specifies the date of registeration of Supplier. Applicable for IN Region and in future can be extended to other regions.
+                            
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName TaxIdEffectiveDate
+	 * @var string
+	 */
+	public $TaxIdEffectiveDate;
+	/**
+	 * @Definition 
 								Product: QBW.
 								Description: Business Number of the Vendor. Applicable for CA/UK versions of QuickBooks.
 							
@@ -272,6 +284,79 @@ class IPPVendor
 	 * @var com\intuit\schema\finance\v3\IPPReferenceType
 	 */
 	public $CurrencyRef;
+	/**
+	 * @Definition 
+								Product: QBO
+								Description: True, if TDS (Tax Deducted at Source) is enabled for this Vendor. 
+								If enabled, TDS metadata needs to be passsed in VendorEx field.
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName TDSEnabled
+	 * @var boolean
+	 */
+	public $TDSEnabled;
+	/**
+	 * @Definition 
+								Product: QBO
+								Description: Entity Type of the Vendor.
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName TDSEntityTypeId
+	 * @var integer
+	 */
+	public $TDSEntityTypeId;
+	/**
+	 * @Definition 
+								Product: QBO
+								Description: Default TDS section type for the vendor to be used in transaction.
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName TDSSectionTypeId
+	 * @var integer
+	 */
+	public $TDSSectionTypeId;
+	/**
+	 * @Definition 
+								Product: QBO
+								Description: True, if TDS threshold calculation should be overriden.   
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName TDSOverrideThreshold
+	 * @var boolean
+	 */
+	public $TDSOverrideThreshold;
+	/**
+	 * @Definition 
+                                Product: QBO
+                                Description: The tax reporting basis for the supplier. The applicable values are those exposed through the TaxReportBasisTypeEnum.  This is applicable only in FR.
+                            
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName TaxReportingBasis
+	 * @var string
+	 */
+	public $TaxReportingBasis;
+	/**
+	 * @Definition 
+                                Product: QBO
+                                Description: The A/P account ID for the supplier. This is applicable only in FR where each supplier needs to have his own AP account.
+                            
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName APAccountRef
+	 * @var com\intuit\schema\finance\v3\IPPReferenceType
+	 */
+	public $APAccountRef;
 	/**
 	 * @Definition Internal use only: extension place holder for Vendor.
 	 * @xmlType element

@@ -47,5 +47,4 @@ class UtilityConstants
      */
     const UDATA = "udata";
 
-}	
-?>
+}

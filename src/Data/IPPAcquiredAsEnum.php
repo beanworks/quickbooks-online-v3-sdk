@@ -39,6 +39,7 @@ class IPPAcquiredAsEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPACQUIREDASENUM_NEW = "New";
+	const IPPACQUIREDASENUM_USED = "Used";
 
 } // end class IPPAcquiredAsEnum

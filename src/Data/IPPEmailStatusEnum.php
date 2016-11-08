@@ -42,6 +42,8 @@ class IPPEmailStatusEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPEMAILSTATUSENUM_NOTSET = "NotSet";
+	const IPPEMAILSTATUSENUM_NEEDTOSEND = "NeedToSend";
+	const IPPEMAILSTATUSENUM_EMAILSENT = "EmailSent";
 
 } // end class IPPEmailStatusEnum

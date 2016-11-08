@@ -42,6 +42,8 @@ class IPPTaxTypeApplicablityEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPTAXTYPEAPPLICABLITYENUM_TAXONAMOUNT = "TaxOnAmount";
+	const IPPTAXTYPEAPPLICABLITYENUM_TAXONAMOUNTPLUSTAX = "TaxOnAmountPlusTax";
+	const IPPTAXTYPEAPPLICABLITYENUM_TAXONTAX = "TaxOnTax";
 
 } // end class IPPTaxTypeApplicablityEnum

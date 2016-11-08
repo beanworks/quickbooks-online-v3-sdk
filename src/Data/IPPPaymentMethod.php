@@ -41,7 +41,7 @@ class IPPPaymentMethod
 	 * @Definition User recognizable name for the payment method.[br /]
 								Length Restriction:
 								QBO: 15
-								QBW: 31
+								QBW: 1024
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -52,8 +52,6 @@ class IPPPaymentMethod
 	public $Name;
 	/**
 	 * @Definition Whether or not active inactive payment methods may be hidden from most display purposes and may not be used on financial transactions.
-							Filterable: QBW
-							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
@@ -74,7 +72,6 @@ class IPPPaymentMethod
 	 * @Definition Internal use only: extension place holder for PaymentMethod 
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlMinOccurs 0
 	 * @xmlName PaymentMethodEx
 	 * @var com\intuit\schema\finance\v3\IPPIntuitAnyType
 	 */

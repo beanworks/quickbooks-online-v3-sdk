@@ -7,7 +7,7 @@
  * @var IPPBudgetTypeEnum
  * @xmlDefinition 
                                 Product: ALL
-                                Description: Enumeration of Budget Types                            
+                                Description: Enumeration of Budget Types
                         
  */
 class IPPBudgetTypeEnum
@@ -42,6 +42,7 @@ class IPPBudgetTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPBUDGETTYPEENUM_PROFITANDLOSS = "ProfitAndLoss";
+	const IPPBUDGETTYPEENUM_BALANCESHEET = "BalanceSheet";
 
 } // end class IPPBudgetTypeEnum

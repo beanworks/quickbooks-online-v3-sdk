@@ -42,6 +42,8 @@ class IPPBillableStatusEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPBILLABLESTATUSENUM_BILLABLE = "Billable";
+	const IPPBILLABLESTATUSENUM_NOTBILLABLE = "NotBillable";
+	const IPPBILLABLESTATUSENUM_HASBEENBILLED = "HasBeenBilled";
 
 } // end class IPPBillableStatusEnum

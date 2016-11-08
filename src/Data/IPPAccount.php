@@ -107,6 +107,32 @@ class IPPAccount
 	/**
 	 * @Definition 
 								Product: ALL
+								Description: Display Name of the account that will be shown in Transaction Forms based on Account Category
+								ValidRange: QBO: Max=100 
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName AccountAlias
+	 * @var string
+	 */
+	public $AccountAlias;
+	/**
+	 * @Definition 
+								Product: ALL
+								Description: Location Type for the Transaction.
+								ValidRange: QBO: Max=50 
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName TxnLocationType
+	 * @var string
+	 */
+	public $TxnLocationType;
+	/**
+	 * @Definition 
+								Product: ALL
 								Description: Whether or not active inactive accounts may be hidden from most display purposes and may not be posted to. 
 								Filterable: QBW
 							
@@ -175,6 +201,18 @@ class IPPAccount
 	 * @var string
 	 */
 	public $AcctNum;
+	/**
+	 * @Definition 
+								Product: QBO
+								Description: An extension to the base account number that can be added to Customer A/R or Supplier A/P accounts.
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName AcctNumExtn
+	 * @var string
+	 */
+	public $AcctNumExtn;
 	/**
 	 * @Definition 
 								Product: QBW
@@ -303,9 +341,21 @@ class IPPAccount
 	public $FIName;
 	/**
 	 * @Definition 
-								Product: ALL
-								Description: extension place holder for Account.
+								Product: QBO
+								Description: The Journal Code that is associated with the account. This is required only for Bank accounts. This is applicable only in FR.
+								InputType: ALL: ReadOnly
 							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName JournalCodeRef
+	 * @var com\intuit\schema\finance\v3\IPPReferenceType
+	 */
+	public $JournalCodeRef;
+	/**
+	 * @Definition 
+							Product: ALL
+							Description: extension place holder for Account.
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0

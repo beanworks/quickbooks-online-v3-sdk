@@ -82,8 +82,6 @@ class IPPCustomerType
 	 * @Definition 
 								Product: ALL
 								Description: True if the Customer is active. Inactive customer types may be hidden from display and may not be used on financial transactions.
-								Filterable: QBW
-							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0

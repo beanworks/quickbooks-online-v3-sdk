@@ -149,6 +149,18 @@ class IPPJournalEntryLineDetail
 	public $BillableStatus;
 	/**
 	 * @Definition 
+						Product: QBO
+						Description: The Journal Code that should be associated for every journal entry line. This is applicable only for FR.
+					
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName JournalCodeRef
+	 * @var com\intuit\schema\finance\v3\IPPReferenceType
+	 */
+	public $JournalCodeRef;
+	/**
+	 * @Definition 
 						Product: ALL
 						Description: Internal use only: extension place holder for JournalEntryDetail
 					

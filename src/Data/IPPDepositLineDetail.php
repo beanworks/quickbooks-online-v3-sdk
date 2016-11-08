@@ -113,6 +113,30 @@ class IPPDepositLineDetail
 	public $TxnType;
 	/**
 	 * @Definition 
+						Product: QBO
+						Description: Sales/Purchase tax code. For Non US/CA Companies
+					
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName TaxCodeRef
+	 * @var com\intuit\schema\finance\v3\IPPReferenceType
+	 */
+	public $TaxCodeRef;
+	/**
+	 * @Definition 
+						Product: QBO
+						Description: Indicates whether the tax applicable on the line is sales or purchase
+					
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName TaxApplicableOn
+	 * @var com\intuit\schema\finance\v3\IPPTaxApplicableOnEnum
+	 */
+	public $TaxApplicableOn;
+	/**
+	 * @Definition 
 						Product: ALL
 						Description: Internal use only: extension place holder for DepositDetail
 					

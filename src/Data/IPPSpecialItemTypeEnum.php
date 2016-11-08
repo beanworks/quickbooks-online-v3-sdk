@@ -42,6 +42,8 @@ class IPPSpecialItemTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPSPECIALITEMTYPEENUM_FINANCECHARGE = "FinanceCharge";
+	const IPPSPECIALITEMTYPEENUM_REIMBURSABLEEXPENSEGROUP = "ReimbursableExpenseGroup";
+	const IPPSPECIALITEMTYPEENUM_REIMBURSABLEEXPENSESUBTOTAL = "ReimbursableExpenseSubtotal";
 
 } // end class IPPSpecialItemTypeEnum
