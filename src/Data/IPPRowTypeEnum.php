@@ -39,6 +39,7 @@ class IPPRowTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPROWTYPEENUM_SECTION = "Section";
+	const IPPROWTYPEENUM_DATA = "Data";
 
 } // end class IPPRowTypeEnum

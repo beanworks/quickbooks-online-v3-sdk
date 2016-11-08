@@ -42,6 +42,9 @@ class IPPQboEstimateStatusEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPQBOESTIMATESTATUSENUM_ACCEPTED = "Accepted";
+	const IPPQBOESTIMATESTATUSENUM_CLOSED = "Closed";
+	const IPPQBOESTIMATESTATUSENUM_PENDING = "Pending";
+	const IPPQBOESTIMATESTATUSENUM_REJECTED = "Rejected";
 
 } // end class IPPQboEstimateStatusEnum

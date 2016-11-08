@@ -42,6 +42,7 @@ class IPPETransactionEnabledStatusEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPETRANSACTIONENABLEDSTATUSENUM_ENABLED = "Enabled";
+	const IPPETRANSACTIONENABLEDSTATUSENUM_NOTAPPLICABLE = "NotApplicable";
 
 } // end class IPPETransactionEnabledStatusEnum

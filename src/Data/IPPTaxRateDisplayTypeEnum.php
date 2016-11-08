@@ -39,6 +39,9 @@ class IPPTaxRateDisplayTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPTAXRATEDISPLAYTYPEENUM_READONLY = "ReadOnly";
+	const IPPTAXRATEDISPLAYTYPEENUM_HIDEINTRANSACTIONFORMS = "HideInTransactionForms";
+	const IPPTAXRATEDISPLAYTYPEENUM_HIDEINPRINTEDFORMS = "HideInPrintedForms";
+	const IPPTAXRATEDISPLAYTYPEENUM_HIDEINALL = "HideInAll";
 
 } // end class IPPTaxRateDisplayTypeEnum

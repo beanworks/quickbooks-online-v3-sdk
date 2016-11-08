@@ -42,6 +42,7 @@ class IPPPriceLevelTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPPRICELEVELTYPEENUM_FIXEDPERCENTAGE = "FixedPercentage";
+	const IPPPRICELEVELTYPEENUM_PERITEM = "PerItem";
 
 } // end class IPPPriceLevelTypeEnum

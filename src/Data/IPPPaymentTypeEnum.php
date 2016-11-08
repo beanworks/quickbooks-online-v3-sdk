@@ -42,6 +42,10 @@ class IPPPaymentTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPPAYMENTTYPEENUM_CASH = "Cash";
+	const IPPPAYMENTTYPEENUM_CHECK = "Check";
+	const IPPPAYMENTTYPEENUM_CREDITCARD = "CreditCard";
+	const IPPPAYMENTTYPEENUM_EXPENSE = "Expense";
+	const IPPPAYMENTTYPEENUM_OTHER = "Other";
 
 } // end class IPPPaymentTypeEnum

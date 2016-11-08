@@ -42,6 +42,7 @@ class IPPEstimateStatusEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPESTIMATESTATUSENUM_ACTIVE = "Active";
+	const IPPESTIMATESTATUSENUM_NOTACTIVE = "NotActive";
 
 } // end class IPPEstimateStatusEnum

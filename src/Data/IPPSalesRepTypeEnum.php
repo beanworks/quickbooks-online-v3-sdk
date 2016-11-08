@@ -42,6 +42,8 @@ class IPPSalesRepTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPSALESREPTYPEENUM_EMPLOYEE = "Employee";
+	const IPPSALESREPTYPEENUM_OTHER = "Other";
+	const IPPSALESREPTYPEENUM_VENDOR = "Vendor";
 
 } // end class IPPSalesRepTypeEnum

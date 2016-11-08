@@ -42,6 +42,7 @@ class IPPSymbolPositionEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPSYMBOLPOSITIONENUM_LEADING = "Leading";
+	const IPPSYMBOLPOSITIONENUM_TRAILING = "Trailing";
 
 } // end class IPPSymbolPositionEnum

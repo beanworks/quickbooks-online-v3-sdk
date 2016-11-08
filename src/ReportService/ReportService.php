@@ -5,7 +5,6 @@ require_once(PATH_SDK_ROOT . 'Core/OperationControlList.php');
 require_once(PATH_SDK_ROOT . 'DataService/Batch.php');
 require_once(PATH_SDK_ROOT . 'DataService/IntuitCDCResponse.php');
 
-
 class ReportService
 {
     /**
@@ -1020,8 +1019,10 @@ class ReportService
 
         // Creates request parameters
         if ($this->serviceContext->IppConfiguration->Message->Request->SerializationFormat == SerializationFormat::Json) {
+            //echo("Content Type JSON");
             $requestParameters = new RequestParameters($httpRequestUri, 'GET', CoreConstants::CONTENTTYPE_APPLICATIONJSON, NULL);
         } else {
+            //echo("Content Type XML");
             $requestParameters = new RequestParameters($httpRequestUri, 'GET', CoreConstants::CONTENTTYPE_APPLICATIONXML, NULL);
         }
 

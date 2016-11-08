@@ -171,7 +171,7 @@ class IPPNameBase
 								Product: QBO
 								Description: The name of the person or organization as displayed. If not provided, this is populated from FullName.
 								Product: QBW
-								Description: The name of the person or organization as displayed. 
+									Description: The name of the person or organization as displayed. 
 								Required: ALL
 								Filterable: QBW
 							

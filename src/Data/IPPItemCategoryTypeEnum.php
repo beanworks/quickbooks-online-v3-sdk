@@ -42,6 +42,7 @@ class IPPItemCategoryTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPITEMCATEGORYTYPEENUM_PRODUCT = "Product";
+	const IPPITEMCATEGORYTYPEENUM_SERVICE = "Service";
 
 } // end class IPPItemCategoryTypeEnum

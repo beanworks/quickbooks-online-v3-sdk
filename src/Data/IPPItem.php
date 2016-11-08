@@ -77,7 +77,7 @@ class IPPItem
 	/**
 	 * @Definition 
 								Product: QBW
-								Description: User entered description for the item that describes the details of the service or product.[br /]Max. length: 4000 characters.
+								Description: User entered description for the item that describes the details of the service or product.[br /]Max. length: 1024 characters.
 								Product: QBO
 								Description: User entered description for the item that describes the details of the service or product.[br /]Max. length: 4000 characters.
 								Filterable: QBO
@@ -559,9 +559,9 @@ class IPPItem
 	public $ItemAssemblyDetail;
 	/**
 	 * @Definition 
-								Product: QBO
-								Description: India sales tax abatement rate.
-							
+                                Product: QBO
+                                Description: India sales tax abatement rate.
+                            
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
@@ -595,9 +595,9 @@ class IPPItem
 	public $ServiceType;
 	/**
 	 * @Definition 
-                                Product: QBO
-                                Description: Categorizes the given item as a product or a service. The applicable values are those exposed through the ItemCategoryTypeEnum. This is currently applicable only in FR region.
-                            
+								Product: QBO
+								Description: Categorizes the given item as a product or a service. The applicable values are those exposed through the ItemCategoryTypeEnum. This is currently applicable only in FR region.
+							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0

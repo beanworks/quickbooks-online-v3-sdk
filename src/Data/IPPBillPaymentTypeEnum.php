@@ -42,6 +42,7 @@ class IPPBillPaymentTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPBILLPAYMENTTYPEENUM_CHECK = "Check";
+	const IPPBILLPAYMENTTYPEENUM_CREDITCARD = "CreditCard";
 
 } // end class IPPBillPaymentTypeEnum

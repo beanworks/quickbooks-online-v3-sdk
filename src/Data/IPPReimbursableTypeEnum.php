@@ -42,6 +42,8 @@ class IPPReimbursableTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPREIMBURSABLETYPEENUM_BILLABLE = "Billable";
+	const IPPREIMBURSABLETYPEENUM_BILLABLEHASBEENBILLED = "BillableHasBeenBilled";
+	const IPPREIMBURSABLETYPEENUM_NOTBILLABLE = "NotBillable";
 
 } // end class IPPReimbursableTypeEnum

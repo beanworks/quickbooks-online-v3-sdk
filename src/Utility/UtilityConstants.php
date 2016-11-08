@@ -46,10 +46,5 @@ class UtilityConstants
      * @var string UDATA
      */
     const UDATA = "udata";
-	
-     /**
-     * WehbooksService Path
-     */
-    const WEBHOOKSDIR = "WebhooksService";	
 
 }

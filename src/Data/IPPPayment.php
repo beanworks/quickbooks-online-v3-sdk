@@ -113,6 +113,7 @@ class IPPPayment
 	 * @Definition  
 								Product: ALL
 								Description: Valid values are Cash, Check, CreditCard, or Other. No defaults. Cash based expense is not supported by QuickBooks Windows. Not applicable to Estimate and SalesOrder.[br /]
+								Required: ALL
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3

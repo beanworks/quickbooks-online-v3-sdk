@@ -39,6 +39,9 @@ class IPPFaultTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPFAULTTYPEENUM_AUTHENTICATIONFAULT = "AuthenticationFault";
+	const IPPFAULTTYPEENUM_AUTHORIZATONFAULT = "AuthorizatonFault";
+	const IPPFAULTTYPEENUM_VALIDATIONFAULT = "ValidationFault";
+	const IPPFAULTTYPEENUM_SYSTEMFAULT = "SystemFault";
 
 } // end class IPPFaultTypeEnum

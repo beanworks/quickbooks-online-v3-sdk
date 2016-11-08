@@ -39,6 +39,15 @@ class IPPColumnTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPCOLUMNTYPEENUM_ACCOUNT = "Account";
+	const IPPCOLUMNTYPEENUM_MONEY = "Money";
+	const IPPCOLUMNTYPEENUM_RATE = "Rate";
+	const IPPCOLUMNTYPEENUM_CUSTOMER = "Customer";
+	const IPPCOLUMNTYPEENUM_VENDOR = "Vendor";
+	const IPPCOLUMNTYPEENUM_EMPLOYEE = "Employee";
+	const IPPCOLUMNTYPEENUM_PRODUCTSANDSERVICE = "ProductsAndService";
+	const IPPCOLUMNTYPEENUM_DEPARTMENT = "Department";
+	const IPPCOLUMNTYPEENUM_CLASS = "Class";
+	const IPPCOLUMNTYPEENUM_STRING = "String";
 
 } // end class IPPColumnTypeEnum

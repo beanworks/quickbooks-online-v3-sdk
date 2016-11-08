@@ -39,6 +39,11 @@ class IPPOperationEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPOPERATIONENUM_CREATE = "create";
+	const IPPOPERATIONENUM_UPDATE = "update";
+	const IPPOPERATIONENUM_REVERT = "revert";
+	const IPPOPERATIONENUM_DELETE = "delete";
+	const IPPOPERATIONENUM_VOID = "void";
+	const IPPOPERATIONENUM_SEND = "send";
 
 } // end class IPPOperationEnum

@@ -6,9 +6,9 @@
  * @xmlName IPPJournalCodeTypeEnum
  * @var IPPJournalCodeTypeEnum
  * @xmlDefinition 
-                Product: QBO
-                Description: Enumeration of the different types of Journal Codes applicable in FR
-            
+				Product: QBO
+				Description: Enumeration of the different types of Journal Codes applicable in FR
+			
  */
 class IPPJournalCodeTypeEnum
 	{
@@ -42,6 +42,12 @@ class IPPJournalCodeTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPJOURNALCODETYPEENUM_EXPENSES = "Expenses";
+	const IPPJOURNALCODETYPEENUM_SALES = "Sales";
+	const IPPJOURNALCODETYPEENUM_BANK = "Bank";
+	const IPPJOURNALCODETYPEENUM_NOUVEAUX = "Nouveaux";
+	const IPPJOURNALCODETYPEENUM_WAGES = "Wages";
+	const IPPJOURNALCODETYPEENUM_CASH = "Cash";
+	const IPPJOURNALCODETYPEENUM_OTHERS = "Others";
 
 } // end class IPPJournalCodeTypeEnum

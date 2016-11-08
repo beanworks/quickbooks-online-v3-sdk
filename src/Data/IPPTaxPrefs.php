@@ -44,6 +44,14 @@ class IPPTaxPrefs
 	 */
 	public $UsingSalesTax;
 	/**
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName PartnerTaxEnabled
+	 * @var boolean
+	 */
+	public $PartnerTaxEnabled;
+	/**
 	 * @Definition 
 							Product: QBW
 							Description: US only? reference to a TaxCode entity where the group field of the referenced entity is true, that is, a TaxCode representing a list of tax rates that should apply by default.

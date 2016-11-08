@@ -6,9 +6,9 @@
  * @xmlName IPPDiscountTypeEnum
  * @var IPPDiscountTypeEnum
  * @xmlDefinition 
-                Product: QBO
-                Description: Enumeration of the different types of Discounts
-            
+				Product: QBO
+				Description: Enumeration of the different types of Discounts
+			
  */
 class IPPDiscountTypeEnum
 	{
@@ -42,6 +42,7 @@ class IPPDiscountTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPDISCOUNTTYPEENUM_RATE = "Rate";
+	const IPPDISCOUNTTYPEENUM_AMOUNT = "Amount";
 
 } // end class IPPDiscountTypeEnum

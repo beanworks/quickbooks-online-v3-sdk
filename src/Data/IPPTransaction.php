@@ -42,13 +42,11 @@ class IPPTransaction
 	
 	/**
 	 * @Definition 
-								Product: ALL
-								Description: QBO: Reference number for the transaction. If DocNumber is not provided, and the Custom Transaction Number is set to "Off", QBO assigns a document number using the next-in-sequence algorithm for Sales transactions. Otherwise the value will remaing null. Alternatively, you can also pass in "AUTO_GENERATE" in this field to force QBO to auto-sequence the document number for Invoices, Estimates and Sales Receipt.[br /]The maximum length for DocNumber is 21 characters. The default value is an empty String. Filter support not provided for Payment.
-								Description: QBW: The primary document number for this transaction.  DocNumber is exposed to end users.[br /]If it is not provided, QuickBooks business logic will assign the document number using the "next in sequence" algorithm.[br /]Max. length is 11 characters for Payment, Bill, ItemReceipt and VendorCredit.  Max. length is 20 characters for other entities.
+								Product: QBO
+								Description: Reference number for the transaction. If DocNumber is not provided, and the Custom Transaction Number is set to "Off", QBO assigns a document number using the next-in-sequence algorithm for Sales transactions. Otherwise the value will remaing null. Alternatively, you can also pass in "AUTO_GENERATE" in this field to force QBO to auto-sequence the document number for Invoices, Estimates and Sales Receipt.[br /]The maximum length for DocNumber is 21 characters. The default value is an empty String. Filter support not provided for Payment.
+								Product: QBW
+								Description: The primary document number for this transaction.  DocNumber is exposed to end users.[br /]If it is not provided, QuickBooks business logic will assign the document number using the "next in sequence" algorithm.[br /]Max. length is 11 characters for Payment, Bill, ItemReceipt and VendorCredit.  Max. length is 20 characters for other entities.
 								Filterable: QBO
-                                InputType: ReadWrite
-                                ValidRange: QBW: max=11
-                                ValidRange: QBO: max=21
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -59,12 +57,12 @@ class IPPTransaction
 	public $DocNumber;
 	/**
 	 * @Definition 
-								Product: ALL
-								Description: QBO: The date entered by the user when this transaction occurred. [br /]Often, it is the date when the transaction is created in the system. [br /]For "posting" transactions, this is the posting date that affects the financial statements. If the date is not supplied, the current date on the server is used.
-								Description: QBW: The nominal, user entered, date of the transaction.  [br /]Often, but not required to be, the date the transaction was created in the system. [br /]For "posting" transactions, this is the posting date that affects financial statements.
+								Product: QBO
+								Description: The date entered by the user when this transaction occurred. Often, it is the date when the transaction is created in the system. For "posting" transactions, this is the posting date that affects the financial statements. If the date is not supplied, the current date on the server is used.
+								Product: QBW
+								Description: The nominal, user entered, date of the transaction.  Often, but not required to be, the date the transaction was created in the system. For "posting" transactions, this is the posting date that affects financial statements.
 								Filterable: ALL
 								Sortable: ALL
-                                InputType: ReadWrite
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -89,7 +87,6 @@ class IPPTransaction
 	 * @Definition 
 								Product: ALL
 								Description: Reference to the Currency in which all amounts on the associated transaction are expressed.[br /]
-                                InputType: ReadWrite
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -102,8 +99,7 @@ class IPPTransaction
 	 * @Definition 
 								Product: ALL
 								Description: Currency exchange rate. Valid only if the company file is set up to use Multi-Currency feature. In QuickBooks, exchange rates are always recorded as the number of home currency units it takes to equal one foreign currency unit. The foreign unit is always 1 and the amount of home units that equal that 1 foreign unit is what QuickBooks uses as the exchange rate.
-                                InputType: ReadWrite
-                            
+							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
@@ -115,7 +111,6 @@ class IPPTransaction
 	 * @Definition 
 								Product: ALL
 								Description: User entered, organization-private note about the transaction. This note will not appear on the transaction records by default.
-                                InputType: ReadWrite
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -126,9 +121,10 @@ class IPPTransaction
 	public $PrivateNote;
 	/**
 	 * @Definition 
-								Product: ALL
-								Description: QBW: The status of the transaction. Depending on the transaction type it may have different values.[br /]For Sales Transactions acceptable values are defined in PaymentStatusEnum. For Estimate, the values accepted are defined in EstimateStatusEnum.
-								Description: QBO: The status of the transaction. Depending on the transaction type it may have different values.[br /]For Sales Transactions acceptable values are defined in PaymentStatusEnum. For Estimate, the values accepted are defined in QboEstimateStatusEnum.
+								Product: QBW
+								Description: The status of the transaction. Depending on the transaction type it may have different values.[br /]For Sales Transactions acceptable values are defined in PaymentStatusEnum. For Estimate, the values accepted are defined in EstimateStatusEnum.
+								Product: QBO
+								Description: The status of the transaction. Depending on the transaction type it may have different values.[br /]For Sales Transactions acceptable values are defined in PaymentStatusEnum. For Estimate, the values accepted are defined in QboEstimateStatusEnum.
 								Filterable:QBW
 							
 	 * @xmlType element
@@ -181,7 +177,7 @@ class IPPTransaction
 	/**
 	 * @Definition 
 								Product: QBO
-								Description: Originating source of the Transaction. Valid values are defined in TxnSourceEnum: QBMobile.
+								Description: Originating source of the Transaction. Valid values are defined in TxnSourceEnum.
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -215,9 +211,9 @@ class IPPTransaction
 	public $TaxFormNum;
 	/**
 	 * @Definition 
-                                Product: QBO
-                                Description: Location of the purchase or sale transaction. The applicable values are those exposed through the TransactionLocationTypeEnum. This is currently applicable only for the FR region.
-                            
+								Product: QBO
+								Description: Location of the purchase or sale transaction. The applicable values are those exposed through the TransactionLocationTypeEnum. This is currently applicable only for the FR region.
+							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0

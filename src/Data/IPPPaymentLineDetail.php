@@ -52,18 +52,6 @@ class IPPPaymentLineDetail
 	/**
 	 * @Definition 
 						Product: ALL
-						Description: Date when the service is performed.
-					
-	 * @xmlType element
-	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlMinOccurs 0
-	 * @xmlName ServiceDate
-	 * @var string
-	 */
-	public $ServiceDate;
-	/**
-	 * @Definition 
-						Product: ALL
 						Description: Reference to the Class for the line item.
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -86,9 +74,9 @@ class IPPPaymentLineDetail
 	public $Balance;
 	/**
 	 * @Definition 
-						Product: ALL
-						Description: Indicates the unpaid amount of the transaction after this payment is applied in home currency. It is visible only for companies which have multicurrency enabled[br /] Cannot be written to Quickbooks.
-					
+							Product: ALL
+							Description: Indicates the unpaid amount of the transaction after this payment is applied in home currency. It is visible only for companies which have multicurrency enabled[br /] Cannot be written to Quickbooks.
+							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0

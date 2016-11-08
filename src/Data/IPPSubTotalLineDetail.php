@@ -50,18 +50,6 @@ class IPPSubTotalLineDetail
 	 * @var com\intuit\schema\finance\v3\IPPReferenceType
 	 */
 	public $ItemRef;
-	/**
-	 * @Definition 
-						Product: ALL
-						Description: Date when the service is performed.
-					
-	 * @xmlType element
-	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlMinOccurs 0
-	 * @xmlName ServiceDate
-	 * @var string
-	 */
-	public $ServiceDate;
 
 
 } // end class IPPSubTotalLineDetail

@@ -42,6 +42,7 @@ class IPPPurchaseOrderStatusEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPPURCHASEORDERSTATUSENUM_OPEN = "Open";
+	const IPPPURCHASEORDERSTATUSENUM_CLOSED = "Closed";
 
 } // end class IPPPurchaseOrderStatusEnum

@@ -55,7 +55,7 @@ class IPPSalesItemLineDetail
 	/**
 	 * @Definition 
 								Product: QBO
-								Description: Indicates the total amount of line item including tax.
+								Description: Indicates the total amount of line item including tax
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -66,9 +66,9 @@ class IPPSalesItemLineDetail
 	public $TaxInclusiveAmt;
 	/**
 	 * @Definition 
-                                Product: QBO
-                                Description: Indicates the discount rate that is applied on this line.
-                            
+								Product: QBO
+								Description: Indicates the discount rate that is applied on this line.
+							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
@@ -78,9 +78,9 @@ class IPPSalesItemLineDetail
 	public $DiscountRate;
 	/**
 	 * @Definition 
-                                Product: QBO
-                                Description: Indicates the discount amount that is applied on this line.
-                            
+								Product: QBO
+								Description: Indicates the discount amount that is applied on this line.
+							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0

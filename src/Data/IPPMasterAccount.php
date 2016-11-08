@@ -6,7 +6,8 @@ require_once('IPPAccount.php');
  * @xmlType Account
  * @xmlName IPPMasterAccount
  * @var IPPMasterAccount
- * @xmlDefinition Master Account is the list of accounts in the master list. The master list is the complete list of accounts prescribed by the French Government. These accounts can be created in the company on a need basis. The account create API needs to be used to create an account. 
+ * @xmlDefinition Master Account is the list of accounts in the master list. The master list is the complete list of accounts prescribed by the French Government.
+			These accounts can be created in the company on a need basis. The account create API needs to be used to create an account. 
  */
 class IPPMasterAccount
 	extends IPPAccount	{

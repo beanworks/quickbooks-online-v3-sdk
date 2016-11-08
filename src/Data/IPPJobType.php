@@ -43,7 +43,7 @@ class IPPJobType
 	/**
 	 * @Definition 
 								Product: QBW
-								Description: User recognizable name for the Job Type.[br /]Max. length: 31 characters.
+								Description: User recognizable name for the Job Type.[br /]Max. length: 159 characters.
 								Product: QBO
 								Description: User recognizable name for the Job Type.[br /]Max. length: 15 characters.
 							
@@ -81,8 +81,6 @@ class IPPJobType
 	 * @Definition 
 								Product: ALL
 								Description: True if the Job is active. Inactive job types may be hidden from display and may not be used on financial transactions.
-								Filterable: QBW
-							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0

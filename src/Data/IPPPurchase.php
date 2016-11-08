@@ -77,7 +77,6 @@ class IPPPurchase
 	/**
 	 * @Definition  Required element. No defaults. Expense Type can be Cash, Check or CreditCard
 								Cash based expense is not supported by QBW.
-								Filterable: QBW
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -103,8 +102,7 @@ class IPPPurchase
 	 */
 	public $CreditCardPayment;
 	/**
-	 * @Definition Specifies the party to whom a expense is associated with. Can be Customer, Vendor, Employee (or OtherName in case of QBW)								
-							
+	 * @Definition Specifies the party to whom a expense is associated with. Can be Customer, Vendor, Employee (or OtherName in case of QBW)
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
@@ -114,7 +112,6 @@ class IPPPurchase
 	public $EntityRef;
 	/**
 	 * @Definition If Credit is Null or False, it is considered as Charge. If true, the CreditCard represents a Refund. Valid only for CreditCard transaction
-							Filterable: QBW
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -138,8 +135,6 @@ class IPPPurchase
 								[b]QuickBooks Notes[/b][br /]
 								Non QB-writable.
 								Output only field in case of QBO
-								Filterable: QBW
-								Sortable: QBW
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3

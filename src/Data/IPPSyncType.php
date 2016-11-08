@@ -42,6 +42,7 @@ class IPPSyncType
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPSYNCTYPE_UPLOAD = "Upload";
+	const IPPSYNCTYPE_WRITEBACK = "Writeback";
 
 } // end class IPPSyncType

@@ -227,6 +227,130 @@ class DataService {
         return $parsedResponseBody;
     }
 
+    // **France**
+    // Custom update operation "updateAccountOnTxns"  for Customer/ Vendor 
+
+    //Check
+    
+    /**
+     * Updates an entity under the specified realm. The realm must be set in the context.
+     *
+     * @param IPPIntuitEntity $entity Entity to Update.
+     * @return IPPIntuitEntity Returns an updated version of the entity with updated identifier and sync token. 
+     */
+    public function updateAccountOnTxns($entity) {
+
+        $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Called Method Update with Transaction Update.");
+
+        // Validate parameter
+        if (!$entity) {
+            $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Error, "Argument Null Exception");
+            throw new IdsException('Argument Null Exception');
+        }
+         $this->verifyOperationAccess($entity,__FUNCTION__);
+
+        $httpsPostBody = $this->executeObjectSerializer($entity, $urlResource);
+
+        // Builds resource Uri
+        // Handle some special cases
+        if ((strtolower('preferences') == strtolower($urlResource)) &&
+                (IntuitServicesType::QBO == $this->serviceContext->serviceType)) {
+            // URL format for *QBO* prefs request is different than URL format for *QBD* prefs request
+            $uri = implode(CoreConstants::SLASH_CHAR, array('company', $this->serviceContext->realmId, $urlResource));
+        } else if ((strtolower('company') == strtolower($urlResource)) &&
+                (IntuitServicesType::QBD == $this->serviceContext->serviceType)) {
+            // URL format for *QBD* companyinfo request is different than URL format for *QBO* companyinfo request
+            $urlResource = 'companyInfo';
+            $uri = implode(CoreConstants::SLASH_CHAR, array('company', $this->serviceContext->realmId, $urlResource . '?operation=update'));
+        } else {
+             $uri = implode(CoreConstants::SLASH_CHAR, array('company', $this->serviceContext->realmId, $urlResource  . '?include=updateaccountontxns'));
+        }
+
+         // Creates request parameters
+        $requestParameters = $this->initPostRequest($entity, $uri);
+
+        $restRequestHandler = new SyncRestHandler($this->serviceContext);
+        try {
+            // gets response
+            list($responseCode, $responseBody) = $restRequestHandler->GetResponse($requestParameters, $httpsPostBody, NULL);
+        } catch (Exception $e) {
+            
+        }
+
+        CoreHelper::CheckNullResponseAndThrowException($responseBody);
+
+        try {
+            $parsedResponseBody = $this->responseSerializer->Deserialize($responseBody, TRUE);
+        } catch (Exception $e) {
+            return NULL;
+        }
+
+        $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Finished Executing Method Update.");
+        return $parsedResponseBody;
+    }
+ 
+    // **France**
+    // Custom update operation "donotupdateaccountontxns" for Item
+
+    /**
+     * Updates an entity under the specified realm. The realm must be set in the context.
+     *
+     * @param IPPIntuitEntity $entity Entity to Update.
+     * @return IPPIntuitEntity Returns an updated version of the entity with updated identifier and sync token. 
+     */
+    public function donotUpdateAccountOnTxns($entity) {
+        $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Called Method Update with Transaction Not Updated.");
+
+        // Validate parameter
+        if (!$entity) {
+            $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Error, "Argument Null Exception");
+            throw new IdsException('Argument Null Exception');
+        }
+         $this->verifyOperationAccess($entity,__FUNCTION__);
+
+        $httpsPostBody = $this->executeObjectSerializer($entity, $urlResource);
+
+        // Builds resource Uri
+        // Handle some special cases
+        if ((strtolower('preferences') == strtolower($urlResource)) &&
+                (IntuitServicesType::QBO == $this->serviceContext->serviceType)) {
+            // URL format for *QBO* prefs request is different than URL format for *QBD* prefs request
+            $uri = implode(CoreConstants::SLASH_CHAR, array('company', $this->serviceContext->realmId, $urlResource));
+        } else if ((strtolower('company') == strtolower($urlResource)) &&
+                (IntuitServicesType::QBD == $this->serviceContext->serviceType)) {
+            // URL format for *QBD* companyinfo request is different than URL format for *QBO* companyinfo request
+            $urlResource = 'companyInfo';
+            $uri = implode(CoreConstants::SLASH_CHAR, array('company', $this->serviceContext->realmId, $urlResource . '?operation=update'));
+        } else {
+          
+             $uri = implode(CoreConstants::SLASH_CHAR, array('company', $this->serviceContext->realmId, $urlResource  . '?include=donotupdateaccountontxns'));
+         
+
+        }
+
+         // Creates request parameters
+        $requestParameters = $this->initPostRequest($entity, $uri);
+
+        $restRequestHandler = new SyncRestHandler($this->serviceContext);
+        try {
+            // gets response
+            list($responseCode, $responseBody) = $restRequestHandler->GetResponse($requestParameters, $httpsPostBody, NULL);
+        } catch (Exception $e) {
+            
+        }
+
+        CoreHelper::CheckNullResponseAndThrowException($responseBody);
+
+        try {
+            $parsedResponseBody = $this->responseSerializer->Deserialize($responseBody, TRUE);
+        } catch (Exception $e) {
+            return NULL;
+        }
+
+        $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Finished Executing Method Update.");
+        return $parsedResponseBody;
+    }
+
     /**
      * Returns an entity under the specified realm. The realm must be set in the context.
      *

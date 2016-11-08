@@ -42,6 +42,18 @@ class IPPItemTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPITEMTYPEENUM_ASSEMBLY = "Assembly";
+	const IPPITEMTYPEENUM_CATEGORY = "Category";
+	const IPPITEMTYPEENUM_FIXED_ASSET = "Fixed Asset";
+	const IPPITEMTYPEENUM_GROUP = "Group";
+	const IPPITEMTYPEENUM_INVENTORY = "Inventory";
+	const IPPITEMTYPEENUM_NONINVENTORY = "NonInventory";
+	const IPPITEMTYPEENUM_OTHER_CHARGE = "Other Charge";
+	const IPPITEMTYPEENUM_PAYMENT = "Payment";
+	const IPPITEMTYPEENUM_SERVICE = "Service";
+	const IPPITEMTYPEENUM_SUBTOTAL = "Subtotal";
+	const IPPITEMTYPEENUM_DISCOUNT = "Discount";
+	const IPPITEMTYPEENUM_TAX = "Tax";
+	const IPPITEMTYPEENUM_TAX_GROUP = "Tax Group";
 
 } // end class IPPItemTypeEnum

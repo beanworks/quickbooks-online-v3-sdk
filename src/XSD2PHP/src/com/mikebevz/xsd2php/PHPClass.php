@@ -218,9 +218,11 @@ class PHPClass extends Common {
         return implode("\n", $code);   
     }
     
+   
+
     public function constNameFromValue($value)
-    {
-        return strtoupper(str_ireplace(array(" ","-"), "_", $value));
+    {    
+        return strtoupper(str_ireplace(array(" ","-"), "_",  $this->name. '_' . $value));
     }
     
     /**

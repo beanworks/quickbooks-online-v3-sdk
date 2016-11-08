@@ -42,6 +42,10 @@ class IPPEntityTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPENTITYTYPEENUM_CUSTOMER = "Customer";
+	const IPPENTITYTYPEENUM_EMPLOYEE = "Employee";
+	const IPPENTITYTYPEENUM_JOB = "Job";
+	const IPPENTITYTYPEENUM_OTHER = "Other";
+	const IPPENTITYTYPEENUM_VENDOR = "Vendor";
 
 } // end class IPPEntityTypeEnum

@@ -57,7 +57,6 @@ class IPPSalesRep
 	 * @Definition 
 								Product: QBW
 								Description: True if active. Inactive sales reps may be hidden from display and may not be used on financial transactions.
-								Filterable: QBW
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3

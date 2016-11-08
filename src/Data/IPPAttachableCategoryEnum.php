@@ -42,6 +42,12 @@ class IPPAttachableCategoryEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPATTACHABLECATEGORYENUM_IMAGE = "Image";
+	const IPPATTACHABLECATEGORYENUM_SIGNATURE = "Signature";
+	const IPPATTACHABLECATEGORYENUM_CONTACT_PHOTO = "Contact Photo";
+	const IPPATTACHABLECATEGORYENUM_RECEIPT = "Receipt";
+	const IPPATTACHABLECATEGORYENUM_DOCUMENT = "Document";
+	const IPPATTACHABLECATEGORYENUM_SOUND = "Sound";
+	const IPPATTACHABLECATEGORYENUM_OTHER = "Other";
 
 } // end class IPPAttachableCategoryEnum

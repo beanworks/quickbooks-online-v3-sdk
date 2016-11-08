@@ -42,6 +42,9 @@ class IPPTxnSourceEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPTXNSOURCEENUM_QBMOBILE = "QBMobile";
+	const IPPTXNSOURCEENUM_GOPAYMENT = "GoPayment";
+	const IPPTXNSOURCEENUM_EINVOICE = "EInvoice";
+	const IPPTXNSOURCEENUM_SQUARE = "Square";
 
 } // end class IPPTxnSourceEnum

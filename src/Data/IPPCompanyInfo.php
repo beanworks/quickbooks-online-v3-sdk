@@ -353,19 +353,6 @@ class IPPCompanyInfo
 	 */
 	public $LastImportedTime;
 	/**
-	 * @Definition 
-	                                  Product: QBW 
-	                                  Description: Specifies last sync time.
-	                           
-	 * @xmlType element
-	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlMinOccurs 0
-	 * @xmlMaxOccurs 1
-	 * @xmlName LastSyncTime
-	 * @var string
-	 */
-	public $LastSyncTime;
-	/**
 	 * @Definition Comma separated list of languages
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3

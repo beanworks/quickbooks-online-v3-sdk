@@ -42,6 +42,9 @@ class IPPTaxRateApplicableOnEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPTAXRATEAPPLICABLEONENUM_SALES = "Sales";
+	const IPPTAXRATEAPPLICABLEONENUM_PURCHASE = "Purchase";
+	const IPPTAXRATEAPPLICABLEONENUM_ADJUSTMENT = "Adjustment";
+	const IPPTAXRATEAPPLICABLEONENUM_OTHER = "Other";
 
 } // end class IPPTaxRateApplicableOnEnum

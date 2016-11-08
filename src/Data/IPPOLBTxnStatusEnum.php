@@ -40,6 +40,8 @@ class IPPOLBTxnStatusEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPOLBTXNSTATUSENUM_PENDING = "Pending";
+	const IPPOLBTXNSTATUSENUM_APPROVED = "Approved";
+	const IPPOLBTXNSTATUSENUM_DELETED = "Deleted";
 
 } // end class IPPOLBTxnStatusEnum

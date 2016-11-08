@@ -42,6 +42,11 @@ class IPPTaxFormTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPTAXFORMTYPEENUM_FORM_C = "Form C";
+	const IPPTAXFORMTYPEENUM_FORM_F = "Form F";
+	const IPPTAXFORMTYPEENUM_FORM_I = "Form I";
+	const IPPTAXFORMTYPEENUM_FORM_H = "Form H";
+	const IPPTAXFORMTYPEENUM_FORM_E1 = "Form E1";
+	const IPPTAXFORMTYPEENUM_FORM_E2 = "Form E2";
 
 } // end class IPPTaxFormTypeEnum

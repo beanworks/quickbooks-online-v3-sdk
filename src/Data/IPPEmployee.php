@@ -50,7 +50,7 @@ class IPPEmployee
 	 * @Definition Specifies the number of the employee (or account) in the employer's directory.
 								Length Restriction:
 								QBO: 15
-								QBD: 99
+								QBD: 1024
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3

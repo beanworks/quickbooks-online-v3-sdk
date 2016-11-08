@@ -42,6 +42,8 @@ class IPPTimeActivityTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPTIMEACTIVITYTYPEENUM_EMPLOYEE = "Employee";
+	const IPPTIMEACTIVITYTYPEENUM_OTHER = "Other";
+	const IPPTIMEACTIVITYTYPEENUM_VENDOR = "Vendor";
 
 } // end class IPPTimeActivityTypeEnum

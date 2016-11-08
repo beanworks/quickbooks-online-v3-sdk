@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * This class contains all the ReportName supported by the PHP SDK
  */

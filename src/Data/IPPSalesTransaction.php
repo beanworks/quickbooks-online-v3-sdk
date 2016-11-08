@@ -42,8 +42,8 @@ class IPPSalesTransaction
 	
 	/**
 	 * @Definition 
-                                Product: QBO
-                                Description: If AutoDocNumber is true, DocNumber is generated automatically.  If false or null, the DocNumber is generated based on preference of the user.
+								Product: ALL
+								Description: If true, we will generate DocNumber automatically.  If false or null, the DocNumber is generated based on preference of the user.
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -54,11 +54,9 @@ class IPPSalesTransaction
 	public $AutoDocNumber;
 	/**
 	 * @Definition 
-                                Product: ALL
-                                Description: Reference to a Customer or job.
-                                Filterable: QBW
-                                InputType: ReadWrite
-                                BusinessRules: QBW: CustomerRef is mandatory for some SalesTransactions like Invoice
+								Product: ALL
+								Description: Reference to a Customer or job.
+								Filterable: QBW
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -69,10 +67,10 @@ class IPPSalesTransaction
 	public $CustomerRef;
 	/**
 	 * @Definition 
-                                Product: ALL
-                                Description: QBO: For an Invoice, this is the user-entered message to the customer that does appear in the invoice, and does appear in the printed invoice. The maximum length for Invoice Msg is 1000 characters.[br /]For a Bill, this is the memo of the transaction to provide more detail, and does not appear in the printed message of the bill. The maximum length for Bill Msg is 4000 characters.[br /]For a CreditCardCharge, this message appears in the printed record; maximum length is 4000 characters.[br /]Not supported for BillPayment, JournalEntry or Payment.
-                                Description: QBW: User-entered message to the customer; this message will be visible to end user on their transactions.
-                                InputType: ReadWrite
+								Product: QBO
+								Description: For an Invoice, this is the user-entered message to the customer that does appear in the invoice, and does appear in the printed invoice. The maximum length for Invoice Msg is 1000 characters.[br /]For a Bill, this is the memo of the transaction to provide more detail, and does not appear in the printed message of the bill. The maximum length for Bill Msg is 4000 characters.[br /]For a CreditCardCharge, this message appears in the printed record; maximum length is 4000 characters.[br /]Not supported for BillPayment, JournalEntry or Payment.
+								Product: QBW
+								Description: User-entered message to the customer; this message will be visible to end user on their transactions.[br /]Cannot be written to QuickBooks.
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -83,11 +81,11 @@ class IPPSalesTransaction
 	public $CustomerMemo;
 	/**
 	 * @Definition 
-								Product: ALL
-								Description: QBO: Bill-to address of the Invoice.[br]See [a href="http://ipp.developer.intuit.com/0010_Intuit_Partner_Platform/0060_Financial_Management_Services_(v3)/01000_Using_Data_Service_Entities#Addresses"]Addresses[/a]
-								Description: QBW: The physical (postal) address where the bill or invoice is sent.[br]See [a href="http://ipp.developer.intuit.com/0010_Intuit_Partner_Platform/0060_Financial_Management_Services_(v3)/01000_Using_Data_Service_Entities#Addresses"]Addresses[/a]
-                                InputType: ReadWrite
-                            
+								Product: QBO
+								Description: Bill-to address of the Invoice.[br]See [a href="http://ipp.developer.intuit.com/0010_Intuit_Partner_Platform/0060_Financial_Management_Services_(v3)/01000_Using_Data_Service_Entities#Addresses"]Addresses[/a]
+								Product: QBW
+								Description: The physical (postal) address where the bill or invoice is sent.[br]See [a href="http://ipp.developer.intuit.com/0010_Intuit_Partner_Platform/0060_Financial_Management_Services_(v3)/01000_Using_Data_Service_Entities#Addresses"]Addresses[/a]
+							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
@@ -97,9 +95,10 @@ class IPPSalesTransaction
 	public $BillAddr;
 	/**
 	 * @Definition 
-								Product: ALL
-								Description: QBO: Shipping address of the Invoice.[br]See [a href="http://ipp.developer.intuit.com/0010_Intuit_Partner_Platform/0060_Financial_Management_Services_(v3)/01000_Using_Data_Service_Entities#Addresses"]Addresses[/a]
-								Description: QBW: Identifies the address where the goods must be shipped. [br /]QuickBooks Note: If ShipAddr is not specified, and a default ship-to address is specified in QuickBooks for this customer, the default ship-to address will be used by QuickBooks.[br]See [a href="http://ipp.developer.intuit.com/0010_Intuit_Partner_Platform/0060_Financial_Management_Services_(v3)/01000_Using_Data_Service_Entities#Addresses"]Addresses[/a]
+								Product: QBO
+								Description: Shipping address of the Invoice.[br]See [a href="http://ipp.developer.intuit.com/0010_Intuit_Partner_Platform/0060_Financial_Management_Services_(v3)/01000_Using_Data_Service_Entities#Addresses"]Addresses[/a]
+								Product: QBW
+								Description: Identifies the address where the goods must be shipped. [br /]QuickBooks Note: If ShipAddr is not specified, and a default ship-to address is specified in QuickBooks for this customer, the default ship-to address will be used by QuickBooks.[br]See [a href="http://ipp.developer.intuit.com/0010_Intuit_Partner_Platform/0060_Financial_Management_Services_(v3)/01000_Using_Data_Service_Entities#Addresses"]Addresses[/a]
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -111,8 +110,7 @@ class IPPSalesTransaction
 	/**
 	 * @Definition 
 								Product: QBW
-								Description: Reference to the party receiving payment.
-                                InputType: ReadOnly
+								Description: Reference to the party receiving payment. Cannot be written to QuickBooks.
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -124,8 +122,7 @@ class IPPSalesTransaction
 	/**
 	 * @Definition 
 								Product: QBW
-								Description: Reference to the Class associated with the transaction.
-                                InputType: ReadWrite
+								Description: Reference to the Class associated with the transaction. 
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -137,8 +134,7 @@ class IPPSalesTransaction
 	/**
 	 * @Definition 
 								Product: QBW
-								Description: Reference to the SalesTerm associated with the transaction.
-                                InputType: ReadWrite
+								Description: Reference to the SalesTerm associated with the transaction. 
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -148,9 +144,13 @@ class IPPSalesTransaction
 	 */
 	public $SalesTermRef;
 	/**
-	 * @br 
-	 * @ul If DueDate is not included when creating an invoice, QuickBooks may determine the due date according to the terms set for this customer.
-                                               If the Terms are not provided, the Due Date is set to the transaction date.
+	 * @Definition 
+								Product: QBW
+								Description: Date when the payment of the invoice is due. If DueDate is not included when creating an invoice, QuickBooks may determine the due date according to the terms set for this customer. If the Terms are not provided, the Due Date is set to the transaction date.
+								Product: QBO
+								Description: Date when the invoice is to be paid, not including any early-payment discount incentives, or late payment penalties. If the date is not supplied, the current date on the server is used.
+								Filterable: QBW
+							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
@@ -161,8 +161,7 @@ class IPPSalesTransaction
 	/**
 	 * @Definition 
 								Product: QBW
-								Description: Reference to the SalesRep associated with the transaction.
-                                InputType: ReadWrite
+								Description: Reference to the SalesRep associated with the transaction. 
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -173,10 +172,10 @@ class IPPSalesTransaction
 	public $SalesRepRef;
 	/**
 	 * @Definition 
-								Product: ALL
-								Description: Purchase Order number.
-                                ValidRange: QBW: max=25
-                                ValidRange: QBO: max=15
+								Product: QBW
+								Description: Purchase Order number.[br /]Max. length: 13 characters.
+								Product: QBO
+								Description: Purchase Order number.[br /]Max. length:15 characters.
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -187,11 +186,10 @@ class IPPSalesTransaction
 	public $PONumber;
 	/**
 	 * @Definition 
-								Product: ALL
-								Description: "Free On Board", the terms between buyer and seller regarding transportation costs; does not have any bookkeeping implications.
-								Description: "Free On Board", the terms between buyer and seller regarding transportation costs; does not have any bookkeeping implications.
-                                ValidRange: QBW: max=13
-                                ValidRange: QBO: max=15
+								Product: QBW
+								Description: "Free On Board", the terms between buyer and seller regarding transportation costs; does not have any bookkeeping implications.[br /]Max. length: 13 characters.
+								Product: QBO
+								Description: "Free On Board", the terms between buyer and seller regarding transportation costs; does not have any bookkeeping implications.[br /]Max. length: 15 characters.
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -202,9 +200,8 @@ class IPPSalesTransaction
 	public $FOB;
 	/**
 	 * @Definition 
-                                Product: QBW
-                                Description: Reference to the ShipMethod associated with the transaction.
-                                InputType: ReadWrite
+								Product: QBW
+								Description: Reference to the ShipMethod associated with the transaction. 
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -217,7 +214,6 @@ class IPPSalesTransaction
 	 * @Definition 
 								Product: QBW
 								Description: Date for delivery of goods or services.
-                                InputType: ReadWrite
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -253,11 +249,11 @@ class IPPSalesTransaction
 	/**
 	 * @Definition 
 								Product: All
-								Description: QBO: Indicates the total amount of the transaction. This includes the total of all the charges, allowances and taxes. By default, this is recalculated based on sub items total and overridden.
-								Description: QBW: Indicates the total amount of the transaction. This includes the total of all the charges, allowances and taxes.[br /]Calculated by QuickBooks business logic; cannot be written to QuickBooks.
+								Description: Indicates the total amount of the transaction. This includes the total of all the charges, allowances and taxes. By default, this is recalculated based on sub items total and overridden.
+								Product: QBW
+								Description: Indicates the total amount of the transaction. This includes the total of all the charges, allowances and taxes.[br /]Calculated by QuickBooks business logic; cannot be written to QuickBooks.
 								Filterable: QBW
 								Sortable: QBW
-                                InputType: QBW: OverrideOnSync
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -269,8 +265,7 @@ class IPPSalesTransaction
 	/**
 	 * @Definition 
 								Product: ALL
-								Description: QBW: Total amount of the transaction in the home currency for multi-currency enabled companies. Single currency companies will not have this field. Includes the total of all the charges, allowances and taxes. Calculated by QuickBooks business logic. Cannot be written to QuickBooks.
-                                InputType: QBW: ReadOnly
+								Description: Total amount of the transaction in the home currency for multi-currency enabled companies. Single currency companies will not have this field. Includes the total of all the charges, allowances and taxes. Calculated by QuickBooks business logic. Cannot be written to QuickBooks.
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -281,7 +276,7 @@ class IPPSalesTransaction
 	public $HomeTotalAmt;
 	/**
 	 * @Definition 
-								Product: QBO
+								Product: ALL
 								Description: If false or null, calculate the sales tax first, and then apply the discount. If true, subtract the discount first and then calculate the sales tax.
 							
 	 * @xmlType element
@@ -295,7 +290,6 @@ class IPPSalesTransaction
 	 * @Definition 
 								Product: QBW
 								Description: Reference to the Template for the invoice form.
-                                InputType: ReadWrite
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -308,7 +302,6 @@ class IPPSalesTransaction
 	 * @Definition 
 								Product: ALL
 								Description: Printing status of the invoice.[br /]
-                                InputType: ReadWrite
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -321,7 +314,6 @@ class IPPSalesTransaction
 	 * @Definition 
 								Product: ALL
 								Description: Email status of the invoice.[br /]
-                                InputType: ReadWrite
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -348,7 +340,6 @@ class IPPSalesTransaction
 	 * @Definition 
 								Product: QBW
 								Description: Reference to the ARAccount (accounts receivable account) associated with the transaction.
-                                InputType: ReadWrite
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -360,12 +351,11 @@ class IPPSalesTransaction
 	/**
 	 * @Definition 
 								Product: QBO
-								Description: The balance reflecting any payments made against the transaction. Initially this will be equal to the TotalAmt.
+								Description: The balance reflecting any payments made against the transaction. Initially this will be equal to the TotalAmt.[br /]Read-only field.
 								Product: QBW
-								Description: Indicates the unpaid amount of the transaction.
+								Description: Indicates the unpaid amount of the transaction.[br /]Cannot be written to QuickBooks.
 								Filterable: ALL
 								Sortable: QBW
-                                InputType: ReadOnly
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -394,7 +384,6 @@ class IPPSalesTransaction
 	 * @Definition 
 								Product: ALL
 								Description: Indicates whether the transaction is a finance charge.
-                                InputType: ReadWrite
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -407,7 +396,6 @@ class IPPSalesTransaction
 	 * @Definition 
 								Product: ALL
 								Description: Reference to the PaymentMethod.
-                                InputType: ReadWrite
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -418,7 +406,7 @@ class IPPSalesTransaction
 	public $PaymentMethodRef;
 	/**
 	 * @Definition 
-								Product: QBO
+								Product: ALL
 								Description: The reference number for the payment received (I.e. Check # for a check, envelope # for a cash donation, CreditCardTransactionID for a credit card payment)
 							
 	 * @xmlType element
@@ -431,8 +419,7 @@ class IPPSalesTransaction
 	/**
 	 * @Definition  
 								Product: QBO
-								Description: Valid values are Cash, Check, CreditCard, or Other. No defaults. Cash based expense is not supported by QuickBooks Windows.
-                                NotApplicableTo: Estimate, SalesOrder
+								Description: Valid values are Cash, Check, CreditCard, or Other. No defaults. Cash based expense is not supported by QuickBooks Windows. Not applicable to Estimate and SalesOrder.[br /]
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -444,8 +431,7 @@ class IPPSalesTransaction
 	/**
 	 * @Definition  
 									Product: ALL
-									Description Information about a check payment for the Invoice.
-                                    NotApplicableTo: Estimate, SalesOrder
+									Description Information about a check payment for the Invoice. Not applicable to Estimate and SalesOrder.
 								
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -457,8 +443,7 @@ class IPPSalesTransaction
 	/**
 	 * @Definition  
 									Product: ALL
-									Description Information about a credit card payment for the Invoice.
-                                    NotApplicableTo: Estimate, SalesOrder
+									Description Information about a credit card payment for the Invoice. Not applicable to Estimate and SalesOrder.
 								
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -469,10 +454,10 @@ class IPPSalesTransaction
 	public $CreditCardPayment;
 	/**
 	 * @Definition 
-								Product: ALL
-								Description: QBW: Reference to the DepositToAccount entity. If not specified, the Undeposited Funds account will be used.
-                                Description: QBO: Asset account where the payment money is deposited. If you do not specify this account, QBO uses the Undeposited Funds account. Supported for Payment and SalesReceipt only.
-                                NotApplicableTo: QBW: Estimate, SalesOrder
+								Product: QBW
+								Description: Reference to the DepositToAccount entity. If not specified, the Undeposited Funds account will be used. Not applicable to Estimate and SalesOrder.
+								Product: QBO
+								Description: Asset account where the payment money is deposited. If you do not specify this account, QBO uses the Undeposited Funds account. Supported for Payment and SalesReceipt only.
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3

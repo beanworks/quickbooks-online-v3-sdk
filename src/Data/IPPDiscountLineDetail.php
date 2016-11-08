@@ -45,18 +45,6 @@ class IPPDiscountLineDetail
 	/**
 	 * @Definition 
 								Product: ALL
-								Description: Date when the service is performed.
-							
-	 * @xmlType element
-	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlMinOccurs 0
-	 * @xmlName ServiceDate
-	 * @var string
-	 */
-	public $ServiceDate;
-	/**
-	 * @Definition 
-								Product: ALL
 								Description: Reference to the Class for the discount.
 							
 	 * @xmlType element

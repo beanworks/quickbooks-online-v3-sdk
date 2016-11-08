@@ -211,7 +211,6 @@ class XmlObjectSerializer extends IEntitySerializer {
 		$responseXmlObj = simplexml_load_string($message);
 		foreach($responseXmlObj as $oneXmlObj)
 		{
-			
 			$oneXmlElementName = (string)$oneXmlObj->getName();
 			
 			if ('Fault'==$oneXmlElementName)

@@ -42,6 +42,12 @@ class IPPPaymentStatusEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPPAYMENTSTATUSENUM_DRAFT = "Draft";
+	const IPPPAYMENTSTATUSENUM_OVERDUE = "Overdue";
+	const IPPPAYMENTSTATUSENUM_PENDING = "Pending";
+	const IPPPAYMENTSTATUSENUM_PAYABLE = "Payable";
+	const IPPPAYMENTSTATUSENUM_PAID = "Paid";
+	const IPPPAYMENTSTATUSENUM_TRASH = "Trash";
+	const IPPPAYMENTSTATUSENUM_UNPAID = "UnPaid";
 
 } // end class IPPPaymentStatusEnum

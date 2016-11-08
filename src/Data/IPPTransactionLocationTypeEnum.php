@@ -42,6 +42,9 @@ class IPPTransactionLocationTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPTRANSACTIONLOCATIONTYPEENUM_WITHINFRANCE = "WithinFrance";
+	const IPPTRANSACTIONLOCATIONTYPEENUM_FRANCEOVERSEAS = "FranceOverseas";
+	const IPPTRANSACTIONLOCATIONTYPEENUM_OUTSIDEFRANCEWITHEU = "OutsideFranceWithEU";
+	const IPPTRANSACTIONLOCATIONTYPEENUM_OUTSIDEEU = "OutsideEU";
 
 } // end class IPPTransactionLocationTypeEnum

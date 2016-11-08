@@ -42,6 +42,8 @@ class IPPSyncErrorType
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPSYNCERRORTYPE_OUTOFSYNC = "OutOfSync";
+	const IPPSYNCERRORTYPE_BUSINESSLOGIC = "BusinessLogic";
+	const IPPSYNCERRORTYPE_SYSTEMERROR = "SystemError";
 
 } // end class IPPSyncErrorType

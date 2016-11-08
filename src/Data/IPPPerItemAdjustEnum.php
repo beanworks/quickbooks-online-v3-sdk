@@ -42,6 +42,8 @@ class IPPPerItemAdjustEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPPERITEMADJUSTENUM_COST = "Cost";
+	const IPPPERITEMADJUSTENUM_CURRENTCUSTOMPRICE = "CurrentCustomPrice";
+	const IPPPERITEMADJUSTENUM_STANDARDPRICE = "StandardPrice";
 
 } // end class IPPPerItemAdjustEnum

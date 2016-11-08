@@ -42,6 +42,16 @@ class IPPETransactionStatusEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPETRANSACTIONSTATUSENUM_SENT = "Sent";
+	const IPPETRANSACTIONSTATUSENUM_VIEWED = "Viewed";
+	const IPPETRANSACTIONSTATUSENUM_PAID = "Paid";
+	const IPPETRANSACTIONSTATUSENUM_DELIVERY_ERROR = "Delivery Error";
+	const IPPETRANSACTIONSTATUSENUM_UPDATED = "Updated";
+	const IPPETRANSACTIONSTATUSENUM_ERROR = "Error";
+	const IPPETRANSACTIONSTATUSENUM_ACCEPTED = "Accepted";
+	const IPPETRANSACTIONSTATUSENUM_REJECTED = "Rejected";
+	const IPPETRANSACTIONSTATUSENUM_SENT_WITH_ICN_ERROR = "Sent With ICN Error";
+	const IPPETRANSACTIONSTATUSENUM_DELIVERED = "Delivered";
+	const IPPETRANSACTIONSTATUSENUM_DISPUTED = "Disputed";
 
 } // end class IPPETransactionStatusEnum

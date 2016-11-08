@@ -42,6 +42,10 @@ class IPPSpecialTaxTypeEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPSPECIALTAXTYPEENUM_NONE = "NONE";
+	const IPPSPECIALTAXTYPEENUM_ZERO_RATE = "ZERO_RATE";
+	const IPPSPECIALTAXTYPEENUM_FOREIGN_TAX = "FOREIGN_TAX";
+	const IPPSPECIALTAXTYPEENUM_REVERSE_CHARGE = "REVERSE_CHARGE";
+	const IPPSPECIALTAXTYPEENUM_ADJUSTMENT_RATE = "ADJUSTMENT_RATE";
 
 } // end class IPPSpecialTaxTypeEnum

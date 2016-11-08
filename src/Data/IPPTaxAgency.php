@@ -123,13 +123,26 @@ class IPPTaxAgency
 	 */
 	public $TaxOnTax;
 	/**
+	 * @Definition 
+                                Product: QBO
+                                Description: This specifies the last filing date for this tax agency.
+								InputType: QBO: ReadOnly
+                            
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
-	 * @xmlName TaxAgencyExt
+	 * @xmlName LastFileDate
+	 * @var string
+	 */
+	public $LastFileDate;
+	/**
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName TaxAgencyEx
 	 * @var com\intuit\schema\finance\v3\IPPIntuitAnyType
 	 */
-	public $TaxAgencyExt;
+	public $TaxAgencyEx;
 
 
 } // end class IPPTaxAgency

@@ -42,6 +42,8 @@ class IPPPaySalesTaxEnum
 		 * @xmlType value
 		 * @var string
 		 */
-		public $value;
+		public $value;	const IPPPAYSALESTAXENUM_ANNUALLY = "Annually";
+	const IPPPAYSALESTAXENUM_MONTHLY = "Monthly";
+	const IPPPAYSALESTAXENUM_QUARTERLY = "Quarterly";
 
 } // end class IPPPaySalesTaxEnum

@@ -9,7 +9,7 @@ require_once('IPPIntuitEntity.php');
  * @xmlDefinition 
 				Product: ALL
 				Description: The Term entity represents the terms under which a sale is made, typically expressed in the form of days due after the goods are received.  Optionally, a discount of the total amount may be applied if payment is made within a stipulated time.  For example, net 30 indicates that payment is due within 30 days.  A term of 2%/15 net 60 indicates that payment is due within 60 days,  with a discount of 2%  if payment is made within 15 days.   Term also supports: an absolute due date, a number of days from a start date, a percent discount, or an absolute discount. 
-			
+		
  */
 class IPPTerm
 	extends IPPIntuitEntity	{
@@ -42,11 +42,11 @@ class IPPTerm
 	
 	/**
 	 * @Definition 
-								Product: ALL
-								Description: User recognizable name for the term, for example, "Net 30".
-								ValidRange: QBW: max=31
-								ValidRange: QBO: Max=31
-								Required: ALL
+								Product: QBW
+								Description: User recognizable name for the term, for example, "Net 30".[br /]Max. length: 31 characters.
+								Product: QBO
+								Description: User recognizable name for the term, for example, "Net 30".[br /]Max. length: 15 characters.
+								Required: QBO
 								Filterable: QBO
 								Sortable: ALL
 							
@@ -59,10 +59,9 @@ class IPPTerm
 	public $Name;
 	/**
 	 * @Definition 
-								Product: ALL
-								Description: If true, this entity is currently enabled for use by QuickBooks.
-								Filterable: ALL
-								Default Value: true
+								Product: QBW
+								Description: If true, this entity is currently enabled for use by QuickBooks. The default value is true.
+								Filterable: QBW
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -74,7 +73,8 @@ class IPPTerm
 	/**
 	 * @Definition 
 								Product: ALL
-								Description: Type of the Sales Term. Valid values: Standard or DateDriven, as defined by SalesTermTypeEnum. [br /] If dueDays is not null, the Type is Standard else DateDriven.
+								Description: Type of the Sales Term. Valid values: Standard or DateDriven, as defined by SalesTermTypeEnum. [br /]Required for the Create operation.
+								Required: ALL
 								InputType: ALL: ReadOnly
 							
 	 * @xmlType element
@@ -86,9 +86,10 @@ class IPPTerm
 	public $Type;
 	/**
 	 * @Definition 
-								Product: ALL
-								Description: Discount percentage available against an amount if paid within the days specified by DiscountDays.
-								ValidRange: ALL: Min=0, Max=100
+								Product: QBW
+								Description: Discount percentage available against an amount if paid within the discount window specified for the term. This must be a number between 0 and 100.
+								Product: QBO
+								Description: Discount percentage available against an amount if paid within the discount window specified for the term. This value is used only when DueDays is specified.
 							
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -99,11 +100,11 @@ class IPPTerm
 	public $DiscountPercent;
 	/**
 	 * @Definition 
-										Product: ALL
+										Product: QBW
 										Description: Number of days from delivery of goods or services until the payment is due.
-										Business Rules: QBO: [li] This value is required if DayOfMonthDue is not specified. [/li] [li] If DueDays is specified, only DiscountDays and DiscountPercent can be additionally specified.[/li]
+										Product: QBO
+										Description: Number of days from delivery of goods or services until the payment is due. If DueDays is specified, only DiscountDays and DiscountPercent can be additionally specified.
 										Required: QBO
-										ValidRange: QBO: Min=0 Max=999
 									
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -114,10 +115,10 @@ class IPPTerm
 	public $DueDays;
 	/**
 	 * @Definition 
-										Product: ALL
+										Product: QBW
 										Description: Discount applies if paid within this number of days.
-										Business Rules: [li] This value is used only when DueDays is specified. [/li]
-										ValidRange: QBO: Min=0 Max=999
+										Product: QBO
+										Description: Number of days for which the discount is applicable, if the payment is made within these days. This value is used only when DueDays is specified.
 									
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -128,10 +129,10 @@ class IPPTerm
 	public $DiscountDays;
 	/**
 	 * @Definition 
-										Product: ALL
-										Description: Payment must be received by this day of the month.
-										Business Rules: QBO: [li] This value is used only when DueDays is not specified.[/li] [li] Required for the Create request when DueDays is not specified.[/li]
-										ValidRange: QBO: Min=1 Max=31
+										Product: QBW
+										Description: Payment must be received by this day of the month.[br /]Required for the Create request.
+										Product: QBO
+										Description: Payment must be received by this day of the month. This value is used only when DueDays is not specified.[br /]Required for the Create request.
 									
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -142,10 +143,10 @@ class IPPTerm
 	public $DayOfMonthDue;
 	/**
 	 * @Definition 
-										Product: ALL
+										Product: QBW
 										Description: Payment due next month if issued that many days before the DayOfMonthDue.
-										Business Rules: QBO: [li] Required for the Create request when DueDays is not specified.[/li]
-										ValidRange: QBO: Min=1 Max=999
+										Product: QBO
+										Description: Payment due next month if issued that many days before the DayOfMonthDue. This value is used only when DueDays is not specified.
 									
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
@@ -156,10 +157,10 @@ class IPPTerm
 	public $DueNextMonthDays;
 	/**
 	 * @Definition 
-										Product: ALL
+										Product: QBW
 										Description: Discount applies if paid before this day of month.
-										Business Rules: QBO: Required for the Create request when DueDays is not specified.
-										ValidRange: QBO: Min=1 Max=31
+										Product: QBO
+										Description: Discount applies if paid before this day of month. This value is used only when DueDays is not specified.
 									
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3

@@ -1,14 +1,15 @@
 <?php
+require_once('IPPIntuitEntity.php');
 
 /**
  * @xmlNamespace http://schema.intuit.com/finance/v3
- * @xmlType 
+ * @xmlType IntuitEntity
  * @xmlName IPPTaxService
  * @var IPPTaxService
  * @xmlDefinition Describes SalesTax details
  */
 class IPPTaxService
-	{
+	extends IPPIntuitEntity	{
 
 		/**                                                                       
 		* Initializes this object, optionally with pre-defined property values    
@@ -38,9 +39,9 @@ class IPPTaxService
 	
 	/**
 	 * @Definition 
-                        Product: QBO
-                        Description: Describes the taxcode                                           					
-                    
+                            Product: QBO
+                            Description: Describes the taxcode
+                        
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
@@ -51,9 +52,9 @@ class IPPTaxService
 	public $TaxCode;
 	/**
 	 * @Definition 
-                        Product: QBO
-                        Description: Describes the taxcode Id, this is output only                                                               
-                    
+                            Product: QBO
+                            Description: Describes the taxcode Id, this is output only
+                        
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0
@@ -64,9 +65,9 @@ class IPPTaxService
 	public $TaxCodeId;
 	/**
 	 * @Definition 
-                        Product: QBO
-                        Description: TaxRate details                                                                    
-                    
+                            Product: QBO
+                            Description: TaxRate details
+                        
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
 	 * @xmlMinOccurs 0

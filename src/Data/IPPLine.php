@@ -116,7 +116,7 @@ class IPPLine
 					
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlMinOccurs 0
+	 * @xmlMinOccurs 1
 	 * @xmlMaxOccurs 1
 	 * @xmlName DetailType
 	 * @var com\intuit\schema\finance\v3\IPPLineDetailTypeEnum
@@ -221,17 +221,6 @@ class IPPLine
 	 * @var com\intuit\schema\finance\v3\IPPPurchaseOrderItemLineDetail
 	 */
 	public $PurchaseOrderItemLineDetail;
-	/**
-	 * @Definition 
-							Product: ALL
-							Description: SalesOrderItem type for the transaction.
-						
-	 * @xmlType element
-	 * @xmlNamespace http://schema.intuit.com/finance/v3
-	 * @xmlName SalesOrderItemLineDetail
-	 * @var com\intuit\schema\finance\v3\IPPSalesOrderItemLineDetail
-	 */
-	public $SalesOrderItemLineDetail;
 	/**
 	 * @Definition 
 							Product: ALL
