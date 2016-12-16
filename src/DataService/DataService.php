@@ -5,6 +5,7 @@ require_once(PATH_SDK_ROOT . 'Core/ContentWriter.php');
 require_once(PATH_SDK_ROOT . 'Core/OperationControlList.php');
 require_once(PATH_SDK_ROOT . 'DataService/Batch.php');
 require_once(PATH_SDK_ROOT . 'DataService/IntuitCDCResponse.php');
+require_once(PATH_SDK_ROOT . 'Exception/IdsExceptionManager.php');
 
 /**
  * This file contains DataService performs CRUD operations on IPP REST APIs.
@@ -13,31 +14,31 @@ class DataService {
 
     /**
      * The Service context object.
-     * @var ServiceContext 
+     * @var ServiceContext
      */
     private $serviceContext;
 
     /**
      * Rest Request Handler.
-     * @var IRestHandler 
+     * @var IRestHandler
      */
     private $restHandler;
 
     /**
      * Serializer needs to be used fore responce object
-     * @var IEntitySerializer 
+     * @var IEntitySerializer
      */
     private $responseSerializer;
 
     /**
      * Serializer needs to be used for request object
-     * @var IEntitySerializer 
+     * @var IEntitySerializer
      */
     private $requestSerializer;
 
     /**
      * If true, indicates a desire to echo verbose output
-     * @var bool 
+     * @var bool
      */
     private $verbose;
 
@@ -74,7 +75,7 @@ class DataService {
         $this->responseSerializer = CoreHelper::GetSerializer($this->serviceContext, false);
         $this->requestSerializer = CoreHelper::GetSerializer($this->serviceContext, true);
     }
-    
+
     private function useMinorVersion()
     {
         $version = $this->serviceContext->IppConfiguration->minorVersion;
@@ -82,14 +83,14 @@ class DataService {
             $this->serviceContext->minorVersion = $version;
         }
     }
-    
+
     public function getMinorVersion()
     {
         return  $this->serviceContext->minorVersion;
     }
-      
+
     /**
-     * Force json serializers for request and response 
+     * Force json serializers for request and response
      */
     public function forceJsonSerializers()
     {
@@ -116,11 +117,11 @@ class DataService {
     /**
      * Marshall a POPO object to XML, presumably for inclusion on an IPP v3 API call
      *
-     * This code is dead!  
+     * This code is dead!
      *
      * @param POPOObject $phpObj inbound POPO object
      * @return string XML output derived from POPO object
-     * @depricated  
+     * @depricated
      */
     private function getXmlFromObj($phpObj) {
         if (!$phpObj) {
@@ -151,7 +152,7 @@ class DataService {
     private static function decorateIntuitEntityToPhpClassName($intuitEntityName) {
         return PHP_CLASS_PREFIX . $intuitEntityName;
     }
-    
+
     private static function getEntityResourceName($entity)
     {
         return strtolower(self::cleanPhpClassNameToIntuitEntityName(get_class($entity)));
@@ -161,7 +162,7 @@ class DataService {
      * Clean a POPO class name (like 'IPPClass') to be an IPP v3 Entity name (like 'Class')
      *
      * @param string $phpClassName POPO class name
-     * @return string Intuit Entity name 
+     * @return string Intuit Entity name
      */
     private static function cleanPhpClassNameToIntuitEntityName($phpClassName) {
         if (0 == strpos($phpClassName, PHP_CLASS_PREFIX))
@@ -174,7 +175,7 @@ class DataService {
      * Updates an entity under the specified realm. The realm must be set in the context.
      *
      * @param IPPIntuitEntity $entity Entity to Update.
-     * @return IPPIntuitEntity Returns an updated version of the entity with updated identifier and sync token. 
+     * @return IPPIntuitEntity Returns an updated version of the entity with updated identifier and sync token.
      */
     public function Update($entity) {
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Called Method Update.");
@@ -210,11 +211,12 @@ class DataService {
         $restRequestHandler = new SyncRestHandler($this->serviceContext);
         try {
             // gets response
-            list($responseCode, $responseBody) = $restRequestHandler->GetResponse($requestParameters, $httpsPostBody, NULL);
+            list($responseCode,$responseBody,$responseError) = $restRequestHandler->GetResponse($requestParameters, $httpsPostBody, NULL);
         } catch (Exception $e) {
-            
+            IdsExceptionManager::HandleException($e);
         }
 
+        CoreHelper::CheckResponseErrorAndThrowException($this->serviceContext, $responseError);
         CoreHelper::CheckNullResponseAndThrowException($responseBody);
 
         try {
@@ -231,10 +233,10 @@ class DataService {
      * Returns an entity under the specified realm. The realm must be set in the context.
      *
      * @param object $entity Entity to Find
-     * @return IPPIntuitEntity Returns an entity of specified Id. 
+     * @return IPPIntuitEntity Returns an entity of specified Id.
      */
     public function FindById($entity) {
-        
+
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Called Method FindById.");
 
         $httpsPostBody = $this->executeObjectSerializer($entity, $urlResource);
@@ -252,7 +254,7 @@ class DataService {
 
         // Handle some special cases
         if (strtolower('preferences') == strtolower($urlResource)) {
-            // FindById semantics for CompanyInfo are unusual.  Handle via special case. 
+            // FindById semantics for CompanyInfo are unusual.  Handle via special case.
             $allEntities = $this->FindAll('Preferences');
 
             foreach ($allEntities as $singletonPreferences) {
@@ -261,7 +263,7 @@ class DataService {
             return NULL;
         } else if ((strtolower('company') == strtolower($urlResource)) ||
                 (strtolower('companyinfo') == strtolower($urlResource))) {
-            // FindById semantics for CompanyInfo are unusual.  Handle via special case. 
+            // FindById semantics for CompanyInfo are unusual.  Handle via special case.
             $allEntities = $this->FindAll('Company');
             foreach ($allEntities as $oneCompany) {
                 if (0 == strcmp($oneCompany->Id, $entity->Id)) {
@@ -285,11 +287,12 @@ class DataService {
         $restRequestHandler = new SyncRestHandler($this->serviceContext);
 
         try {
-            list($responseCode, $responseBody) = $restRequestHandler->GetResponse($requestParameters, NULL, NULL);
+            list($responseCode,$responseBody,$responseError) = $restRequestHandler->GetResponse($requestParameters, NULL, NULL);
         } catch (Exception $e) {
             return NULL;
         }
 
+        CoreHelper::CheckResponseErrorAndThrowException($this->serviceContext, $responseError);
         CoreHelper::CheckNullResponseAndThrowException($responseBody);
         // De serialize object
         try {
@@ -305,7 +308,7 @@ class DataService {
      * Returns an entity under the specified realm. The realm must be set in the context.
      *
      * @param object $entity Entity to Find
-     * @return IPPIntuitEntity Returns an entity of specified Id. 
+     * @return IPPIntuitEntity Returns an entity of specified Id.
      */
     public function Retrieve($entity) {
         $this->verifyOperationAccess($entity,__FUNCTION__);
@@ -324,7 +327,7 @@ class DataService {
         $urlResource = $this->getRequestSerializer()->getResourceURL();
         return $result;
     }
-    
+
     /**
      * Returns post request, depends on configuration and entity rule "jsonOnly"
      * @param type $entity
@@ -333,7 +336,7 @@ class DataService {
      */
     protected function initPostRequest($entity, $uri)
     {
-        return $this->isJsonOnly($entity) 
+        return $this->isJsonOnly($entity)
                 ? $this->getPostJsonRequest($uri)
                 : $this->getPostRequest($uri);
     }
@@ -348,7 +351,7 @@ class DataService {
                     ? CoreConstants::CONTENTTYPE_APPLICATIONJSON
                     : CoreConstants::CONTENTTYPE_APPLICATIONXML;
     }
-    
+
     /**
      * Returns post request with pre-defined POST method and JSON serialization
      * @param type $uri
@@ -358,7 +361,7 @@ class DataService {
     {
         return $this->getPostRequestParameters($uri, CoreConstants::CONTENTTYPE_APPLICATIONJSON);
     }
-    
+
     /**
      * Return true if specified entity can work with JSON only serialization
      * @param type $entity
@@ -368,7 +371,7 @@ class DataService {
     {
         return $this->isAllowed($entity, "jsonOnly");
     }
-    
+
     /**
      * Returns pre-defined request with POST method and content type from settings
      * @param type $uri
@@ -389,7 +392,7 @@ class DataService {
     {
         return $this->getRequestParameters($uri, 'GET', $type);
     }
-    
+
     /**
      * Returns pre-defined request with POST method
      * @param string $uri
@@ -411,11 +414,11 @@ class DataService {
      */
     protected function getRequestParameters($uri,$method,$type,$apiName = null)
     {
-        return new RequestParameters($uri, $method, $type, $apiName); 
+        return new RequestParameters($uri, $method, $type, $apiName);
     }
-    
+
     /**
-     * Returns current serialization format 
+     * Returns current serialization format
      * @return string
      */
     protected function getSerializationFormat()
@@ -429,9 +432,9 @@ class DataService {
      * Creates an entity under the specified realm. The realm must be set in the context.
      *
      * @param IPPIntuitEntity $entity Entity to Create.
-     * @return IPPIntuitEntity Returns the created version of the entity. 
+     * @return IPPIntuitEntity Returns the created version of the entity.
      */
-    public function Add($entity) {       
+    public function Add($entity) {
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Called Method Add.");
 
         // Validate parameter
@@ -448,20 +451,21 @@ class DataService {
         // Builds resource Uri
         $resourceURI = implode(CoreConstants::SLASH_CHAR, array('company', $this->serviceContext->realmId, $urlResource));
         $uri = $this->handleTaxService($entity, $resourceURI);
-       
+
         // Creates request parameters
         $requestParameters = $this->initPostRequest($entity, $uri);
 
         $restRequestHandler = $this->getRestHandler();
         try {
             // gets response
-            list($responseCode, $responseBody) = $restRequestHandler->GetResponse($requestParameters, $httpsPostBody, NULL);
+            list($responseCode,$responseBody,$responseError) = $restRequestHandler->GetResponse($requestParameters, $httpsPostBody, NULL);
         } catch (Exception $e) {
-            
+            IdsExceptionManager::HandleException($e);
         }
 
+        CoreHelper::CheckResponseErrorAndThrowException($this->serviceContext, $responseError);
         CoreHelper::CheckNullResponseAndThrowException($responseBody);
-            
+
         $responseBodyVerified = $this->fixTaxServicePayload($entity, $responseBody);
 
         try {
@@ -473,22 +477,22 @@ class DataService {
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Finished Executing Method Add.");
         return $parsedResponseBody;
     }
-    
+
     /**
-     * Handles unusual URL mapping for TaxService 
+     * Handles unusual URL mapping for TaxService
      * @param IPPIntuitEntity $entity
      * @param string $uri
      * @return string
      */
     private function handleTaxService($entity,$uri)
     {
-        
+
         if($this->isTaxServiceSafe($entity)) {
             return $uri . '/taxcode';
         }
-        return $uri;       
+        return $uri;
     }
-    
+
     /**
      * Verifies that entity has TaxService type
      * If this class is not available on include_path or wab't loaded the method will return false
@@ -499,7 +503,7 @@ class DataService {
     {
         return class_exists('IPPTaxService') && ($entity instanceof IPPTaxService);
     }
-    
+
     /**
      * Methods provides workaround to succesfully process TaxService response
      */
@@ -509,8 +513,8 @@ class DataService {
             //get first "line" to make sure we don't have TaxService in response
             $sample = substr(trim($content),0,20);
             $taxServiceName = self::cleanPhpClassNameToIntuitEntityName(get_class($entity));
-            if(false === strpos($sample,$taxServiceName)) { 
-                //last attempt to verify content before 
+            if(false === strpos($sample,$taxServiceName)) {
+                //last attempt to verify content before
                 if(0 === strpos($sample,'{"TaxCode":')) {
                     return "{\"$taxServiceName\":$content}";
                 }
@@ -525,7 +529,7 @@ class DataService {
      * @param IPPIntuitEntity $entity Entity to Delete.
      */
     public function Delete($entity) {
-        
+
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Called Method Delete.");
 
         // Validate parameter
@@ -546,11 +550,12 @@ class DataService {
 
         try {
             // gets response
-            list($responseCode, $responseBody) = $restRequestHandler->GetResponse($requestParameters, $httpsPostBody, NULL);
+            list($responseCode,$responseBody,$responseError) = $restRequestHandler->GetResponse($requestParameters, $httpsPostBody, NULL);
         } catch (Exception $e) {
-            
+            IdsExceptionManager::HandleException($e);
         }
 
+        CoreHelper::CheckResponseErrorAndThrowException($this->serviceContext, $responseError);
         CoreHelper::CheckNullResponseAndThrowException($responseBody);
 
         $restRequestHandler = new SyncRestHandler($this->serviceContext);
@@ -570,7 +575,7 @@ class DataService {
      * @param IPPIntuitEntity $entity Entity to Void.
      */
     public function Void($entity) {
-        
+
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Called Method Void.");
 
         // Validate parameter
@@ -591,11 +596,12 @@ class DataService {
 
         try {
             // gets response
-            list($responseCode, $responseBody) = $restRequestHandler->GetResponse($requestParameters, $httpsPostBody, NULL);
+            list($responseCode,$responseBody,$responseError) = $restRequestHandler->GetResponse($requestParameters, $httpsPostBody, NULL);
         } catch (Exception $e) {
-            
+            IdsExceptionManager::HandleException($e);
         }
 
+        CoreHelper::CheckResponseErrorAndThrowException($this->serviceContext, $responseError);
         CoreHelper::CheckNullResponseAndThrowException($responseBody);
 
         $restRequestHandler = new SyncRestHandler($this->serviceContext);
@@ -616,10 +622,10 @@ class DataService {
      * @param string $fileName Filename to use for this file
      * @param string $mimeType MIME type to send in the HTTP Headers
      * @param IPPAttachable $objAttachable entity describing the attachement
-     * @return array Returns an array of entities fulfilling the query. 
+     * @return array Returns an array of entities fulfilling the query.
      */
     public function Upload($imgBits, $fileName, $mimeType, $objAttachable) {
-        
+
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Called Method Upload.");
 
         // Validate parameter
@@ -636,7 +642,7 @@ class DataService {
 
         // Creates request parameters
         $requestParameters = $this->getPostRequestParameters($uri, "multipart/form-data; boundary={$boundaryString}");
-        
+
 
         $MetaData = $this->executeObjectSerializer($objAttachable, $urlResource);
 
@@ -659,11 +665,12 @@ class DataService {
 
         try {
             // gets response
-            list($responseCode, $responseBody) = $restRequestHandler->GetResponse($requestParameters, $dataMultipart, NULL);
+            list($responseCode,$responseBody,$responseError) = $restRequestHandler->GetResponse($requestParameters, $dataMultipart, NULL);
         } catch (Exception $e) {
-            
+            IdsExceptionManager::HandleException($e);
         }
 
+        CoreHelper::CheckResponseErrorAndThrowException($this->serviceContext, $responseError);
         CoreHelper::CheckNullResponseAndThrowException($responseBody);
 
         $restRequestHandler = new SyncRestHandler($this->serviceContext);
@@ -681,7 +688,7 @@ class DataService {
      * Returns an downloaded entity under the specified realm. The realm must be set in the context.
      *
      * @param object $entity Entity to Find
-     * @return IPPIntuitEntity Returns an entity of specified Id. 
+     * @return IPPIntuitEntity Returns an entity of specified Id.
      */
     public function Download($entity) {
         return $this->FindById($entity);
@@ -692,33 +699,33 @@ class DataService {
      * @param type $entity
      * @return boolean
      * @throws IdsException, SdkException
-     * 
+     *
      */
     public function DownloadPDF($entity) {
-       
+
         $this->validateEntityId($entity);
         $this->verifyOperationAccess($entity,__FUNCTION__);
-        
+
          $uri = implode(CoreConstants::SLASH_CHAR,
-                        array(  'company', 
-                                $this->serviceContext->realmId, 
-                                self::getEntityResourceName($entity), 
+                        array(  'company',
+                                $this->serviceContext->realmId,
+                                self::getEntityResourceName($entity),
                                 $entity->Id,
                                 CoreConstants::getType(CoreConstants::CONTENTTYPE_APPLICATIONPDF)));
          $requestParameters = $this->getGetRequestParameters($uri, CoreConstants::CONTENTTYPE_APPLICATIONPDF);
          $restRequestHandler = $this->getRestHandler();
          try {
-            list($responseCode, $responseBody) = $restRequestHandler->GetResponse($requestParameters, NULL, NULL);
+            list($responseCode, $responseBody, $responseError) = $restRequestHandler->GetResponse($requestParameters, NULL, NULL);
          } catch(Exception $ex) {
              $this->logError("Exception appears during communnication with the service: " . $ex->getMessage() . "\n" . $ex->getTraceAsString());
              return NULL;
          }
- 
+
          return $this->processDownloadedContent(new ContentWriter($responseBody),$responseCode, $this->getExportFileNameForPDF($entity, "pdf") );
     }
-    
+
     /**
-     * Verifies string as email agains RFC 822 
+     * Verifies string as email agains RFC 822
      * @param type $email
      * @return type
      */
@@ -726,28 +733,28 @@ class DataService {
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL);
     }
-    
-    
+
+
         /**
      * Returns PDF for entities which can be downloaded as PDF
      * @param type $entity
      * @return boolean
      * @throws IdsException, SdkException
-     * 
+     *
      */
     public function SendEmail($entity,$email=null) {
-       
+
         $this->validateEntityId($entity);
         $this->verifyOperationAccess($entity,__FUNCTION__);
-        
+
          $uri = implode(CoreConstants::SLASH_CHAR,
-                        array(  'company', 
-                                $this->serviceContext->realmId, 
-                                self::getEntityResourceName($entity), 
+                        array(  'company',
+                                $this->serviceContext->realmId,
+                                self::getEntityResourceName($entity),
                                 $entity->Id,
                                 'send'));
-        
-        if(is_null($email)) { 
+
+        if(is_null($email)) {
             $this->logInfo("Entity ".  get_class($entity)." with id=".$entity->Id." is using default email");
         } else {
             $this->logInfo("Entity ".  get_class($entity)." with id=".$entity->Id." is using $email");
@@ -756,11 +763,11 @@ class DataService {
                 throw new SdkException("Valid email is expected, but received $email");
             }
         }
-                
+
         $requestParameters = $this->getPostRequestParameters($uri . (is_null($email) ? '' :  '?sendTo=' . $email), CoreConstants::CONTENTTYPE_OCTETSTREAM);
         $restRequestHandler = $this->getRestHandler();
         try {
-           list($responseCode, $responseBody) = $restRequestHandler->GetResponse($requestParameters, NULL, NULL);
+           list($responseCode, $responseBody, $responseError) = $restRequestHandler->GetResponse($requestParameters, NULL, NULL);
            $parsedResponseBody = $this->getResponseSerializer()->Deserialize($responseBody, TRUE);
         } catch(Exception $ex) {
             $this->logError("Exception appears during communnication with the service: " . $ex->getMessage() . "\n" . $ex->getTraceAsString());
@@ -769,7 +776,7 @@ class DataService {
 
         return $parsedResponseBody;
     }
-    
+
     /**
      * Returns PDF filename based on entity type and id
      * @param type $entity
@@ -782,7 +789,7 @@ class DataService {
         $this->validateEntityId($entity);
         return self::getEntityResourceName($entity) . "_" . $entity->Id . ($usetimestamp ? "_" . time() : "") . ".$ext";
     }
-    
+
     /**
      * Returns new instance of rest handler
      * @return \SyncRestHandler
@@ -791,9 +798,9 @@ class DataService {
     {
         return new SyncRestHandler($this->serviceContext);
     }
-    
+
     /**
-     * Saves exported (e.g. check DownloadPDF) entity into file according to strategy in settings 
+     * Saves exported (e.g. check DownloadPDF) entity into file according to strategy in settings
      * @param ContentWriter $writer
      * @param int $responseCode
      * @param string $fileName
@@ -801,16 +808,16 @@ class DataService {
      */
     protected function processDownloadedContent(ContentWriter $writer, $responseCode, $fileName = null)
     {
-        $writer->setPrefix($this->getPrefixFromSettings()); 
+        $writer->setPrefix($this->getPrefixFromSettings());
         try {
-            if($this->isTempFile()) { 
+            if($this->isTempFile()) {
                 $writer->saveTemp();
             } elseif($this->isFileExport()) {
                 $writer->saveFile($this->getFileExportDir(),$fileName);
             } else {
                 $writer->saveAsHandler();
             }
-            //return object as is 
+            //return object as is
             if($this->isReturnContentWriter()) {
                 return $writer;
             }
@@ -821,9 +828,9 @@ class DataService {
              return null;
         }
 
-        return $writer->isHandler() ? $writer->getHandler() : $writer->getTempPath();   
+        return $writer->isHandler() ? $writer->getHandler() : $writer->getTempPath();
     }
-    
+
     /**
      * Returns true or false if writer object is allowed as return result
      * @return boolean
@@ -832,7 +839,7 @@ class DataService {
     {
          return $this->serviceContext->IppConfiguration->ContentWriter->returnOject;
     }
- 
+
     /**
      * Returns prefix for contentWriter
      * @return string
@@ -841,7 +848,7 @@ class DataService {
     {
        return $this->serviceContext->IppConfiguration->ContentWriter->prefix;
     }
-    
+
     /**
      * Returns true if SDK is configured to save temporary files
      * @return boolean
@@ -850,7 +857,7 @@ class DataService {
     {
         return (ContentWriterSettings::FILE_STRATEGY === $this->serviceContext->IppConfiguration->ContentWriter->strategy);
     }
-    
+
     /**
      * Returns true if SDK is configured to export files to another location
      * @return boolean
@@ -859,7 +866,7 @@ class DataService {
     {
          return (ContentWriterSettings::EXPORT_STRATEGY === $this->serviceContext->IppConfiguration->ContentWriter->strategy) ;
     }
-    
+
     /**
      * Returns path to directory where SDK should save files
      * @return string
@@ -868,33 +875,33 @@ class DataService {
     {
         return $this->serviceContext->IppConfiguration->ContentWriter->exportDir;
     }
- 
-    
+
+
     /**
-     * Simple verification for entities which can be returned as PDF 
+     * Simple verification for entities which can be returned as PDF
      */
     private function isAllowed($entity,$method)
     {
         $className = get_class($entity);
         if(!$className) {
             $this->logError("Intuit entity is expected here instead of $entity");
-            throw new IdsException('Unexpected Argument Exception');          
+            throw new IdsException('Unexpected Argument Exception');
         }
-       // Need to make that configurable or use XSD generator 
+       // Need to make that configurable or use XSD generator
        return $this->serviceContext->IppConfiguration->OpControlList->isAllowed($className, $method);
     }
-    
-    
+
+
     private function verifyOperationAccess($entity,$func)
     {
         if(!$this->isAllowed($entity,$func)) {
             $this->logError("Cannot invoke ".$func." for \"" . get_class($entity)."\" because of operation contstrains.");
-            throw new IdsException('Operation '.$func.' is not allowed for entity '. get_class($entity));            
+            throw new IdsException('Operation '.$func.' is not allowed for entity '. get_class($entity));
         }
         return true;
     }
-            
-    
+
+
     private function validateEntityId($entity) {
         if (empty($entity)) {
             $this->logError("Argument Null Exception");
@@ -902,21 +909,21 @@ class DataService {
         }
         if(!isset($entity->Id)) {
              $this->logError("Property ID doesn't exist");
-            throw new IdsException('Property ID is not set');           
+            throw new IdsException('Property ID is not set');
         }
-        
+
         if(empty($entity->Id)) {
              $this->logError("Property ID is empty");
-            throw new IdsException('Property ID is empty');           
+            throw new IdsException('Property ID is empty');
         }
-        
+
         return true;
     }
-    
+
     private function logError($message) {
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Error,$message);
     }
-    
+
     private function logInfo($message) {
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, $message);
     }
@@ -927,7 +934,7 @@ class DataService {
      * @param string $query Query to issue
      * @param string $pageNumber Starting page number
      * @param string $pageSize Page size
-     * @return array Returns an array of entities fulfilling the query. 
+     * @return array Returns an array of entities fulfilling the query.
      */
     public function Query($query, $pageNumber = 0, $pageSize = 500) {
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Called Method Query.");
@@ -942,7 +949,7 @@ class DataService {
 
         $requestParameters = $this->getPostRequestParameters($httpsUri, $httpsContentType);
         $restRequestHandler = new SyncRestHandler($this->serviceContext);
-        list($responseCode, $responseBody) = $restRequestHandler->GetResponse($requestParameters, $httpsPostBody, NULL);
+        list($responseCode, $responseBody, $responseError) = $restRequestHandler->GetResponse($requestParameters, $httpsPostBody, NULL);
 
         $parsedResponseBody = NULL;
         try {
@@ -959,7 +966,7 @@ class DataService {
      * Retrieves specified entity based passed page number and page size
      *
      * @param string $urlResource Entity type to Find
-     * @return array Returns an array of entities of specified type. 
+     * @return array Returns an array of entities of specified type.
      */
     public function FindAll($entityName, $pageNumber = 0, $pageSize = 500) {
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Called Method FindAll.");
@@ -978,9 +985,9 @@ class DataService {
         $httpsUri = implode(CoreConstants::SLASH_CHAR, array('company', $this->serviceContext->realmId, 'query'));
         $httpsPostBody = "select * from $entityName startPosition $pageNumber maxResults $pageSize";
 
-        $requestParameters = $this->getPostRequestParameters($httpsUri, $httpsContentType);        
+        $requestParameters = $this->getPostRequestParameters($httpsUri, $httpsContentType);
         $restRequestHandler = new SyncRestHandler($this->serviceContext);
-        list($responseCode, $responseBody) = $restRequestHandler->GetResponse($requestParameters, $httpsPostBody, NULL);
+        list($responseCode, $responseBody, $responseError) = $restRequestHandler->GetResponse($requestParameters, $httpsPostBody, NULL);
 
         $parsedResponseBody = NULL;
         try {
@@ -1039,11 +1046,12 @@ class DataService {
         $restRequestHandler = new SyncRestHandler($this->serviceContext);
         try {
             // gets response
-            list($responseCode, $responseBody) = $restRequestHandler->GetResponse($requestParameters, NULL, NULL);
+            list($responseCode, $responseBody, $responseError) = $restRequestHandler->GetResponse($requestParameters, NULL, NULL);
         } catch (Exception $e) {
-            
+            IdsExceptionManager::HandleException($e);
         }
 
+        CoreHelper::CheckResponseErrorAndThrowException($this->serviceContext, $responseError);
         CoreHelper::CheckNullResponseAndThrowException($responseBody);
         $returnValue = new IntuitCDCResponse();
         try {

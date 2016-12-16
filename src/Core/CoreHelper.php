@@ -15,7 +15,7 @@ require_once(PATH_SDK_ROOT . 'Utility/Serialization/JsonObjectSerializer.php');
  	 * @param ServiceContext serviceContext The service context object.
  	 * @param bool isRequest Specifies whether to return serializer mechanism for reqeust or response.
  	 * @return IEntitySerializer The Serializer mechanism.
- 	 */ 
+ 	 */
  	public static function GetSerializer($serviceContext, $isRequest)
  	{
 		$serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "GetSerializer");
@@ -60,16 +60,17 @@ require_once(PATH_SDK_ROOT . 'Utility/Serialization/JsonObjectSerializer.php');
             }
         }
 
-        return $serializer; 	
+        return $serializer;
  	}
- 
+
 	/**
 	 * This function is deprecated use simplexml_load_string() instead.
 	 * @param string response The response string
 	 * @return SimpleXMLElement The SimpleXMLElement object.
-         * @deprecated since version v2.1
-	 */ 
+     * @deprecated since version v2.1
+	 */
 	public static function ParseResponseIntoXml()
+
 	{
            throw new BadFunctionCallException(__METHOD__ . " has been removed.");
 	}
@@ -77,7 +78,7 @@ require_once(PATH_SDK_ROOT . 'Utility/Serialization/JsonObjectSerializer.php');
 	/**
 	 * Checks whether the reponse is null or empty and throws communication exception.
 	 * @param string response The response from the query service.
-	 */ 
+	 */
     public static function CheckNullResponseAndThrowException($response)
     {
         if (!$response)
@@ -101,7 +102,7 @@ require_once(PATH_SDK_ROOT . 'Utility/Serialization/JsonObjectSerializer.php');
      * @param ServiceContext serviceContext The service context object.
      * @param bool isRequest Specifies whether to return compression mechanism for reqeust or response.
      * @return IEntityCompression The Compression mechanism.
-     */ 
+     */
     public static function GetCompressor($serviceContext, $isRequest)
     {
         $compressor = null;
@@ -132,12 +133,12 @@ require_once(PATH_SDK_ROOT . 'Utility/Serialization/JsonObjectSerializer.php');
 
         return $compressor;
     }
-    
+
     /**
      * Gets the Request Response Logging mechanism.
      * @param ServiceContext serviceContext The serivce context object.
      * @return LogRequestsToDisk Returns value which specifies the request response logging mechanism.
-     */ 
+     */
     public static function GetRequestLogging($serviceContext)
     {
         $requestLogger = NULL;
@@ -164,5 +165,62 @@ require_once(PATH_SDK_ROOT . 'Utility/Serialization/JsonObjectSerializer.php');
 
         return $requestLogger;
     }
-    
-}    
+
+    /**
+     * Check QBO API response error XML and throw IdsException with detailed message
+     *
+     * @access public
+     * @param ServiceContext $serviceContext The instance of ServiceContext
+     * @param string $responseError QBO API response error XML string
+     * @throws IdsException
+     * @static
+     */
+    public static function CheckResponseErrorAndThrowException(ServiceContext $serviceContext, $responseError)
+    {
+        if (!is_null($responseError)) {
+            $errorMessage = self::ExtractResponseErrorMessage($serviceContext, $responseError);
+            throw new IdsException($errorMessage);
+        }
+    }
+
+    /**
+     * Extract QBO API call fault detail from response XML
+     *
+     * @access private
+     * @param ServiceContext $serviceContext The instance of ServiceContext
+     * @param string $responseError QBO API response error XML string
+     * @return string Detailed error message extracted from (XML|JSON).Fault.Error.Detail
+     * @static
+     */
+    private static function ExtractResponseErrorMessage(ServiceContext $serviceContext, $responseError)
+    {
+        $serviceContext->IppConfiguration->Logger->RequestLog->Log(
+            TraceLevel::Info, 'CoreHelper::extractResponseErrorMessage()');
+
+        $errorMessage = 'Unknown QBO API response error message.';
+
+        switch ($serviceContext->IppConfiguration->Message->Request->SerializationFormat) {
+            case SerializationFormat::Xml:
+                $serviceContext->IppConfiguration->Logger->RequestLog->Log(
+                    TraceLevel::Info, 'CoreHelper::extractResponseErrorMessage(): XML');
+                $responseErrorObj = simplexml_load_string($responseError);
+                break;
+            case SerializationFormat::Json:
+                $serviceContext->IppConfiguration->Logger->RequestLog->Log(
+                    TraceLevel::Info, 'CoreHelper::extractResponseErrorMessage(): JSON');
+                $responseErrorObj = json_decode($responseError);
+                break;
+        }
+
+        if (isset($responseErrorObj->Fault) &&
+            isset($responseErrorObj->Fault->Error) &&
+            isset($responseErrorObj->Fault->Error->Detail)
+        ) {
+            $errorMessage = $responseErrorObj->Fault->Error->Detail;
+        }
+
+        return $errorMessage;
+    }
+}
+
+?>

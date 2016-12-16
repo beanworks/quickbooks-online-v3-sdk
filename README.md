@@ -1,5 +1,7 @@
 # PHP SDK for QuickBooks V3
 
+[![Build Status](https://api.travis-ci.org/beanworks/quickbooks-online-v3-sdk.svg?branch=master)](https://travis-ci.org/beanworks/quickbooks-online-v3-sdk)
+
 The PHP SDK for QuickBooks v3 is set of PHP classes that make it easier to call QuickBooks APIs.  Some of the features included in this SDK are as follows:
 
 - Ability to perform single and batch processing of CRUD operations on all supported QuickBooks entities.
@@ -12,6 +14,8 @@ The PHP SDK for QuickBooks v3 is set of PHP classes that make it easier to call 
 - Change data that enables you to retrieve a list of entities modified during specified time points.
 
 ## Getting Started
+
+This repository contains both [original QBO SDK code](https://github.com/beanworks/quickbooks-online-v3-sdk/tree/intuit) and [Beanworks patched version](https://github.com/beanworks/quickbooks-online-v3-sdk/tree/beanworks).
 
 #### Clone with Git
 
@@ -31,9 +35,20 @@ $ php composer.phar require beanworks/quickbooks-online-v3-sdk:3.0.0
 $ php composer.phar require beanworks/quickbooks-online-v3-sdk:2.0.5
 ```
 
+#### Unit Test
+
+Check out a fresh copy of the QBO SDK, get composer and install dependencies, and then run the tests with PHPUnit.
+
+```shell
+$ git clone git@github.com:beanworks/quickbooks-online-v3-sdk.git
+$ cd quickbooks-online-v3-sdk
+$ wget http://getcomposer.org/composer.phar
+$ php composer.phar install
+$ ./phpunit
+```
 ## BeanworksAP
 
-[BeanworksAP](https://beanworks.com) proudly integrates with QuickBooks Online and QuickBooks Desktop.
+[BeanworksAP](https://beanworks.com) proudly integrates with QuickBooks Online, QuickBooks Desktop and a number of different ERP systems.
 
 ## Beanworks Solutions Inc.
 
