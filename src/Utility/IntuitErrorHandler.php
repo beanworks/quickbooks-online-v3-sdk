@@ -93,5 +93,3 @@ class IntuitErrorHandler
 	    return TRUE;
 	}    
 }
-
-?>

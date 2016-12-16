@@ -37,6 +37,28 @@ class IppConfiguration
 	 * @var BaseUrl 
 	 */
 	public $BaseUrl;
-}
+        
+	/**
+	 * Provide configuration for ContentWriter
+	 * @var ContentWriterSettings
+	 */
+	public $ContentWriter;
 
-?>
+	/**
+	 * Gets or sets global or entity or operation level execution rights
+	 * @var OperationControlList
+	 */
+	public $OpControlList;
+
+	/**
+	 * Contains value for minor version
+	 * @var Integer
+	 */
+	public $minorVersion;
+
+	/**
+	 * Contains value for SSL check
+	 * @var Boolean
+	 */
+	public $SSLCheckStatus;
+}

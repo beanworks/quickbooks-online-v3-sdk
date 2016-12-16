@@ -12,16 +12,21 @@ class XmlObjectSerializer extends IEntitySerializer {
 	 * @var ILogger
 	 */
 	public $IDSLogger;
+        
+        /**
+         * Keeps last used object name
+         * @var String 
+         */
+        private $resourceURL =  null;
 
 
-	
 	/**
 	 * Marshall a POPO object to XML, presumably for inclusion on an IPP v3 API call
 	 *
 	 * @param POPOObject $phpObj inbound POPO object
 	 * @return string XML output derived from POPO object 
 	 */
-	private function getXmlFromObj($phpObj)
+	private static function getXmlFromObj($phpObj)
 	{
 		if (!$phpObj)
 		{
@@ -40,6 +45,7 @@ class XmlObjectSerializer extends IEntitySerializer {
 			echo "\n"."Object Dump:\n";
 			var_dump($phpObj);
 			echo "\n"."Exception Call Stack (".$e->getMessage()."):\n";
+                        echo "\n"."In  (".$e->getFile().") on " . $e->getLine();
 			array_walk(debug_backtrace(),create_function('$a,$b','print "\t{$a[\'function\']}()\n\t".basename($a[\'file\']).":{$a[\'line\']}\n";'));
 			return FALSE;
 		}
@@ -159,39 +165,36 @@ class XmlObjectSerializer extends IEntitySerializer {
 	}
 	
 	/**
-	 * Serializes the specified entity.
+	 * Serializes the specified entity and updates last used entity name @see resourceURL
 	 * @param object entity The entity.
 	 * @return string Returns the serialize entity in string format.
 	 */
 	public function Serialize($entity)
 	{
-		/*
-		            string data = string.Empty;
-		
-		            try
-		            {
-		                UTF8Encoding encoder = new UTF8Encoding();
-		                using (MemoryStream memoryStream = new MemoryStream())
-		                {
-		                    XmlSerializer xmlSerializer = new XmlSerializer(entity.GetType());
-		                    xmlSerializer.Serialize(memoryStream, entity);
-		                    data = encoder.GetString(memoryStream.ToArray());
-		                }
-		            }
-		            catch (SystemException ex)
-		            {
-		                SerializationException serializationException = new SerializationException(ex.Message, ex);
-		                this.IDSLogger.Log(TraceLevel.Error, serializationException.ToString());
-		                IdsExceptionManager.HandleException(serializationException);
-		            }
-		            data = data.Replace("T00:00:00Z", "");
-		            data = data.Replace("T00:00:00", "");
-		            return data;
-		*/
-	
+          $this->resetResourceURL();
+          return XmlObjectSerializer::getPostXmlFromArbitraryEntity($entity, $this->resourceURL);
 	}
-	
-	/**
+        
+        /**
+         * Reset value for resourceURL to null
+         * 
+         */
+        public function resetResourceURL()
+        {
+          $this->resourceURL = null;   
+        }        
+        
+        /**
+         * Returns last used resource URL (which entity name)
+         * @return string
+         */
+        public function getResourceURL()
+        {
+          return $this->resourceURL;   
+        }
+
+
+        /**
 	 * DeSerializes the specified action entity type.
 	 * @param message The type to be  serialize to
 	 * @param bLimitToOne Limit to parsing just one response element
@@ -208,6 +211,7 @@ class XmlObjectSerializer extends IEntitySerializer {
 		$responseXmlObj = simplexml_load_string($message);
 		foreach($responseXmlObj as $oneXmlObj)
 		{
+			
 			$oneXmlElementName = (string)$oneXmlObj->getName();
 			
 			if ('Fault'==$oneXmlElementName)
@@ -255,5 +259,3 @@ class XmlObjectSerializer extends IEntitySerializer {
 
 } 
 
-
-?>

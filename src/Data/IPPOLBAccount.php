@@ -66,6 +66,24 @@ class IPPOLBAccount
 	 * @var boolean
 	 */
 	public $SubscribedToApp;
+	/**
+	 * @Definition Specifies which version is being used (such as v1 or v2). This field is optional.
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName AppVersion
+	 * @var string
+	 */
+	public $AppVersion;
+	/**
+	 * @Definition The last bank balance. This field is optional.
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName LastBankBalance
+	 * @var float
+	 */
+	public $LastBankBalance;
 
 
 } // end class IPPOLBAccount

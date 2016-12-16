@@ -177,6 +177,18 @@ class IPPAccount
 	public $AcctNum;
 	/**
 	 * @Definition 
+                                Product: QBO
+                                Description: An extension to the base account number that can be added to Customer A/R or Supplier A/P accounts.
+                            
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName AcctNumExtn
+	 * @var string
+	 */
+	public $AcctNumExtn;
+	/**
+	 * @Definition 
 								Product: QBW
 								Description: Bank Account Number, should include routing number whatever else depending upon the context, this may be the credit card number or the checking account number, etc.
 								ValidRange: QBW: max=25
@@ -301,6 +313,19 @@ class IPPAccount
 	 * @var string
 	 */
 	public $FIName;
+	/**
+	 * @Definition 
+                                Product: QBO
+                                Description: The Journal Code that is associated with the account. This is required only for Bank accounts. This is applicable only in FR.
+                                InputType: ALL: ReadOnly
+                            
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName JournalCodeRef
+	 * @var com\intuit\schema\finance\v3\IPPReferenceType
+	 */
+	public $JournalCodeRef;
 	/**
 	 * @Definition 
 								Product: ALL

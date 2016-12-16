@@ -3,7 +3,7 @@
 require_once(PATH_SDK_ROOT . 'Core/CoreConstants.php');
 require_once(PATH_SDK_ROOT . 'Core/LogRequestsToDisk.php');
 require_once(PATH_SDK_ROOT . 'Utility/Serialization/XmlObjectSerializer.php');
-require_once(PATH_SDK_ROOT . 'Core/RestCalls/EncodingFixer.php');
+require_once(PATH_SDK_ROOT . 'Utility/Serialization/JsonObjectSerializer.php');
 
 /**
  * Helper class.
@@ -64,14 +64,14 @@ require_once(PATH_SDK_ROOT . 'Core/RestCalls/EncodingFixer.php');
  	}
  
 	/**
-	 * Parses the response string to an XmlDocument object.
+	 * This function is deprecated use simplexml_load_string() instead.
 	 * @param string response The response string
 	 * @return SimpleXMLElement The SimpleXMLElement object.
+         * @deprecated since version v2.1
 	 */ 
-	public static function ParseResponseIntoXml($response)
+	public static function ParseResponseIntoXml()
 	{
-        $quickBaseResponse = EncodingFixer::FixQuickBaseEncoding($response);
-		return simplexml_load_string($quickBaseResponse);
+           throw new BadFunctionCallException(__METHOD__ . " has been removed.");
 	}
 
 	/**
@@ -166,5 +166,3 @@ require_once(PATH_SDK_ROOT . 'Core/RestCalls/EncodingFixer.php');
     }
     
 }    
-
-?>

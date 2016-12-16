@@ -33,4 +33,3 @@ class LoggerMech {
 		$this->CustomLogger = new Logger();
 	}
 }
-?>

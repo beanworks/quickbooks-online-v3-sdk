@@ -32,5 +32,3 @@ class CompressionFormat
     const Deflate='Deflate';
 
 }
-
-?>
