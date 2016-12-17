@@ -87,6 +87,18 @@ class IPPPaymentLineDetail
 	/**
 	 * @Definition 
 						Product: ALL
+						Description: Indicates the unpaid amount of the transaction after this payment is applied in home currency. It is visible only for companies which have multicurrency enabled[br /] Cannot be written to Quickbooks.
+					
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName HomeBalance
+	 * @var float
+	 */
+	public $HomeBalance;
+	/**
+	 * @Definition 
+						Product: ALL
 						Description: Reference to a Discount item and its properties that this line can overwrite.
 	 * @xmlType element
 	 * @xmlNamespace http://schema.intuit.com/finance/v3

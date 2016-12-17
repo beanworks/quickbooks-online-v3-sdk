@@ -18,4 +18,3 @@ class RequestLog {
 	public $EnableRequestResponseLogging;
 
 }
-?>

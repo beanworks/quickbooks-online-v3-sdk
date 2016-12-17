@@ -9,5 +9,3 @@ class SerializationFormat
     const Json = 2;
     const Custom = 3;
 }
-
-?>

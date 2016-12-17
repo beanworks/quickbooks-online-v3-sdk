@@ -58,6 +58,18 @@ class IPPDeposit
 	 */
 	public $CashBack;
 	/**
+	 * @Definition 
+								Product: QBO
+								Description: Indicates the GlobalTax model if the model inclusive of tax, exclusive of taxes or not applicable
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName GlobalTaxCalculation
+	 * @var com\intuit\schema\finance\v3\IPPGlobalTaxCalculationEnum
+	 */
+	public $GlobalTaxCalculation;
+	/**
 	 * @Definition Total amount of Deposit.
 								[b]QuickBooks Notes[/b][br /]
 								Non QB-writable.
@@ -69,6 +81,18 @@ class IPPDeposit
 	 * @var float
 	 */
 	public $TotalAmt;
+	/**
+	 * @Definition 
+								Product: ALL
+								Description: Total amount of the transaction in the home currency for multi-currency enabled companies. Single currency companies will not have this field. Includes the total of all the charges, allowances and taxes. Calculated by QuickBooks business logic. Cannot be written to QuickBooks.
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName HomeTotalAmt
+	 * @var float
+	 */
+	public $HomeTotalAmt;
 	/**
 	 * @Definition Internal use only: extension place holder for Deposit  
 	 * @xmlType element

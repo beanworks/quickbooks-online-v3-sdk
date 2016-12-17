@@ -439,6 +439,18 @@ class IPPCustomer
 	public $JobInfo;
 	/**
 	 * @Definition 
+								Product: QBO
+								Description: True, if TDS (Tax Deducted at Source) is enabled for this customer.
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName TDSEnabled
+	 * @var boolean
+	 */
+	public $TDSEnabled;
+	/**
+	 * @Definition 
 								Product: ALL
 								Description: Internal use only: extension place holder for Customer.
 							
@@ -449,6 +461,42 @@ class IPPCustomer
 	 * @var com\intuit\schema\finance\v3\IPPIntuitAnyType
 	 */
 	public $CustomerEx;
+	/**
+	 * @Definition 
+                                Product: QBO
+                                Description: Specifies secondary Tax ID of the Person or Organization. Applicable for IN companies for CST Registration No. and in future can be extended to other regions.
+                            
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName SecondaryTaxIdentifier
+	 * @var string
+	 */
+	public $SecondaryTaxIdentifier;
+	/**
+	 * @Definition 
+                                Product: QBO
+                                Description: The A/R account ID for the customer. This is applicable only in FR where each customer needs to have his own AR account.
+                            
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName ARAccountRef
+	 * @var com\intuit\schema\finance\v3\IPPReferenceType
+	 */
+	public $ARAccountRef;
+	/**
+	 * @Definition 
+                                Product: QBO
+                                Description:  Specifies primary Tax ID of the Person or Organization.
+                            
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName PrimaryTaxIdentifier
+	 * @var string
+	 */
+	public $PrimaryTaxIdentifier;
 
 
 } // end class IPPCustomer

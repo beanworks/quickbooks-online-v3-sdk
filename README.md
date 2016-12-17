@@ -46,7 +46,6 @@ $ wget http://getcomposer.org/composer.phar
 $ php composer.phar install
 $ ./phpunit
 ```
-
 ## BeanworksAP
 
 [BeanworksAP](https://beanworks.com) proudly integrates with QuickBooks Online, QuickBooks Desktop and a number of different ERP systems.

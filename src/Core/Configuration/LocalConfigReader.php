@@ -6,6 +6,7 @@ require_once(PATH_SDK_ROOT . 'Core/Configuration/CompressionFormat.php');
 require_once(PATH_SDK_ROOT . 'Core/Configuration/SerializationFormat.php');
 require_once(PATH_SDK_ROOT . 'Core/Configuration/BaseUrl.php');
 require_once(PATH_SDK_ROOT . 'Core/Configuration/Logger.php');
+require_once(PATH_SDK_ROOT . 'Core/Configuration/ContentWriterSettings.php');
 require_once(PATH_SDK_ROOT . 'Security/OAuthRequestValidator.php');
 require_once(PATH_SDK_ROOT . 'Utility/Configuration/CompressionFormat.php');
 require_once(PATH_SDK_ROOT . 'Utility/Configuration/SerializationFormat.php');
@@ -14,6 +15,8 @@ require_once(PATH_SDK_ROOT . 'Utility/Configuration/SerializationFormat.php');
 
 /**
  * Specifies the Default Configuration Reader implmentation used by the SDK.
+ * 
+ * TODO: Improve internal implementation of the config reader
  */
 class LocalConfigReader
 {
@@ -71,7 +74,21 @@ class LocalConfigReader
 			                                                 $xmlObj->intuit->ipp->security->oauth->attributes()->consumerKey
 			                                                 );
 		}
-		
+
+        // Get value for SSL Check
+        if ($xmlObj &&
+            $xmlObj->intuit &&
+            $xmlObj->intuit->ipp &&
+            $xmlObj->intuit->ipp->security &&
+            $xmlObj->intuit->ipp->security->OAuthSSL &&
+            $xmlObj->intuit->ipp->security->OAuthSSL->attributes())
+        {
+            // SSLCheckStatus
+            $SSLCheckFlag = strtolower(trim($xmlObj->intuit->ipp->security->OAuthSSL->attributes()->check));
+            $ippConfig->SSLCheckStatus = ($SSLCheckFlag === "false") ? false : true;
+
+        }
+
 		// Initialize Request Configuration Object
 		$ippConfig->Message = new Message();
 		$ippConfig->Message->Request = new Request();
@@ -190,10 +207,126 @@ class LocalConfigReader
 			$ippConfig->Logger->RequestLog->ServiceRequestLoggingLocation = (string)$requestLogAttr->requestResponseLoggingDirectory;
 			$ippConfig->Logger->RequestLog->EnableRequestResponseLogging = (string)$requestLogAttr->enableRequestResponseLogging;
 		}
-		
+                
+                // A developer is forced to write in the same style.
+                // This should be refactored
+                $ippConfig->ContentWriter = new ContentWriterSettings();
+                if ($xmlObj &&
+		    $xmlObj->intuit &&
+		    $xmlObj->intuit->ipp &&
+		    $xmlObj->intuit->ipp->contentWriter &&
+		    $xmlObj->intuit->ipp->contentWriter->attributes())
+		{
+			$contentWriterAttr = $xmlObj->intuit->ipp->contentWriter->attributes();
+			$ippConfig->ContentWriter->strategy = ContentWriterSettings::checkStrategy((string)$contentWriterAttr->strategy);
+			$ippConfig->ContentWriter->prefix = (string)$contentWriterAttr->prefix;
+                        $ippConfig->ContentWriter->exportDir = $contentWriterAttr->exportDirectory 
+                                                                    ? (string)$contentWriterAttr->exportDirectory
+                                                                    : null;
+                        $ippConfig->ContentWriter->returnOject = $contentWriterAttr->returnObject
+                                                                    ? filter_var((string)$contentWriterAttr->returnObject, FILTER_VALIDATE_BOOLEAN)
+                                                                    : false;
+                        $ippConfig->ContentWriter->verifyConfiguration();
+		}
+                
+                self::initOperationControlList($ippConfig,self::getRules()); 
+		$specialConfig = self::populateJsonOnlyEntities($xmlObj);
+                if(is_array($specialConfig) && ($ippConfig->OpControlList instanceof OperationControlList)) {
+                    $ippConfig->OpControlList->appendRules($specialConfig);
+                }
+                
+                self::setupMinorVersion($ippConfig,$xmlObj);
+                
 		return $ippConfig;
 	}
+        
+        /**
+         * Initializes operation contrtol list
+         * @param IppConfiguration $ippConfig
+         * @param array $array
+         */
+        public static function initOperationControlList($ippConfig, $array)
+        {
+            $ippConfig->OpControlList = new OperationControlList( OperationControlList::getDefaultList(true) );
+            $ippConfig->OpControlList->appendRules($array);
+        }
+        
+                /**
+         * Initializes operation contrtol list
+         * @param IppConfiguration $ippConfig
+         * @param array $array
+         */
+        public static function setupMinorVersion($ippConfig, $xmlObj)
+        {
+            if($xmlObj &&
+                $xmlObj->intuit &&
+		$xmlObj->intuit->ipp && $xmlObj->intuit->ipp->minorVersion){
+                    $ippConfig->minorVersion = (int) $xmlObj->intuit->ipp->minorVersion;
+            }         
+        }
+        
+        /**
+         * Returns current rules
+         * @return array
+         */
+        public static function getRules()
+        {
+            return 
+               array(
+                    OperationControlList::ALL => array(
+                                                        "DownloadPDF" => FALSE,
+                                                        "jsonOnly" => FALSE,
+                                                        "SendEmail"=> FALSE
+                                                      ),
+                    "IPPTaxService" => array(OperationControlList::ALL => FALSE, 
+                                             'Add' => TRUE),
+                    "IPPSalesReceipt" => array( "DownloadPDF" => TRUE, "SendEmail" => TRUE ),
+                    "IPPInvoice"      => array( "DownloadPDF" => TRUE, "SendEmail" => TRUE  ),
+                    "IPPEstimate"     => array( "DownloadPDF" => TRUE, "SendEmail" => TRUE  ),
+                );
+        }
+        
+        /**
+         * Returns array in a OperationControlList rules format from XML
+         * @param type $xmlObj
+         * @return boolean
+         */
+        public static function populateJsonOnlyEntities($xmlObj)
+        {
+            if( $xmlObj &&
+                $xmlObj->intuit &&
+                $xmlObj->intuit->ipp &&
+                $xmlObj->intuit->ipp->specialConfiguration) {
+                    $specialCnf = $xmlObj->intuit->ipp->specialConfiguration;
+                    if(!$specialCnf instanceof SimpleXMLElement)              { return false; }
+                    if(!$specialCnf->children() instanceof SimpleXMLElement)  { return false; }
+                    if(!$specialCnf->children()->count())                     { return false; }
+                    $rules = array();
+                    foreach($specialCnf->children() as $entity) {
+                        if(!$entity->attributes()->count()) { continue; }
+                        $name = self::decorateEntity($entity->getName());
+                        if(!array_key_exists($name, $rules)) {
+                            $rules[$name] = array();
+                        }
+                        foreach ($entity->attributes() as $attr) {
+                            $rules[$name][$attr->getName()] = filter_var((string)$entity->attributes(), FILTER_VALIDATE_BOOLEAN);
+                        }                                       
+                    }
+                    return $rules;
+                    
+                }
+            return false;    
+        }
+        
+        /**
+         * Creates PHP class entity from intuit name
+         * @param type $name
+         * @return type
+         */
+        private static function decorateEntity($name)
+        {
+            return PHP_CLASS_PREFIX . $name;
+        }
 
 }
 
-?>

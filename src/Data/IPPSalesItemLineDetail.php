@@ -66,6 +66,30 @@ class IPPSalesItemLineDetail
 	public $TaxInclusiveAmt;
 	/**
 	 * @Definition 
+                                Product: QBO
+                                Description: Indicates the discount rate that is applied on this line.
+                            
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName DiscountRate
+	 * @var float
+	 */
+	public $DiscountRate;
+	/**
+	 * @Definition 
+                                Product: QBO
+                                Description: Indicates the discount amount that is applied on this line.
+                            
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName DiscountAmt
+	 * @var float
+	 */
+	public $DiscountAmt;
+	/**
+	 * @Definition 
 								Product: ALL
 								Description: Internal use only: extension place holder for SalesItemDetail
 							

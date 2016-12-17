@@ -213,6 +213,11 @@ class SyncRestHandler extends RestHandler
 
         $oauth = $this->getOauth();
 
+        // Disables oauth SSLChecks
+        if (!$this->context->IppConfiguration->SSLCheckStatus){
+            $oauth->disableSSLChecks();
+        }
+
         $httpHeaders = array();
         if ('QBO'==$this->context->serviceType ||
             'QBD'==$this->context->serviceType)
@@ -220,7 +225,7 @@ class SyncRestHandler extends RestHandler
             // IDS call
             $httpHeaders = array('host'          => parse_url($requestUri, PHP_URL_HOST),
                 'user-agent'    => CoreConstants::USERAGENT,
-                'accept'        => '*/*',
+                'accept'        => $this->getAcceptContentType($requestParameters->ContentType),
                 'connection'    => 'close',
                 'content-type'  => $requestParameters->ContentType,
                 'content-length'=> strlen($requestBody));
@@ -247,6 +252,10 @@ class SyncRestHandler extends RestHandler
             else if ('GET'==$requestParameters->HttpVerbType)
                 $OauthMethod = OAUTH_HTTP_METHOD_GET;
 
+//            echo "\n$requestUri\n";
+//            var_dump($httpHeaders);
+//            echo "$OauthMethod\n";
+//            echo "$requestBody\n";
             $oauth->fetch($requestUri, $requestBody, $OauthMethod, $httpHeaders);
         }
         catch ( OAuthException $e )
@@ -265,7 +274,7 @@ class SyncRestHandler extends RestHandler
         }
 
         list($response_code, $response_xml, $response_headers) = $this->GetOAuthResponseHeaders($oauth);
-
+//      echo "$response_xml\n";
         // Log Request Body to a file
         $this->RequestLogging->LogPlatformRequests($response_xml, $requestUri, $response_headers, FALSE);
 
@@ -307,6 +316,41 @@ class SyncRestHandler extends RestHandler
     }
 
     /**
+     * Accept anything if content type is not XML or Json
+     * @param type $value
+     * @return string
+     */
+    private function getAcceptContentType($value)
+    {
+        if(CoreConstants::CONTENTTYPE_APPLICATIONXML === $value) {
+            return $value;
+        }
+
+        if(CoreConstants::CONTENTTYPE_APPLICATIONJSON === $value) {
+            return $value;
+        }
+
+        if(CoreConstants::CONTENTTYPE_APPLICATIONPDF === $value) {
+            return $value;
+        }
+
+        if(CoreConstants::CONTENTTYPE_OCTETSTREAM === $value) {
+            if($this->ResponseSerializer instanceof XmlObjectSerializer) {
+                return CoreConstants::CONTENTTYPE_APPLICATIONXML;
+            }
+
+            if($this->ResponseSerializer instanceof JsonObjectSerializer) {
+                return CoreConstants::CONTENTTYPE_APPLICATIONJSON;
+            }
+
+        }
+
+        return "*/*";
+    }
+
+
+
+    /**
      * Calls the rest service.
      *
      * @param RequestParameters $requestParameters The parameters
@@ -330,29 +374,26 @@ class SyncRestHandler extends RestHandler
     }
 
     private function queryToArray($qry)
-        {
-                $result = array();
-                //string must contain at least one = and cannot be in first position
-                if(strpos($qry,'=')) {
+    {
+        $result = array();
+        //string must contain at least one = and cannot be in first position
+        if (strpos($qry,'=')) {
 
-                 if(strpos($qry,'?')!==false) {
-                   $q = parse_url($qry);
-                   $qry = $q['query'];
-                  }
-                }else {
-                        return false;
-                }
-
-                foreach (explode('&', $qry) as $couple) {
-                        list ($key, $val) = explode('=', $couple);
-                        $result[$key] = $val;
-                }
-
-                return empty($result) ? false : $result;
+        if (strpos($qry,'?')!==false) {
+           $q = parse_url($qry);
+           $qry = $q['query'];
+          }
+        } else {
+            return false;
         }
 
+        foreach (explode('&', $qry) as $couple) {
+                list ($key, $val) = explode('=', $couple);
+                $result[$key] = $val;
+        }
 
-
+        return empty($result) ? false : $result;
+    }
 }
 
 ?>
