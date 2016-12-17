@@ -211,12 +211,12 @@ class SyncRestHandler extends RestHandler
             }
         }
 
+        $oauth = $this->getOauth();
+
         // Disables oauth SSLChecks
         if (!$this->context->IppConfiguration->SSLCheckStatus){
             $oauth->disableSSLChecks();
         }
-
-        $oauth = $this->getOauth();
 
         $httpHeaders = array();
         if ('QBO'==$this->context->serviceType ||
