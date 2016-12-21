@@ -42,4 +42,3 @@ class ResponseType
     const Exception = 3;
 } 
  
-?>

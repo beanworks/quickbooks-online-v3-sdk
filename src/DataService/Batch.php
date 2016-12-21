@@ -1,15 +1,13 @@
 <?php
 
-require_once(PATH_SDK_ROOT . 'Data/IntuitRestServiceDef/IPPBatchItemRequest.php');
-require_once(PATH_SDK_ROOT . 'Data/IntuitRestServiceDef/IPPBatchItemResponse.php');
-require_once(PATH_SDK_ROOT . 'Data/IntuitRestServiceDef/IPPIntuitBatchRequest.php');
-require_once(PATH_SDK_ROOT . 'Data/IntuitRestServiceDef/IPPQueryResponse.php');
 require_once(PATH_SDK_ROOT . 'DataService/IntuitBatchResponse.php');
 require_once(PATH_SDK_ROOT . 'DataService/IntuitResponseStatus.php');
 require_once(PATH_SDK_ROOT . 'Utility/Serialization/XmlObjectSerializer.php');
 require_once(PATH_SDK_ROOT . 'Exception/IdsExceptionManager.php');
 require_once(PATH_SDK_ROOT . 'Exception/IdsError.php');
-
+require_once(PATH_SDK_ROOT . 'Exception/ValidationException.php');
+require_once(PATH_SDK_ROOT . 'Exception/ServiceException.php');
+require_once(PATH_SDK_ROOT . 'Exception/SecurityException.php');
 
 /**
  * Describes operations that can be included in a batch
@@ -253,7 +251,7 @@ class Batch {
                 $revisedBatchRequests[] = $oneBatchRequest;
             }
         }
-         $this->batchRequests = $revisedBatchRequests;
+        $this->batchRequests = $revisedBatchRequests;
     }
 
     /**
@@ -291,8 +289,7 @@ class Batch {
             $requestParameters = new RequestParameters($uri, 'POST', CoreConstants::CONTENTTYPE_APPLICATIONXML, NULL);
         }
 
-
-        $restRequestHandler = new SyncRestHandler($this->serviceContext);
+                $restRequestHandler = $this->getRestHandler();
         try
         {
             // Get literal XML representation of IntuitBatchRequest into a DOMDocument
@@ -370,107 +367,125 @@ class Batch {
             }
         }
         catch (Exception $e) {
+                    var_dump($e->getMessage(), $e->getLine());
             return NULL;
         }
 
         $this->serviceContext->IppConfiguration->Logger->CustomLogger->Log(TraceLevel::Info, "Finished Execute method for batch.");
     }
 
+
+        /**
+         * Returns handler to communicate with service
+         * @return \SyncRestHandler
+         */
+        protected function getRestHandler()
+        {
+           return new SyncRestHandler($this->serviceContext);
+        }
+
+        private function verifyFault($fault)
+        {
+            if ( $fault == NULL )       { return NULL; }
+            if ( empty($fault)  )       { return NULL; }
+            if ( !$fault instanceof SimpleXMLElement)               { return NULL; }
+            if ( !$fault->attributes() instanceof SimpleXMLElement) { return NULL; }
+            if ( !isset($fault->attributes()->type))                { return NULL; }
+
+            return true;
+        }
+
+        private function collectErrors($fault)
+        {
+            $errors = array();
+            if(isset($fault->Error)
+                && ($fault->Error instanceof SimpleXMLElement)
+                && $fault->Error->count()) {
+                foreach ($fault->Error as $item) {
+                    if(!isset($item->Message)) { continue; }
+                    if(!$item->Message instanceof SimpleXMLElement) { continue; }
+                    $error = new stdClass();
+                    $error->message = (string)$item->Message;
+                    $error->code = null;
+                    if ($item->attributes() instanceof SimpleXMLElement
+                            && isset($item->attributes()->code)) {
+                        $error->code = (string)$item->attributes()->code;
+                    }
+                    $errors[] =$error;
+                }
+            }
+            return $errors;
+        }
+
+        private function arrayToMessageAndCode(array $array)
+        {
+            if(empty($array)) {
+                return array(null,null);
+            }
+            if(1 == count($array)) {
+                $item = array_pop($array);
+                return array($item->message,$item->code);
+            }
+
+            $message = "";
+            $code = "";
+            foreach ($array as $item) {
+                $message .= "Exception: ".$item->message . "\n";
+                if(empty($code) && !empty($item->code)) {
+                    $code = $item->code;
+                }
+            }
+            return array($message,$code);
+
+        }
+
     /**
      * Prepare IdsException out of Fault object.
      * @param Fault fault Fault object.
      * @return IdsException IdsException object.
      */
-     public function IterateFaultAndPrepareException($fault)
-     {
-        if ($fault == NULL)
-        {
-            return NULL;
-        }
+     public function IterateFaultAndPrepareException($fault) {
+            if(!$this->verifyFault($fault)) { return NULL; }
+            // Collect information from XML entity
+            $type = (string)$fault->attributes()->type;
+            list($message,$code) = $this->arrayToMessageAndCode($this->collectErrors($fault));
+            if(is_null($message)) {
+                return new IdsException("Fault Exception of type: " . $type . " has been generated.");
+            }
+            $idsException = null;
 
-        $idsException = null;
 
-        // Create a list of exceptions.
-        $aggregateExceptions = array();
-
-        // Check whether the fault is null or not.
-        if ($fault != NULL && $fault->type != NULL)
-        {
             // Fault types can be of Validation, Service, Authentication and Authorization. Run them through the switch case.
-            switch($fault->type)
-            {
+            switch ($type) {
                 // If Validation errors iterate the Errors and add them to the list of exceptions.
                 case "Validation":
                 case "ValidationFault":
-                    if ($fault->Error != null && count($fault->Error) > 0)
-                    {
-                        foreach ($fault->Error as $item)
-                        {
-                            // Add commonException to aggregateExceptions
-                            $aggregateExceptions[] = new IdsError($item->Message);
-                        }
-
                         // Throw specific exception like ValidationException.
-                        $idsException = new ValidationException($aggregateExceptions);
-                    }
-
+                        $idsException = new ValidationException($message,$code);
                     break;
                 // If Validation errors iterate the Errors and add them to the list of exceptions.
                 case "Service":
                 case "ServiceFault":
-                    if ($fault->Error != null && count($fault->Error) > 0)
-                    {
-                        foreach ($fault->Error as $item)
-                        {
-                            // Add commonException to aggregateExceptions
-                            $aggregateExceptions[] = new IdsError($item->Message);
-                        }
-
                         // Throw specific exception like ServiceException.
-                        $idsException = new ServiceException($aggregateExceptions);
-                    }
-
+                        $idsException = new ServiceException($message,$code);
                     break;
                 // If Validation errors iterate the Errors and add them to the list of exceptions.
                 case "Authentication":
                 case "AuthenticationFault":
                 case "Authorization":
                 case "AuthorizationFault":
-                    if ($fault->Error != null && count($fault->Error) > 0)
-                    {
-                        foreach ($fault->Error as $item)
-                        {
-                            // Add commonException to aggregateExceptions
-                            $aggregateExceptions[] = new IdsError($item->Message);
-                        }
-
-                        // Throw specific exception like AuthenticationException which is wrapped in SecurityException.
-                        $idsException = new SecurityException($aggregateExceptions);
-                    }
-
+                        $idsException = new SecurityException($message,$code);
                     break;
                 // Use this as default if there was some other type of Fault
                 default:
-                    if ($fault->Error != null && count($fault->Error) > 0)
-                    {
-                        foreach ($fault->Error as $item)
-                        {
-                            // Add commonException to aggregateExceptions
-                            // CommonException defines four properties: Message, Code, Element, Detail.
-                            $aggregateExceptions[] = new IdsError($item->Message);
-                        }
+                        $idsException = new IdsException($message,$code);
 
-                        // Throw generic exception like IdsException.
-                        $idsException = new IdsException("Fault Exception of type: ".$fault->type." has been generated.");
-                    }
-                    break;
             }
-         }
+
 
         // Return idsException which will be of type Validation, Service or Security.
         return $idsException;
-
-     }
+    }
 
     /**
      * process batch item response
@@ -493,6 +508,8 @@ class Batch {
             return NULL;
 
         $firstChildName = (string)$firstChild->getName();
+                //add batch id
+                $this->applyAttributes($result, $oneXmlObj);
 
         if(0 !== strcmp("Fault",$firstChildName))
         {
@@ -515,14 +532,26 @@ class Batch {
         }
         else
         {
+
             $result->responseType = ResponseType::Exception;
-            $idsException = $this->IterateFaultAndPrepareException($fault);
-            $result->Exception = $idsException;
+            $idsException = $this->IterateFaultAndPrepareException($firstChild);
+            $result->exception = $idsException;
         }
 
         return $result;
     }
+
+    /**
+     * Maps some values from the response xml to the result instance object
+     * @param IntuitBatchResponse $batchResponse
+     * @param SimpleXMLElement $simpleXML
+     */
+    private function applyAttributes($batchResponse, $simpleXML)
+    {
+        // To support PHP 5.3
+         $attributes = $simpleXML->attributes();
+         if(!empty($attributes) && isset($attributes["bId"])) {
+             $batchResponse->batchItemId = (string)$attributes["bId"];
+         }
+    }
 }
-
-
-?>

@@ -376,6 +376,22 @@ class IPPSalesTransaction
 	public $Balance;
 	/**
 	 * @Definition 
+								Product: QBO
+								Description: The balance reflecting any payments made against the transaction in home currency. Initially this will be equal to the HomeTotalAmt.[br /]Read-only field.
+								Product: QBW
+								Description: Indicates the unpaid amount of the transaction in home currency.[br /]Cannot be written to QuickBooks.
+								Filterable: ALL
+								Sortable: QBW
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName HomeBalance
+	 * @var float
+	 */
+	public $HomeBalance;
+	/**
+	 * @Definition 
 								Product: ALL
 								Description: Indicates whether the transaction is a finance charge.
                                 InputType: ReadWrite
@@ -477,6 +493,43 @@ class IPPSalesTransaction
 	 * @var com\intuit\schema\finance\v3\IPPTransactionDeliveryInfo
 	 */
 	public $DeliveryInfo;
+	/**
+	 * @Definition 
+								Product: QBO
+								Description: Indicates the discount rate that is applied on the transaction as a whole. This will be pro-rated through item lines for tax calculation.
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName DiscountRate
+	 * @var float
+	 */
+	public $DiscountRate;
+	/**
+	 * @Definition 
+								Product: QBO
+								Description: Indicates the discount amount that is applied on the transaction as a whole. This will be pro-rated through item lines for tax calculation.
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName DiscountAmt
+	 * @var float
+	 */
+	public $DiscountAmt;
+	/**
+	 * @Definition 
+								Product: QBO
+								Description: this is the reference to the NotaFiscal created for the salesTransaction.
+								ValidRange: QBO: max=30
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName GovtTxnRefIdentifier
+	 * @var string
+	 */
+	public $GovtTxnRefIdentifier;
 
 
 } // end class IPPSalesTransaction

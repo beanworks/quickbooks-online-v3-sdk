@@ -32,7 +32,7 @@ $ php composer.phar require beanworks/quickbooks-online-v3-sdk:dev-master
 # Install Beanworks patched version
 $ php composer.phar require beanworks/quickbooks-online-v3-sdk:3.0.0
 # Install Intuit's original version
-$ php composer.phar require beanworks/quickbooks-online-v3-sdk:2.0.5
+$ php composer.phar require beanworks/quickbooks-online-v3-sdk:2.5.0
 ```
 
 #### Unit Test
@@ -46,7 +46,6 @@ $ wget http://getcomposer.org/composer.phar
 $ php composer.phar install
 $ ./phpunit
 ```
-
 ## BeanworksAP
 
 [BeanworksAP](https://beanworks.com) proudly integrates with QuickBooks Online, QuickBooks Desktop and a number of different ERP systems.

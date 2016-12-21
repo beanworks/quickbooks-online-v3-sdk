@@ -31,5 +31,3 @@ class SerializationFormat
 	 */
 	const Custom = "Custom";
 }
-
-?>

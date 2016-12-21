@@ -2,6 +2,11 @@
 
 /**
  * Entity serialize contract.
+ * TODO this abstract class looks abandoned because, another class
+ * is used in Utility/IEntitySerializer. 
+ * It will be deleted in next versions
+ * 
+ * @deprecated
  */
 abstract class IEntitySerializer {
 
@@ -19,5 +24,3 @@ abstract class IEntitySerializer {
 	 */
 	abstract function Deserialize($message);
 }
-
-?>

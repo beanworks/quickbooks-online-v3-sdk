@@ -9,6 +9,8 @@ require_once('IPPDiscountOverride.php');
  * @xmlDefinition 
 				Product: ALL
 				Description: Discount detail for a transaction line.
+				Product: QBO
+				Description: Discount detail representing the total discount on a transaction.
 			
  */
 class IPPDiscountLineDetail

@@ -7,7 +7,7 @@ require_once('IPPIntuitEntity.php');
  * @xmlName IPPUserAlert
  * @var IPPUserAlert
  * @xmlDefinition 
-				Product: QBW
+				Product: ALL
 				Description: A specific user alert to be notified to Quickbooks user, maps to a ToDo record in QuickBooks.
 			
  */
@@ -42,7 +42,7 @@ class IPPUserAlert
 	
 	/**
 	 * @Definition 
-								Product: QBW
+								Product: ALL
 								Description: The actual content of the user alert
 							
 	 * @xmlType element
@@ -78,7 +78,19 @@ class IPPUserAlert
 	public $Done;
 	/**
 	 * @Definition 
-								Product: QBW
+								Product: QBO
+								Description: The type of the user alert
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName Type
+	 * @var string
+	 */
+	public $Type;
+	/**
+	 * @Definition 
+								Product: ALL
 								Description: The date to remind the user of this user alert
 							
 	 * @xmlType element
@@ -88,6 +100,64 @@ class IPPUserAlert
 	 * @var string
 	 */
 	public $ReminderDate;
+	/**
+	 * @Definition 
+								Product: QBO
+								Description: The date the user alert will expire
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName ExpireDate
+	 * @var string
+	 */
+	public $ExpireDate;
+	/**
+	 * @Definition 
+								Product: QBO
+								Description: The date the user alert is due
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName DueDate
+	 * @var string
+	 */
+	public $DueDate;
+	/**
+	 * @Definition 
+								Product: QBO
+								Description: The URL that can be included in the user alert
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName URL
+	 * @var string
+	 */
+	public $URL;
+	/**
+	 * @Definition 
+								Product: QBO
+								Description: The filter associated with the user alert
+							
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlName Filter
+	 * @var string
+	 */
+	public $Filter;
+	/**
+	 * @Definition Any other properties not covered in base is covered as name value pair, for detailed explanation look at the document
+	 * @xmlType element
+	 * @xmlNamespace http://schema.intuit.com/finance/v3
+	 * @xmlMinOccurs 0
+	 * @xmlMaxOccurs unbounded
+	 * @xmlName NameValue
+	 * @var com\intuit\schema\finance\v3\IPPNameValue
+	 */
+	public $NameValue;
 	/**
 	 * @Definition Internal use only: extension place holder for user alert  
 	 * @xmlType element

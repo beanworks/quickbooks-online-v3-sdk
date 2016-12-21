@@ -58,6 +58,18 @@ class CoreConstants
 	 * @var string CONTENTTYPE_URLFORMENCODED
 	 */
 	const CONTENTTYPE_URLFORMENCODED = "application/x-www-form-urlencoded";
+        
+        	/**
+	 * Content type: application/x-www-form-urlencoded.
+	 * @var string CONTENTTYPE_URLFORMENCODED
+	 */
+	const CONTENTTYPE_OCTETSTREAM = "application/octet-stream";
+        
+        /**
+	 * Content type: application/pdf.
+	 * @var string CONTENTTYPE_APPLICATIONPDF
+         */
+        const CONTENTTYPE_APPLICATIONPDF = "application/pdf";
 	
 	/**
 	 * The Base Url for QBD.
@@ -153,8 +165,12 @@ class CoreConstants
 	 * The Request source header value.
 	 * @var string REQUESTSOURCEHEADER
 	 */
-	const USERAGENT = "V3PHPSDK2.0.5";
+	const USERAGENT = "V3PHPSDK2.5.0";
+        
+        public static function getType($string, $return=1)
+        {
+            $parts = explode("/", $string);
+            return array_key_exists($return, $parts) ? $parts[$return] : null; 
+        }
 
 }
-
-?>

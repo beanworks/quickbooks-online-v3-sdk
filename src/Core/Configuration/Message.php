@@ -32,5 +32,3 @@ class Message
 		$this->Response = $Response;
 	}
 }
-
-?>
