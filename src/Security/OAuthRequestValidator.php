@@ -51,7 +51,7 @@ class OAuthRequestValidator extends RequestValidator
 	 * @param int $consumerKey The consumer key.
 	 * @param int $consumerSecret The consumer secret.
 	 */
-	public function OAuthRequestValidator($accessToken, $accessTokenSecret, $consumerKey, $consumerSecret)
+	public function __construct($accessToken, $accessTokenSecret, $consumerKey, $consumerSecret)
 	{
 		if (empty($accessToken))
 		{
