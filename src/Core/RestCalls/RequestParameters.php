@@ -37,7 +37,7 @@ class RequestParameters
 	 * @param string $contentType The type of the content.
 	 * @param string $apiName the name of the API.
 	 */	
-	public function RequestParameters($resourceUri, $verb, $contentType, $apiName=NULL)
+	public function __construct($resourceUri, $verb, $contentType, $apiName=NULL)
 	{
 		$this->ResourceUri = $resourceUri;
 		$this->HttpVerbType = $verb;
