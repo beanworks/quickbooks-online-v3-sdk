@@ -30,7 +30,7 @@ $ wget http://getcomposer.org/composer.phar
 # Install [beanworks/quickbooks-online-v3-sdk] from master branch
 $ php composer.phar require beanworks/quickbooks-online-v3-sdk:dev-master
 # Install Beanworks patched version
-$ php composer.phar require beanworks/quickbooks-online-v3-sdk:3.0.0
+$ php composer.phar require beanworks/quickbooks-online-v3-sdk:3.2.0
 # Install Intuit's original version
 $ php composer.phar require beanworks/quickbooks-online-v3-sdk:2.5.0
 ```
@@ -61,4 +61,4 @@ BeanWorksAP is a cloud-based, automated accounts payable solution that you use v
 - Information is safe, secure and backed-up regularly
 - Super-responsive and knowledgeable customer support
 
-Copyright &copy; 2015 [Beanworks Solutions Inc.](https://beanworks.com/)
+Copyright &copy; 2019 [Beanworks Solutions Inc.](https://beanworks.com/)
